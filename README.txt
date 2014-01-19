@@ -7,7 +7,7 @@ Stable tag: trunk
 License: AFFERO License
 License URI: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
-Calculate the Economic Power Networks in your country, showing enterprises, people and government networks through by charts, maps and factsheets.
+Calculate the Economic Power Networks in your country, showing enterprises, people and government networks through charts, maps and factsheets.
 
 == Description ==
 

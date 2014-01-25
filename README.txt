@@ -11,7 +11,7 @@ Calculate the Economic Power Networks in your country, showing enterprises, peop
 
 == Description ==
 
-=About=
+= About =
 
 What is the economic power structure of the private groups in this country? Who are the actors who accumulate the most power in this structure, and what is the relationship amongst them? What is the degree of influence of this invisible power structure, over government decisions in terms of development and economic policies? How does the State relate and feed this power structure and what are the counterparts of this relationship for the well being of society? It is with the objective to respond to these and other questions that we built the “Brazil's Owners” Project and corresponding methodology.
 
@@ -21,7 +21,7 @@ It connects enterprises, people and government's ownership and revenue informati
 
 For more information on the methodology, visit http://www.proprietariosdobrasil.org.br/index.php/en/ . We also have a paper about the methodology in English which will soon be available.
 
-=Contributions=
+= Contributions =
 
 We will be glad to collaborate with other actors who wish to use the plugin in their country and make it better. Don't hesitate to join us in this common effort to contribute for a real democratic world, in which the economic powers are not directing the whole economy of the countries!
 
@@ -33,7 +33,7 @@ If you would like to send a question to us, send your message to contato@proprie
 1. Go to the plugins administration panel in your WP website and activate the plugin
 1. You can change settings in the "Owners" configuration menu.
 
-=Using the plugin in your template=
+= Using the plugin in your template =
 
 In this 0.8 version, you need to understand the plugin's features to change your template and create factsheets and graphics of the owners.
 

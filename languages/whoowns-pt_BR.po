@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Whoowns Brazil\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-16 02:37-0300\n"
-"PO-Revision-Date: 2014-01-16 02:43-0300\n"
+"POT-Creation-Date: 2014-01-25 20:49-0300\n"
+"PO-Revision-Date: 2014-01-25 21:07-0300\n"
 "Last-Translator: daniel tygel <dtygel@eita.org.br>\n"
 "Language-Team: EITA <dtygel@eita.org.br>\n"
 "Language: \n"
@@ -121,6 +121,7 @@ msgid "Who owns this enterprise? The information must be validated by source doc
 msgstr "Quem são os proprietários desta empresa? A informação precisa ser validada por documentos de uma Junta Comercial ou da Receita Federal"
 
 #: ../admin.php:141
+#: ../utils.php:1698
 msgid "Name"
 msgstr "Nome"
 
@@ -133,7 +134,7 @@ msgid "Add more shareholders..."
 msgstr "Adicionar mais acionistas..."
 
 #: ../admin.php:153
-#: ../admin.php:344
+#: ../admin.php:365
 msgid "Hide"
 msgstr "Esconder"
 
@@ -161,20 +162,20 @@ msgstr "Remover arquivo"
 msgid "Add document"
 msgstr "Adicionar documento"
 
-#: ../admin.php:337
+#: ../admin.php:358
 msgid "Who are the owners related to this article?"
 msgstr "Quais são os proprietários relacionados a este artigo?"
 
-#: ../admin.php:344
+#: ../admin.php:365
 msgid "Add more..."
 msgstr "Adicionar mais..."
 
-#: ../admin.php:397
-#: ../admin.php:410
+#: ../admin.php:418
+#: ../admin.php:431
 msgid "Error: you did not specify valid parameters for this callback"
 msgstr "Erro: você não especificou parâmetros válidos para esta função de callback"
 
-#: ../admin.php:406
+#: ../admin.php:427
 msgid "Error: I was not able to delete the file. Therefore, I only erased the associated metadata"
 msgstr "Erro: não consegui apagar este arquivo. Assim, eu apenas removi os metadados associados!"
 
@@ -374,215 +375,487 @@ msgstr "Nenhuma"
 msgid "see all"
 msgstr "ver todos"
 
-#: ../utils.php:1274
+#: ../utils.php:1285
 msgid "List view"
 msgstr "Visão em lista"
 
-#: ../utils.php:1277
+#: ../utils.php:1288
 msgid "Direct shareholders:"
 msgstr "Acionistas diretos:"
 
-#: ../utils.php:1283
+#: ../utils.php:1294
 msgid "Controlled enterprises:"
 msgstr "Empresas controladas:"
 
-#: ../utils.php:1289
+#: ../utils.php:1300
 msgid "Controlled by:"
 msgstr "Controlada por:"
 
-#: ../utils.php:1295
+#: ../utils.php:1306
 msgid "All Participations:"
 msgstr "Todas as participações"
 
-#: ../utils.php:1296
-#: ../utils.php:1304
+#: ../utils.php:1307
+#: ../utils.php:1315
 msgid "Meaning of the values in parenthesis:"
 msgstr "Significado dos valores entre parênteses:"
 
-#: ../utils.php:1296
-#: ../utils.php:1304
+#: ../utils.php:1307
+#: ../utils.php:1315
 msgid "final relative share"
 msgstr "participação relativa final"
 
-#: ../utils.php:1296
-#: ../utils.php:1304
+#: ../utils.php:1307
+#: ../utils.php:1315
 msgid "relative share"
 msgstr "participação relativa"
 
-#: ../utils.php:1296
-#: ../utils.php:1304
+#: ../utils.php:1307
+#: ../utils.php:1315
 msgid "share"
 msgstr "participação"
 
-#: ../utils.php:1303
+#: ../utils.php:1314
 msgid "All Controllers:"
 msgstr "Todos os controladores:"
 
-#: ../utils.php:1372
+#: ../utils.php:1383
 msgid "Center of <i>this</i> network"
 msgstr "Referência <i>desta</i> rede"
 
-#: ../utils.php:1376
+#: ../utils.php:1387
 msgid "Enterprise with interchain participation"
 msgstr "Empresa de participação inter-cadeias"
 
-#: ../utils.php:1380
+#: ../utils.php:1391
+#: ../utils.php:1923
 msgid "Ultimate controller"
 msgstr "Controlador último"
 
-#: ../utils.php:1386
+#: ../utils.php:1397
 msgid "Control over the enterprise (>50%)"
 msgstr "Controle sobre a empresa (>50%)"
 
-#: ../utils.php:1390
+#: ../utils.php:1401
 msgid "Participation of less than 50%"
 msgstr "Participação de menos de 50%"
 
-#: ../utils.php:1397
+#: ../utils.php:1408
 msgid "Legends"
 msgstr "Legendas"
 
-#: ../utils.php:1400
+#: ../utils.php:1411
 msgid "Icons"
 msgstr "Ícones"
 
-#: ../utils.php:1401
+#: ../utils.php:1412
 msgid "Colors"
 msgstr "Cores"
 
-#: ../utils.php:1402
+#: ../utils.php:1413
 msgid "Arrows"
 msgstr "Setas"
 
-#: ../utils.php:1741
-msgid "The news have not been loaded yet. Please come back in a couple of minutes."
-msgstr "As notícias ainda não foram carregadas. Por favor, volte em alguns minutos."
+#: ../utils.php:1642
+msgid "directly"
+msgstr "diretamente"
 
-#: ../utils.php:1745
-msgid "Sorry, but we couldn't find any news related to this owner's power network."
-msgstr "Desculpe, mas não encontramos nenhuma notícia relacionada à rede de poder deste proprietário."
+#: ../utils.php:1644
+msgid "in"
+msgstr "em"
 
-#: ../utils.php:1826
-msgid "billions"
-msgstr "bilhões"
+#: ../utils.php:1699
+msgid "Accumulated Power"
+msgstr "Poder Acumulado"
 
-#: ../utils.php:1828
-msgid "millions"
-msgstr "milhões"
+#: ../utils.php:1733
+msgid "Search by name or registration document"
+msgstr "Pesquisa por nome ou CNPJ/CPF"
 
-#: ../utils.php:1830
-msgid "thousand"
-msgstr "mil"
+#: ../utils.php:1736
+msgid "All"
+msgstr "Todos"
 
-#: ../utils.php:1837
+#: ../utils.php:1737
+msgid "Ranked"
+msgstr "Rankeadas"
+
+#: ../utils.php:1738
+msgid "Enterprises"
+msgstr "Empresas"
+
+#: ../utils.php:1739
+msgid "Persons"
+msgstr "Pessoas"
+
+#: ../utils.php:1740
+#: ../utils.php:2252
 msgid "State"
 msgstr "Estado"
 
-#: ../utils.php:1838
+#: ../utils.php:1760
+msgid "state"
+msgstr "estado"
+
+#: ../utils.php:1767
+msgid "Results of the search for"
+msgstr "Resultados da busca por"
+
+#: ../utils.php:1792
+msgid "Applied filters:"
+msgstr "Filtros aplicados"
+
+#: ../utils.php:1793
+msgid "Applied filter:"
+msgstr "Filtro aplicado"
+
+#: ../utils.php:1803
+msgid "Results ordered by"
+msgstr "Resultados ordenados por"
+
+#: ../utils.php:1856
+msgid "Power Network"
+msgstr "Rede de poder"
+
+#: ../utils.php:1869
+msgid "Network's Highlights"
+msgstr "Destaques da rede"
+
+#: ../utils.php:1882
+msgid "Related Posts"
+msgstr "Artigos relacionados"
+
+#: ../utils.php:1892
+msgid "The Network in the Media"
+msgstr "A rede na mídia"
+
+#: ../utils.php:1917
+msgid "Name of enterprise or person"
+msgstr "Nome da empresa ou pessoa"
+
+#: ../utils.php:1919
+msgid "Ranking"
+msgstr "Ranking"
+
+#: ../utils.php:1921
+msgid "Accumulated Power Index (IPA)"
+msgstr "Índice de Poder Acumulado (IPA)"
+
+#: ../utils.php:1925
+msgid "Top ultimate controlled"
+msgstr "Empresas controladas últimas"
+
+#: ../utils.php:1944
+msgid "among ranked:"
+msgstr "entre as rankeadas:"
+
+#: ../utils.php:1951
+msgid "Click here to see details about {owner}"
+msgstr "Clique aqui para ver os detalhes sobre {owner}"
+
+#: ../utils.php:2156
+msgid "The news have not been loaded yet. Please come back in a couple of minutes."
+msgstr "As notícias ainda não foram carregadas. Por favor, volte em alguns minutos."
+
+#: ../utils.php:2160
+msgid "Sorry, but we couldn't find any news related to this owner's power network."
+msgstr "Desculpe, mas não encontramos nenhuma notícia relacionada à rede de poder deste proprietário."
+
+#: ../utils.php:2241
+msgid "billions"
+msgstr "bilhões"
+
+#: ../utils.php:2243
+msgid "millions"
+msgstr "milhões"
+
+#: ../utils.php:2245
+msgid "thousand"
+msgstr "mil"
+
+#: ../utils.php:2253
 msgid "Private enterprise"
 msgstr "Empresa privada"
 
-#: ../utils.php:1839
+#: ../utils.php:2254
 msgid "Person"
 msgstr "Pessoa"
 
-#: ../options.php:65
+#: ../utils.php:2255
+msgid "global vision"
+msgstr "visão geral"
+
+#: ../utils.php:2256
+msgid "power network"
+msgstr "rede de poder"
+
+#: ../utils.php:2257
+msgid "related articles"
+msgstr "artigos relacionados"
+
+#: ../utils.php:2258
+msgid "in the media"
+msgstr "na mídia"
+
+#: ../options.php:75
 msgid "Settings of the Who Owns Plugin"
 msgstr "Configurações do Plugin 'Quem são os Proprietários do Brasil?'"
 
-#: ../options.php:73
+#: ../options.php:83
 msgid "General settings"
 msgstr "Configurações gerais"
 
-#: ../options.php:77
+#: ../options.php:87
 msgid "Slug for the owners' section of the website"
 msgstr "Nome curto para a seção \"proprietários\" do site"
 
-#: ../options.php:82
+#: ../options.php:92
+msgid "Currency"
+msgstr "Moeda"
+
+#: ../options.php:97
 msgid "Maximum number of shareholders to display in the edit form"
 msgstr "Número máximo de acionistas para exibir no formulário de edição"
 
-#: ../options.php:87
+#: ../options.php:102
 msgid "Maximum number of related owners to display in the edit form"
 msgstr "Número máximo de proprietários relacionados a exibir no formulário de edição"
 
-#: ../options.php:92
+#: ../options.php:107
 msgid "Number of owners to display per page in the ranking table"
 msgstr "Número de proprietários para exibir por página na tabela do ranking"
 
-#: ../options.php:97
+#: ../options.php:112
 msgid "Reference enterprise/person to track"
 msgstr "Empresa ou pessoa de referência para acompanhar"
 
-#: ../options.php:99
+#: ../options.php:114
 msgid "Is there any of the enterprises or persons of the database which participations should be tracked? If so, for each owner the plugin will provide [through function whoowns_get_owner_data] the final participation of the chosen reference in its controllers chain"
 msgstr "Há alguma empresa ou pessoa na base que o plugin deve acompanhar? Se sim, para cada proprietário o plugin vai disponibilizar (pela função \"whoowns_get_owner_data\" a participação final do mesmo na sua rede."
 
-#: ../options.php:104
+#: ../options.php:119
 msgid "Default size of the owner image. Put width and height separated by an \"x\". For example: 300x300"
 msgstr "Tamanho padrão da imagem do proprietário. Coloque a largura e a altura separados por um \"x\". Por exemplo: 300x300"
 
-#: ../options.php:109
+#: ../options.php:124
 msgid "News related to network"
 msgstr "Notícias relacionadas à rede"
 
-#: ../options.php:113
+#: ../options.php:128
 msgid "News search engine"
 msgstr "Mecanismo de buscas"
 
-#: ../options.php:123
+#: ../options.php:138
 msgid "Date format for showing the  news"
 msgstr "Formato da data das notícias aos/às visitantes"
 
-#: ../options.php:128
+#: ../options.php:143
 msgid "News sources from internet (one per line)"
 msgstr "Fontes das notícias (um endereço por linha)"
 
-#: ../options.php:133
+#: ../options.php:148
 msgid "Power network graphic"
 msgstr "Gráfico da rede de poder"
 
-#: ../options.php:137
+#: ../options.php:152
 msgid "Maximum number of nodes for a power network graph to show all names"
 msgstr "Número máximo de nós para que o gráfico da rede de poder mostre os nomes dos proprietários"
 
-#: ../options.php:142
+#: ../options.php:157
 msgid "Maximum number of edges for a power network graph to show arrows while moving canvas"
 msgstr "Qual o máximo número de setas (ligações) para que o gráfico da rede de poder mantenha as setas quando o gráfico é movido?"
 
-#: ../options.php:147
+#: ../options.php:162
 msgid "Format of the legends in the network graphic"
 msgstr "Formato das legendas do gráfico da rede de poder"
 
-#: ../options.php:152
+#: ../options.php:167
 msgid "Size of the icons of the legends of the network graphic"
 msgstr "Tamanho dos ícones das legendas do gráfico da rede de poder"
 
-#: ../options.php:157
+#: ../options.php:172
 msgid "Settings for scheduling network updates"
 msgstr "Configurações para agendar atualizações dos dados da rede"
 
-#: ../options.php:161
+#: ../options.php:176
 msgid "How often should the plugin check for changes in the database and recalculate the power indexes and ranking?"
 msgstr "Com qual frequência o plugin deve checar se há mudanças na base de dados e recalcular os ínidices de poder acumulado e o ranking?"
 
-#: ../options.php:168
+#: ../options.php:183
 msgid "Take care to not put it too frequently, because there is a good quantity of relatively heavy calculations. If the server is good and you have a small database, it's ok to have it hourly, but we recommend the frequency to be once or twice daily"
 msgstr "Evite escolher uma configuração demasiadamente frequente, pois a atualização envolve alguns cálculos pesados. Se o servidor é bom e você tem uma base pequena de dados, não há problemas na atualização ocorrer a cada hora, mas nós recomendamos que a frequência seja de 1 ou 2 vezes ao dia."
 
-#: ../options.php:173
+#: ../options.php:188
 msgid "Reference local time for the scheduled updates (24h format)"
 msgstr "Hora local de referência para as atualizações periódicas indicadas acima (em formato de 24h)"
 
-#: ../options.php:176
+#: ../options.php:191
 msgid "If the frequency is once daily, we suggest that you choose some time in late night, like midnight (0). Important: this time depends on the local time zone that you chose in the website configuration in \"general settings\"."
 msgstr "Se por exemplo a frequência escolhida for de uma vez ao dia, sugerimos que você escoha algum horário na madrugada, como a meia-noite (0). Importante: a precisão da hora escolhida depende do fuso-horário que você definir na configuração do site, em \"configurações gerais\"."
 
+#: ../independent_scripts/update.php:16
 #: ../independent_scripts/get_owner_images.php:14
 #: ../independent_scripts/import_csv_from_old_model.php:21
 #: ../independent_scripts/get_dbpedia_links.php:29
 msgid "You are not allowed to access this area of the website"
 msgstr "Você não tem permissão de acessar esta área do site"
+
+#: ../theme-files/archive-whoowns_owner.php:18
+msgid "Look for owners"
+msgstr "Acesso aos dados"
+
+#: ../theme-files/archive-whoowns_owner.php:25
+msgid "To search our database, you can use the filters, change the ordering, and also directly type the name or registration id of a person, enterprise or state institution."
+msgstr "Para pesquisar em nossa base de dados, você pode usar filtros, definir o ordenamento e diretamente escrever o nome ou CNPJ/CPF de uma pessoa, empresa ou ente estatal."
+
+#: ../theme-files/archive-whoowns_owner.php:32
+msgid "Search Options"
+msgstr "Opções de pesquisa"
+
+#: ../theme-files/archive-whoowns_owner.php:42
+msgid "Search"
+msgstr "Pesquisar"
+
+#: ../theme-files/archive-whoowns_owner.php:55
+msgid "Order by:"
+msgstr "Ordenar por:"
+
+#: ../theme-files/archive-whoowns_owner.php:99
+#: ../theme-files/archive-whoowns_owner.php:116
+msgid "{num} results found"
+msgstr "{num} resultados encontrados"
+
+#: ../theme-files/archive-whoowns_owner.php:99
+#: ../theme-files/archive-whoowns_owner.php:116
+msgid "Page #{pg} of {total_pg}"
+msgstr "Página {pg} de {total_pg}"
+
+#: ../theme-files/archive-whoowns_owner.php:121
+msgid "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
+msgstr "Desculpe, mas nenhum conteúdo foi encontrado. Por favor, tente novamente com termos diferentes."
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.mini_power_network.php:7
+msgid "Click to enlarge"
+msgstr "Clique para ampliar"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.main_actors.php:4
+msgid "Controllers"
+msgstr "Controladores"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.main_actors.php:7
+msgid "Participations"
+msgstr "Participações"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:9
+msgid "person"
+msgstr "pessoa"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:10
+msgid "enterprise"
+msgstr "empresa"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:28
+msgid "Enterprise ranked #{rank}"
+msgstr "Empreendimento rankeado em {rank}º"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:32
+msgid "Accumulated Power Index (API)"
+msgstr "Índice de Poder Acumulado (IPA)"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:40
+msgid "Ultimate controlled enterprises"
+msgstr "Empresas controladas últimas"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:44
+msgid "Relative participation of {owner}"
+msgstr "Participação relative de {owner}"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:48
+msgid "Revenue"
+msgstr "Receita líquida"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:53
+msgid "We still don't know the owners of this enterprise. Do you want to collaborate opening it?"
+msgstr "Nós ainda não conhecemos os acionistas desta empresa. Você pode colaborar abrindo-a: saiba como!"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:53
+msgid "Click here"
+msgstr "Clique aqui"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.random_related_post.php:6
+msgid "See all related analysis"
+msgstr "Veja todas as análises"
+
+#: ../theme-files/layouts/single-whoowns_owner.related_posts.php:13
+#, php-format
+msgid "Related posts: %s"
+msgstr "Artigos relacionados: %s"
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.news.php:16
+msgid "See details"
+msgstr "Detalhes"
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:21
+msgid "see legends and help"
+msgstr "ver legendas e ajuda"
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:31
+msgid "How to navigate"
+msgstr "Como navegar"
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:33
+msgid "Use the navigation slider on the top left to zoom in or out."
+msgstr "Use o controle de navegação no canto superior direito para aproximar ou afastar os pontos."
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:34
+msgid "Move the enterprises or people and click on them to see more information."
+msgstr "Você pode mover qualquer empresa ou pessoa e clicar sobre eles para ver algumas informações."
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:35
+msgid "When you click on an enterprise or person, you'll have access to a link to open its power network."
+msgstr "Quando clicar em uma empresa ou pessoa, você terá acesso ao link para ver sua rede de poder."
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:36
+msgid "Move the mouse over the arrows to see the relative participations among persons and enterprises."
+msgstr "Passe o mouse sobre as setas para ver as participações relativas entre as pessoas e empresas."
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:46
+msgid "Enterprise"
+msgstr "Empresa privada"
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:47
+msgid "This is the reference of this network: the enterprise or person whose network we are seeing now."
+msgstr "Esta é a referência desta rede, ou seja, a empresa ou pessoa cuja rede você está visualizando agora."
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:48
+#, php-format
+msgid "Enterprise or person which controls the other (i.e. has more than 50% of relative participation)"
+msgstr "Empresa ou pessoa que controla outra (ou seja, tem mais de 50% de participação relativa)"
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:52
+msgid "Enterprises with inter-chain participations"
+msgstr "Empresas com participações inter-cadeias"
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:53
+msgid "The gray arrows have different widths, depending on the degree of control of one element over the other (under 50%)"
+msgstr "As setas cinzas têm larguras diferentes, dependendo do grau de controle de uma empresa ou pessoa sobre outra (menos de 50%)"
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:56
+msgid "State enterprise or State institution"
+msgstr "Empresa ou ente estatal"
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:57
+msgid "Ultimate controllers of their power network"
+msgstr "Controladores últimos de sua rede de poder"
+
+#: ../theme-files/layouts/single-whoowns_owner.news.php:11
+#, php-format
+msgid "News related to the power network of %s"
+msgstr "Notícias relacionadas à rede de %s"
+
+#: ../theme-files/layouts/single-whoowns_owner.news.php:31
+msgid "Read more"
+msgstr "Leia mais"
 
 #~ msgid "Standard symbol for decimals"
 #~ msgstr "Símbolo padrão para decimais"

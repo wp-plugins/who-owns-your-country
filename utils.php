@@ -153,7 +153,7 @@ function whoowns_generate_controllers_list($postid, $format="both") {
 			}
 			if ($html) {
 				$spaces = str_repeat("&nbsp;",$level*3);
-				$list->html .= "<p>$spaces<span class='whoowns_list_owner_name'><span class='icon-angle-double-right'></span> <a href='#' onClick=\"whoowns_select_node(this,'".$data->ID."','".$data->link."')\">".$data->name."</a></span></p>";
+				$list->html .= "<p>$spaces<span class='whoowns_list_owner_name'><span class='icon-angle-double-right'></span> <a href='#cy-full' onClick=\"whoowns_select_node(this,'".$data->ID."','".$data->link."')\">".$data->name."</a></span></p>";
 				
 			}
 		}
@@ -176,7 +176,7 @@ function whoowns_generate_direct_shareholders_list($postid, $format="both") {
 			foreach ($direct_shareholders as $ds) {
 				$share_txt = whoowns_format_share_percentage($ds->share);
 				$rel_share_txt = whoowns_format_share_percentage($ds->relative_share);
-				$list->html .= "<p><span class='whoowns_list_owner_name'><span class='icon-angle-double-right'></span> <a href='#' onClick=\"whoowns_select_node(this,'".$ds->shareholder_id."','".$ds->shareholder_link."')\">".$ds->shareholder_name."</a></span> <span class='whoowns_list_shares'>($share_txt)</span></span></p>";
+				$list->html .= "<p><span class='whoowns_list_owner_name'><span class='icon-angle-double-right'></span> <a href='#cy-full' onClick=\"whoowns_select_node(this,'".$ds->shareholder_id."','".$ds->shareholder_link."')\">".$ds->shareholder_name."</a></span> <span class='whoowns_list_shares'>($share_txt)</span></span></p>";
 			}
 		}
 		return $list;
@@ -245,7 +245,7 @@ function whoowns_generate_indirect_shareholders_list($postid, $format="both", $l
 				$share_txt = whoowns_format_share_percentage($ds->share);
 				$rel_share_txt = whoowns_format_share_percentage($ds->relative_share);
 				$final_share_txt = whoowns_format_share_percentage($list->final_share[$postid][$ds->shareholder_id]);
-				$list->html .= "<p>$spaces <span class='whoowns_list_owner_name'><a href='#' onClick=\"whoowns_select_node(this,'".$ds->shareholder_id."','".$ds->shareholder_link."')\">".$ds->shareholder_name."</a></span> (<span class='whoowns_list_shares'><span class='whoowns_list_final_share'>$final_share_txt</span>; $rel_share_txt; $share_txt)</span></p>";
+				$list->html .= "<p>$spaces <span class='whoowns_list_owner_name'><a href='#cy-full' onClick=\"whoowns_select_node(this,'".$ds->shareholder_id."','".$ds->shareholder_link."')\">".$ds->shareholder_name."</a></span> (<span class='whoowns_list_shares'><span class='whoowns_list_final_share'>$final_share_txt</span>; $rel_share_txt; $share_txt)</span></p>";
 			}
 			$list = whoowns_generate_indirect_shareholders_list($ds->shareholder_id,$format,$list, array_merge($route,array($ds->shareholder_id)));
 			//pR($direct_shareholders); exit;
@@ -410,7 +410,7 @@ function whoowns_generate_controls_list($postid, $format="both") {
 					: __("Indirectly controlled:", "whoowns");
 				$list->html .= "<h4>$is_direct_txt</h4>";
 				foreach ($controls_sub as $c) {
-					$list->html .= "<p><span class='whoowns_list_owner_name'><span class='icon-angle-double-right'> <a href='#' onClick=\"whoowns_select_node(this,'".$c->ID."','".$c->link."')\">".$c->name."</a></span></span></p>";
+					$list->html .= "<p><span class='whoowns_list_owner_name'><span class='icon-angle-double-right'> <a href='#cy-full' onClick=\"whoowns_select_node(this,'".$c->ID."','".$c->link."')\">".$c->name."</a></span></span></p>";
 				}
 			}
 		}
@@ -495,7 +495,7 @@ function whoowns_generate_participations_list($postid, $format="both", $list="",
 				$share_txt = whoowns_format_share_percentage($dp->share);
 				$rel_share_txt = whoowns_format_share_percentage($dp->relative_share);
 				$final_share_txt = whoowns_format_share_percentage($list->final_share[$postid][$dp->ID]);
-				$list->html .= "<p>$spaces <span class='whoowns_list_owner_name'><a href='#' onClick=\"whoowns_select_node(this,'".$dp->ID."','".$dp->link."')\">".$dp->name."</a></span> (<span class='whoowns_list_shares'><span class='whoowns_list_final_share'>$final_share_txt</span>; $share_txt; $rel_share_txt)</span></p>";
+				$list->html .= "<p>$spaces <span class='whoowns_list_owner_name'><a href='#cy-full' onClick=\"whoowns_select_node(this,'".$dp->ID."','".$dp->link."')\">".$dp->name."</a></span> (<span class='whoowns_list_shares'><span class='whoowns_list_final_share'>$final_share_txt</span>; $share_txt; $rel_share_txt)</span></p>";
 			}
 			$list = whoowns_generate_participations_list($dp->ID,$format,$list,array_merge($route,array($dp->ID)));
 		}
@@ -1594,6 +1594,410 @@ function whoowns_save_cached($postid,$values) {
 
 
 
+
+function whoowns_template_get_owner_data($postid,$section) {
+	switch ($section) {
+		case 'power_network':
+		break;
+		
+		
+		case 'related_posts':
+		break;
+		
+		
+		case 'news':
+			$owner_data->news = array_slice(whoowns_get_network_related_news($postid),0,30);
+		break;
+		
+		case 'factsheet':
+		default:
+		
+			//Global data:
+			$owner_data = whoowns_get_owner_data($postid,true,true);
+			
+			// List of main actors in a plain list with links (in both directions - composition and participation):
+			$dirs = array('composition','participation');
+			foreach ($dirs as $dir) {
+				if ($owner_data->main_actors[$dir]) {
+					if (!is_array($owner_data->main_actors[$dir])) {
+						$owner_data->main_actors_plain_list[$dir] = '<a href="'.$owner_data->main_actors[$dir]->link.'">'.$owner_data->main_actors[$dir]->name.'</a>';
+					} else {
+						$tmp = array();
+						foreach ($owner_data->main_actors[$dir] as $c)
+							$tmp[] = '<a href="'.$c->link.'">'.$c->name.'</a>';
+						$owner_data->main_actors_plain_list[$dir] = implode(', ',$tmp);
+					}
+				}
+			}
+			
+			if ($owner_data->controls_final_top) {
+				$owner_data->controls_final_top = whoowns_show_controls_final_top($owner_data->controls_final, 3, '?section=rededepoder', true);
+			}
+			
+			// Participations of reference owner in this chain:
+			if ($part_of_ref_owner = $owner_data->participation_of_reference_owner) {
+				$ref_parts = array();
+				foreach ($part_of_ref_owner->shares as $ro_id=>$part) {
+					if ($part->is_direct) {
+						$direct = number_format_i18n($part->final_share,2)."% (".__("directly", 'whoowns' ).")";
+					} else {
+						$ref_parts[] = number_format_i18n($part->final_share,2)."% (".__("in", 'whoowns' )." <a href='".$part->target->link."'>".$part->target->name."</a>)";
+					}
+				}
+				if ($direct && $ref_parts)
+					$direct .= ", ";
+				$owner_data->participation_of_reference_owner->html = $direct . implode(', ',$ref_parts);
+			}
+			
+			// Do we know the composition of this enterprise, or is it still closed?
+			$owner_data->is_closed = (!$owner_data->shareholders && $owner_data->type->slug=='private-enterprise');
+	
+			//News related to the network:
+			$owner_data->news = whoowns_get_network_related_news($postid);
+			
+			//Posts related to the network:
+			$owner_data->random_related_post = whoowns_get_owner_data(whoowns_get_network_related_articles($postid, 'post', array('orderby'=>'rand', 'posts_per_page'=>1)), true);
+		break;
+	}
+	if (!isset($owner_data->type))
+		$owner_data->type = whoowns_get_owner_type($postid);
+	
+	return $owner_data;
+}
+
+
+
+function whoowns_get_core_factsheet_sections() {
+	$sections = get_option('whoowns_factsheet_sections');
+	foreach ($sections as $ord=>$section)
+		$sections[$ord]['title'] = __($section['title'], 'whoowns');
+	return $sections;
+}
+add_filter('whoowns-get-core-factsheet-sections', 'whoowns_get_core_factsheet_sections');
+
+function whoowns_get_factsheet_sections() {
+	$sections = apply_filters('whoowns-get-core-factsheet-sections', '');
+	foreach (whoowns_get_functions_for_hook('whoowns-custom-factsheet-section') as $custom_section) {
+		if ($data = call_user_func($custom_section)) {
+			$sections[intval($data['ord'])] = $data;
+		}
+	}
+	asort($sections);
+	return $sections;
+}
+
+function whoowns_get_factsheet_section_path($section='factsheet') {
+	$sections = whoowns_get_factsheet_sections();
+	foreach ($sections as $s)
+		if ($s['slug']==$section)
+			return $s['path'];
+}
+
+function whoowns_get_orderby_options() {
+	$options = array(
+		'name'=>__('Name', 'whoowns'),
+		'whoowns_PA'=>__('Accumulated Power', 'whoowns'),
+	);
+	foreach (whoowns_get_functions_for_hook('whoowns-custom-orderby-options') as $custom_option) {
+		if ($data = call_user_func($custom_option)) {
+			$options += $data;
+		}
+	}
+	return $options;
+}
+
+function whoowns_template_show_factsheet_sections_submenu($section='factsheet') {
+	$sections = whoowns_get_factsheet_sections();
+	?>
+	<div id="whoowns_factsheet_submenu">
+		<ul>
+			<?php
+			foreach ($sections as $s) {
+				$txt = ($section==$s['slug'])
+					? "<span id='whoowns_selected_section'>".$s['title']."</span>"
+					: "<a href='?section=".$s['slug']."'>".$s['title']."</a>";
+			?>
+				<li><?=$txt?></li>
+			<?php
+			}
+			?>
+		</ul>
+	</div>
+	<?php
+}
+
+
+function whoowns_prepare_owner_selection() {
+	$whoowns = new stdClass();
+	$whoowns->subtitle=array();
+	$whoowns->default_search_text = __('Search by name or registration document', 'whoowns');
+
+	$whoowns->filters_available = array(
+		'all'=>__('All', 'whoowns'),
+		'ranked'=>__('Ranked', 'whoowns'),
+		'private-enterprise'=>__('Enterprises', 'whoowns'),
+		'person'=>__('Persons', 'whoowns'),
+		'state'=>__('State', 'whoowns')
+	);
+	$whoowns->orderby_options = whoowns_get_orderby_options();
+
+	//Order:
+	$whoowns->order = ($_GET['whoowns_order'])
+		? $_GET['whoowns_order']
+		: $whoowns->order;
+
+	//Page:
+	$whoowns->page = $_GET['whoowns_page'];
+
+	//Search:
+	$whoowns->search = ($_GET['whoowns_search'] && $_GET['whoowns_search']!=$whoowns->default_search_text)
+		? $_GET['whoowns_search']
+		: $whoowns->search; 
+	//The $whoowns->search might have been given by single-whoowns_ed_candidate or by taxonomy_states or by taxonomy_parties
+	if (strpos($whoowns->search,':')!==false) {
+		list($term,$value) = explode(':',$whoowns->search);
+		switch ($term) {
+			case __('state','whoowns_ed'):
+			break;
+			default:
+				unset($whoowns->search);
+			break;
+		}
+	} elseif ($whoowns->search) {
+		$whoowns->subtitle[0] = '<b>'.__('Results of the search for', 'whoowns')." <u>$whoowns->search</u></b>";
+	}
+	$whoowns->search_alias = ($whoowns->search_alias)
+		? $whoowns->search_alias
+		: $whoowns->search;
+	if (!$whoowns->search_alias)
+		$whoowns->search_alias = $whoowns->default_search_text;
+	
+	//Filters:
+	$whoowns->filters = ($_GET['whoowns_filters'])
+		? $_GET['whoowns_filters']
+		: $whoowns->filters;
+	if (!is_array($whoowns->filters))
+		$whoowns->filters = explode(',',$whoowns->filters);
+	if (!$whoowns->filters[0] && !$whoowns->search && !$_GET['whoowns_order_by']) {
+		$whoowns->filters[0]='ranked';
+		$whoowns->orderby = 'whoowns_PA';
+	}
+	if ($whoowns->filters[0]) {
+		$whoowns->filter_selected = array();
+		foreach ($whoowns->filters as $filter) {
+			$whoowns->filter_selected[$filter]=' checked="checked"';
+			$whoowns->filter_txt[] = $whoowns->filters_available[$filter];
+		}
+		$whoowns->subtitle[5] = (count($whoowns->filter_txt)>1)
+			? '<i>'.__('Applied filters:', 'whoowns')." <u>".implode(', ',$whoowns->filter_txt)."</u></i>"
+			: '<i>'.__('Applied filter:', 'whoowns')." <u>".implode(', ',$whoowns->filter_txt)."</u></i>";
+	}
+
+	//OrderBy:
+	$whoowns->orderby = ($_GET['whoowns_orderby'])
+		? $_GET['whoowns_orderby']
+		: $whoowns->orderby;
+	if ($whoowns->orderby) {
+		$whoowns->orderby_selected = array($whoowns->orderby=>' checked="checked"');
+		$whoowns->orderby_txt = $whoowns->orderby_options[$whoowns->orderby];
+		$whoowns->subtitle[10] = '<i>'.__('Results ordered by', 'whoowns')." $whoowns->orderby_txt</i>";
+	}
+
+	ksort($whoowns->subtitle);
+	if ($whoowns->subtitle)
+		$whoowns->subtitle = implode('.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',$whoowns->subtitle);
+		
+	return $whoowns;
+}
+
+
+
+
+function whoowns_template_show_factsheet_blocks($owner_data) {
+	$blocks = array('one_half'=>array(), 'two_half_last'=>array());
+	foreach (whoowns_get_functions_for_hook('whoowns-custom-factsheet-blocks') as $block_function) {
+		if ($tmp = call_user_func($block_function, $owner_data)) {
+			$tmp->side = ($tmp->side=='right')
+				? 'two_half_last'
+				: 'one_half';
+			$blocks[$tmp->side][$tmp->ord] = $tmp;
+		}
+	}
+	asort($blocks['one_half']);
+	asort($blocks['two_half_last']);
+	//pR($blocks);exit;
+	foreach ($blocks as $side=>$sub_blocks) {
+		?>
+		<div class="<?=$side?>">
+		<?php
+		$first = ' whoowns-top';
+		foreach ($sub_blocks as $block) {
+			if (file_exists($block->html_path)) {
+				?>
+				<div class="factsheet_block<?=$first?>">
+					<header><h2>
+						<a href="<?=$block->target_link?>"><?=$block->title?></a>
+					</h2></header>
+					<? include($block->html_path); ?>
+				</div>
+				<?php
+				$first = '';
+			}
+		}
+		?>
+		</div>
+		<?php
+	}
+}
+function whoowns_add_mini_power_network_factsheet_block($owner_data) {
+	$data = new stdClass();
+	$data->ord=10;
+	$data->side='left';
+	$data->title=__('Power Network', 'whoowns');
+	$data->target_link = "?section=power_network";
+	$data->html_path = plugin_dir_path(__FILE__).'theme-files/layouts/single-whoowns_owner.factsheet.mini_power_network.php';
+	return $data;
+}
+add_action('whoowns-custom-factsheet-blocks', 'whoowns_add_mini_power_network_factsheet_block');
+function whoowns_add_main_actors_factsheet_block($owner_data) {
+	if (!$owner_data->main_actors)
+		return false;
+
+	$data = new stdClass();
+	$data->ord=20;
+	$data->side='left';
+	$data->title=__('Network\'s Highlights', 'whoowns');
+	$data->target_link = "?section=power_network";
+	$data->html_path = plugin_dir_path(__FILE__).'theme-files/layouts/single-whoowns_owner.factsheet.main_actors.php';
+	return $data;
+}
+add_action('whoowns-custom-factsheet-blocks', 'whoowns_add_main_actors_factsheet_block');
+function whoowns_add_random_related_post_factsheet_block($owner_data) {
+	if (!$owner_data->random_related_post)
+		return false;
+
+	$data = new stdClass();
+	$data->ord=10;
+	$data->side='right';
+	$data->title=__('Related Posts', 'whoowns');
+	$data->target_link = "?section=related_posts";
+	$data->html_path = plugin_dir_path(__FILE__).'theme-files/layouts/single-whoowns_owner.factsheet.random_related_post.php';
+	return $data;
+}
+add_action('whoowns-custom-factsheet-blocks', 'whoowns_add_random_related_post_factsheet_block');
+function whoowns_add_news_factsheet_block($owner_data) {
+	$data = new stdClass();
+	$data->ord=20;
+	$data->side='right';
+	$data->title=__('The Network in the Media', 'whoowns');
+	$data->target_link = "?section=news";
+	$data->html_path = plugin_dir_path(__FILE__).'theme-files/layouts/single-whoowns_owner.factsheet.news.php';
+	return $data;
+}
+add_action('whoowns-custom-factsheet-blocks', 'whoowns_add_news_factsheet_block');
+
+
+
+
+
+function whoowns_template_show_owners($owners, $hide_columns=array()) {
+	if (!$owners)
+		return false;
+		
+	// Here I offer the possibility for other plugins or for templates to add columns to the owner's list!
+	$custom_columns = array();
+	foreach (whoowns_get_functions_for_hook('whoowns-add-column-to-owners-list') as $custom_column_function) {
+		$custom_columns[$custom_column_function] = new stdClass();
+		$custom_columns[$custom_column_function]->title = call_user_func($custom_column_function, 'title');
+	}
+	?>
+	<table id="whoowns_owners_table_fixed_header" style="position: fixed;top: 0px; display:none;"></table>
+	<table id="whoowns_owners_table">
+	<thead><tr>
+		<th class="whoowns_owners_table name first"><div><?=__('Name of enterprise or person', 'whoowns')?></div></th>
+		<?php if (!$hide_columns['rank']) { ?>
+			<th class="whoowns_owners_table whoowns_rank" width="2%"><div><?=__('Ranking', 'whoowns')?></div></th>
+		<?php } ?>
+		<th class="whoowns_owners_table IPA" width="6%"><div><?=__('Accumulated Power Index (IPA)', 'whoowns')?></div></th>
+		<?php if (!$hide_columns['controlled_by_final']) { ?>
+			<th class="whoowns_owners_table controlled_by_final" width="16%"><div><?=__('Ultimate controller', 'whoowns')?></div></th>
+		<?php } ?>
+		<th class="whoowns_owners_table controls_final_top" width="16%"><div><?=__('Top ultimate controlled', 'whoowns')?></div></th>
+		<?php if (count($custom_columns)) {
+			$custom_column_width = 30/count($custom_columns);
+			$i=0;
+			foreach ($custom_columns as $custom_column_function=>$custom_column) {
+				$i++;
+				$last = ($i==count($custom_columns))
+					? " last"
+					: "";
+				?>
+				<th class="whoowns_owners_table <?=$custom_column_function.$last?>" width="<?=$custom_column_width?>%"><div><?=$custom_column->title?></div></th>
+			<?php } ?>
+		<?php } ?>
+	</tr></thead>
+	<tbody>
+	<?php
+	foreach ($owners as $owner) {
+		$IPA_txt = number_format_i18n($owner->IPA,10);
+		if ($owner->IPAR)
+			$IPA_txt .= "<br />(".__('among ranked:', 'whoowns')." ".number_format_i18n($owner->IPAR,10).")";
+			
+		$controlled_by_final_txt = ($owner->controlled_by_final)
+			? '<a href="'.get_post_permalink($owner->controlled_by_final).'">'.get_the_title($owner->controlled_by_final).'</a>'
+			: '';
+		?>
+		<tr>
+		<td class="whoowns_owners_table name"><div><a class="whoowns-owners-list-tipsy" href="<?=$owner->link?>" whoowns-id="<?=$owner->ID?>" title="<?= str_replace('{owner}',$owner->name,__('Click here to see details about {owner}', 'whoowns')) ?>"><span class="icon-zoom-in"></span> <?=$owner->name?></a></div></td>
+		<?php if (!$hide_columns['rank']) { ?>
+			<td class="whoowns_owners_table whoowns_rank"><div><?=$owner->rank?></div></td>
+		<?php } ?>
+		<td class="whoowns_owners_table IPA"><div><?=$IPA_txt?></div></td>
+		<?php if (!$hide_columns['controlled_by_final']) { ?>
+			<td class="whoowns_owners_table controlled_by_final"><div><?=$controlled_by_final_txt?></div></td>
+		<?php } ?>
+		<td class="whoowns_owners_table controls_final_top"><div><?=whoowns_show_controls_final_top($owner->controls_final, 3, '', true)?></div></td>
+		<?php if (count($custom_columns)) { 
+			foreach ($custom_columns as $custom_column_function=>$custom_column) { ?>
+				<td class="whoowns_owners_table <?=$custom_column_function?>"><div><?=call_user_func($custom_column_function, $owner->ID)?></div></td>
+			<?php } ?>
+		<?php } ?>
+		</tr>
+		<?php
+	}
+	?>
+	</tbody>
+	</table>
+	<?php
+	$return->posts_found = $owners->found_posts;
+	$return->max_num_pages = $owners->max_num_pages;
+	return $return;
+}
+add_action('whoowns-show-owners', 'whoowns_template_show_owners');
+
+
+
+
+function whoowns_set_loop_of_related_articles($postid, $category_slug='') {
+	$args = array(
+		'post_type' => 'post', 
+		'meta_query' => array(
+			array(
+				'key' => 'whoowns_related_owner',
+				'value' => whoowns_generate_network($postid),
+				'compare' => 'IN'
+			)
+		)
+	);
+	if ($category_slug)
+		$args['category_name'] = $category_slug;
+	query_posts($args);
+}
+
+
+
+
+
 function whoowns_update_network_related_news($postid) {
 	$post_ids = whoowns_generate_network($postid);
 	$owners = whoowns_get_owner_data($post_ids);
@@ -1844,9 +2248,24 @@ function whoowns_get_scale_txt($v) {
 function whoowns_format_scaled_value($v) {
 	return number_format_i18n($v/whoowns_get_scale($v),2)." ".whoowns_get_scale_txt($v);
 }
-function dummy_for_translators() {
+function dummy_for_translator_machine() {
 	__('State','whoowns');
 	__('Private enterprise','whoowns');
 	__('Person','whoowns');
+	__('global vision', 'whoowns');
+	__('power network', 'whoowns');
+	__('related articles', 'whoowns');
+	__('in the media', 'whoowns');
+}
+function whoowns_get_functions_for_hook( $hook ) {
+	// From: https://gist.github.com/mjangda/1137703 . Thanks!
+	global $wp_filter;
+	if( ! isset( $wp_filter[$hook] ) )
+		return array();
+	$functions = array();
+	foreach( $wp_filter[$hook] as $key => $actions ) {
+		$functions = array_merge($functions, array_keys( $actions ));
+	}
+	return $functions;
 }
 ?>

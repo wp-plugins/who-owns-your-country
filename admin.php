@@ -288,7 +288,7 @@ function whoowns_meta_boxes_save( $post_id ) {
    			$shareholders[$shareholder_id]->$shareholder_attr = $value;
     	}
     }
-    // now we can actually save the data
+    // Now we can actually save the data
     $changed_shares = whoowns_update_shareholders($post_id, $shareholders);
     #pR($changed_shares || $changed_revenue);exit;
     // If the shares or the revenue changed, it's necessary to do recalculations: Erase the network cache of all related nodes, Schedule events to refill the cache and to calculate the new accumulated power values for the whole affected nodes and finally recalculate the IPA and ranking of the whole database:

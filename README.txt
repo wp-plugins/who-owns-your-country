@@ -3,7 +3,7 @@ Contributors: dtygel
 Tags: who owns your country, power networks, corporations, economy, politics, economic chain
 Requires at least: 3.6
 Tested up to: 3.8
-Stable tag: trunk
+Stable tag: 0.8
 License: AFFERO License
 License URI: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 

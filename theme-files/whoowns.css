@@ -32,6 +32,7 @@ Update: 2014/01
 }
 div#whoowns_intro{
 	margin-bottom:10px;
+	min-height:150px;
 }
 div#whoowns_owner_image{
 	float:left;

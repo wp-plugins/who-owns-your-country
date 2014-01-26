@@ -4,7 +4,7 @@ Plugin Name: Who owns Your Country?
 Plugin URI: http://github.com/dtygel/whoowns
 Description: Wordpress Plugin to calculate and show the Economic Power Networks in your country
 Author: Daniel Tygel
-Version: 0.8
+Version: 0.91
 Author URI: http://cirandas.net/dtygel
 */
 

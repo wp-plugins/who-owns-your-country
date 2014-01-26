@@ -16,6 +16,18 @@ You must follow the common steps to install a plugin in Wordpress: download the 
 
 You can configure some of the settings in the menu on the left, called "Owners".
 
+Using the plugin in your template
+--------------------
+
+In this 0.8 version, you need to understand the plugin's features to change your template and create factsheets and graphics of the owners.
+
+We recommend that you look at http://proprietariosdobrasil.eita.org.br for an idea, and contact us if you need to look at examples of template customizations to show the owner data and networks.
+
+We'll be happy to help you!
+
+In version 0.9 (coming soon!) the factsheets and custom search forms will be automatically available for your template. We will also add a "screenshots" section so that you can better understand the features available.
+
+
 
 Contributions
 -------------------

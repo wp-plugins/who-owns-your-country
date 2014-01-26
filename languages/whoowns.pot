@@ -3,337 +3,627 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Who Owns your Country\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-28 04:24-0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2014-01-19 17:16-0300\n"
+"PO-Revision-Date: 2014-01-19 17:17-0300\n"
+"Last-Translator: daniel tygel <dtygel@eita.org.br>\n"
+"Language-Team: dtygel <dtygel@eita.org.br>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: en\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
 
-#: whoowns.php:20 init.php:74 init_admin.php:4 init.php:74 init_admin.php:4
+#: admin.php:5
+#: ../trunk/admin.php:5
+msgid "Details"
+msgstr ""
+
+#: admin.php:6
+#: admin.php:7
+#: ../trunk/admin.php:6
+#: ../trunk/admin.php:7
+msgid "Related Owners"
+msgstr ""
+
+#: admin.php:13
+#: ../trunk/admin.php:13
+msgid "Owner Image"
+msgstr ""
+
+#: admin.php:40
+#: ../trunk/admin.php:40
+msgid "Legal registration ID"
+msgstr ""
+
+#: admin.php:41
+#: ../trunk/admin.php:41
+msgid "What is the formal registration identity of this owner?"
+msgstr ""
+
+#: admin.php:51
+#: ../trunk/admin.php:51
+msgid "Type of this Owner"
+msgstr ""
+
+#: admin.php:52
+#: ../trunk/admin.php:52
+msgid "Is this owner an enterprise? a person? other type? Please choose below:"
+msgstr ""
+
+#: admin.php:54
+#: ../trunk/admin.php:54
+msgid "Type"
+msgstr ""
+
+#: admin.php:56
+#: admin.php:96
+#: ../trunk/admin.php:56
+#: ../trunk/admin.php:96
+msgid "None"
+msgstr ""
+
+#: admin.php:72
+#: ../trunk/admin.php:72
+msgid "URI in dbpedia"
+msgstr ""
+
+#: admin.php:73
+#: ../trunk/admin.php:73
+msgid "Leave it blank if you don't know what dbpedia is."
+msgstr ""
+
+#: admin.php:74
+#: ../trunk/admin.php:74
+msgid "URI in dbpedia:"
+msgstr ""
+
+#: admin.php:86
+#: ../trunk/admin.php:86
+msgid "Net revenue"
+msgstr ""
+
+#: admin.php:87
+#: ../trunk/admin.php:87
+msgid "What is the net revenue of this owner? You must also define the date and period of this information, along with the source"
+msgstr ""
+
+#: admin.php:88
+#: ../trunk/admin.php:88
+msgid "Net revenue in $ millions:"
+msgstr ""
+
+#: admin.php:91
+#: ../trunk/admin.php:91
+msgid "From what year is this information?"
+msgstr ""
+
+#: admin.php:94
+#: ../trunk/admin.php:94
+msgid "This revenue is for how many months?"
+msgstr ""
+
+#: admin.php:101
+#: ../trunk/admin.php:101
+msgid "trimester"
+msgstr ""
+
+#: admin.php:104
+#: ../trunk/admin.php:104
+msgid "semester"
+msgstr ""
+
+#: admin.php:107
+#: ../trunk/admin.php:107
+msgid "year"
+msgstr ""
+
+#: admin.php:120
+#: ../trunk/admin.php:120
+msgid "What is the name of the source of this information?"
+msgstr ""
+
+#: admin.php:123
+#: ../trunk/admin.php:123
+msgid "What is the internet address of this source?"
+msgstr ""
+
+#: admin.php:136
+#: ../trunk/admin.php:136
+msgid "Owners and shares"
+msgstr ""
+
+#: admin.php:137
+#: ../trunk/admin.php:137
+msgid "Who owns this enterprise? The information must be validated by source documents from a Junta Comercial or from the Receita Federal"
+msgstr ""
+
+#: admin.php:141
+#: ../trunk/admin.php:141
+msgid "Name"
+msgstr ""
+
+#: admin.php:142
+#: ../trunk/admin.php:142
+msgid "Ownership Shares (in percentage)"
+msgstr ""
+
+#: admin.php:153
+#: ../trunk/admin.php:153
+msgid "Add more shareholders..."
+msgstr ""
+
+#: admin.php:153
+#: admin.php:365
+#: ../trunk/admin.php:153
+#: ../trunk/admin.php:365
+msgid "Hide"
+msgstr ""
+
+#: admin.php:179
+#: ../trunk/admin.php:179
+msgid "Source of shareholders data"
+msgstr ""
+
+#: admin.php:181
+#: ../trunk/admin.php:181
+msgid "Where did you get the shareholders data from?"
+msgstr ""
+
+#: admin.php:185
+#: ../trunk/admin.php:185
+msgid "Year of this information:"
+msgstr ""
+
+#: admin.php:188
+#: ../trunk/admin.php:188
+msgid "Please attach the documents to validate the above mentioned source:"
+msgstr ""
+
+#: admin.php:194
+#: ../trunk/admin.php:194
+msgid "Delete File"
+msgstr ""
+
+#: admin.php:198
+#: ../trunk/admin.php:198
+msgid "Add document"
+msgstr ""
+
+#: admin.php:358
+#: ../trunk/admin.php:358
+msgid "Who are the owners related to this article?"
+msgstr ""
+
+#: admin.php:365
+#: ../trunk/admin.php:365
+msgid "Add more..."
+msgstr ""
+
+#: admin.php:418
+#: admin.php:431
+#: ../trunk/admin.php:418
+#: ../trunk/admin.php:431
+msgid "Error: you did not specify valid parameters for this callback"
+msgstr ""
+
+#: admin.php:427
+#: ../trunk/admin.php:427
+msgid "Error: I was not able to delete the file. Therefore, I only erased the associated metadata"
+msgstr ""
+
+#: init.php:7
+msgid "Owner types"
+msgstr ""
+
+#: init.php:8
+msgid "Owner type"
+msgstr ""
+
+#: init.php:9
+msgid "Search owner types"
+msgstr ""
+
+#: init.php:10
+msgid "All owner types"
+msgstr ""
+
+#: init.php:13
+msgid "Edit Owner Type"
+msgstr ""
+
+#: init.php:14
+msgid "Update Owner Type"
+msgstr ""
+
+#: init.php:15
+msgid "Add New Owner Type"
+msgstr ""
+
+#: init.php:16
+msgid "New Owner Type"
+msgstr ""
+
+#: init.php:17
+msgid "Owner Types"
+msgstr ""
+
+#: init.php:32
+msgid "Source types"
+msgstr ""
+
+#: init.php:33
+msgid "Source type"
+msgstr ""
+
+#: init.php:34
+msgid "Search source types"
+msgstr ""
+
+#: init.php:35
+msgid "All source types"
+msgstr ""
+
+#: init.php:38
+msgid "Edit Source Type"
+msgstr ""
+
+#: init.php:39
+msgid "Update Source Type"
+msgstr ""
+
+#: init.php:40
+msgid "Add New Source Type"
+msgstr ""
+
+#: init.php:41
+msgid "New Source Type"
+msgstr ""
+
+#: init.php:42
+msgid "Source Types"
+msgstr ""
+
+#: init.php:58
+#: init.php:59
+msgid "State or Province"
+msgstr ""
+
+#: init.php:60
+msgid "Search states"
+msgstr ""
+
+#: init.php:61
+msgid "All states"
+msgstr ""
+
+#: init.php:62
+#: init.php:63
+msgid "Region"
+msgstr ""
+
+#: init.php:64
+msgid "Edit state"
+msgstr ""
+
+#: init.php:65
+msgid "Update state"
+msgstr ""
+
+#: init.php:66
+msgid "Add New state"
+msgstr ""
+
+#: init.php:67
+msgid "New state"
+msgstr ""
+
+#: init.php:68
+msgid "States"
+msgstr ""
+
+#: init.php:86
+#: init.php:88
+#: init_admin.php:4
 msgid "Owners"
 msgstr ""
 
-#: whoowns.php:21 init.php:75 init.php:75
+#: init.php:87
+msgid "Owner"
+msgstr ""
+
+#: init.php:89
 msgid "Parent Owner:"
 msgstr ""
 
-#: whoowns.php:22 init.php:76 init.php:76
+#: init.php:90
 msgid "All Owners"
 msgstr ""
 
-#: whoowns.php:23 init.php:77 init.php:77
+#: init.php:91
 msgid "View Owner"
 msgstr ""
 
-#: whoowns.php:24 init.php:78 init.php:78
+#: init.php:92
 msgid "Add New Owner"
 msgstr ""
 
-#: whoowns.php:25 init.php:79 init.php:79
+#: init.php:93
 msgid "New Owner"
 msgstr ""
 
-#: whoowns.php:26 init.php:80 init.php:80
+#: init.php:94
 msgid "Edit Owner"
 msgstr ""
 
-#: whoowns.php:27 init.php:81 init.php:81
+#: init.php:95
 msgid "Update Owner"
 msgstr ""
 
-#: whoowns.php:28 init.php:82 init.php:82
+#: init.php:96
 msgid "Search owners"
 msgstr ""
 
-#: whoowns.php:29 init.php:83 init.php:83
+#: init.php:97
 msgid "No owners found"
 msgstr ""
 
-#: whoowns.php:30 init.php:84 init.php:84
+#: init.php:98
 msgid "No owners found in Trash"
 msgstr ""
 
-#: whoowns.php:33 init.php:87 init.php:87
-msgid "owners"
-msgstr ""
-
-#: whoowns.php:39 init.php:93 init.php:93
-msgid "whoowns_owner"
-msgstr ""
-
-#: whoowns.php:40 init.php:94 init.php:94
+#: init.php:108
 msgid "Facts-sheet about an Owner"
 msgstr ""
 
-#: whoowns.php:69
-msgid "Shareholders (if any)"
+#: init.php:144
+msgid "Owner Author"
 msgstr ""
 
-#: independent_scripts/get_owner_images.php:14
-#: independent_scripts/import_csv_from_old_model.php:21
-#: independent_scripts/get_dbpedia_links.php:29
+#: init_admin.php:4
+msgid "Whoowns Brazil Plugin Settings"
+msgstr ""
+
+#: init_admin.php:118
+msgid "Are you sure you want to delete the file \"{file}\"?"
+msgstr ""
+
+#: utils.php:187
+msgid "Information not available."
+msgstr ""
+
+#: utils.php:409
+msgid "Directly controlled:"
+msgstr ""
+
+#: utils.php:410
+msgid "Indirectly controlled:"
+msgstr ""
+
+#: utils.php:419
+msgid "None."
+msgstr ""
+
+#: utils.php:439
+msgid "see all"
+msgstr ""
+
+#: utils.php:1285
+msgid "List view"
+msgstr ""
+
+#: utils.php:1288
+msgid "Direct shareholders:"
+msgstr ""
+
+#: utils.php:1294
+msgid "Controlled enterprises:"
+msgstr ""
+
+#: utils.php:1300
+msgid "Controlled by:"
+msgstr ""
+
+#: utils.php:1306
+msgid "All Participations:"
+msgstr ""
+
+#: utils.php:1307
+#: utils.php:1315
+msgid "Meaning of the values in parenthesis:"
+msgstr ""
+
+#: utils.php:1307
+#: utils.php:1315
+msgid "final relative share"
+msgstr ""
+
+#: utils.php:1307
+#: utils.php:1315
+msgid "relative share"
+msgstr ""
+
+#: utils.php:1307
+#: utils.php:1315
+msgid "share"
+msgstr ""
+
+#: utils.php:1314
+msgid "All Controllers:"
+msgstr ""
+
+#: utils.php:1383
+msgid "Center of <i>this</i> network"
+msgstr ""
+
+#: utils.php:1387
+msgid "Enterprise with interchain participation"
+msgstr ""
+
+#: utils.php:1391
+msgid "Ultimate controller"
+msgstr ""
+
+#: utils.php:1397
+msgid "Control over the enterprise (>50%)"
+msgstr ""
+
+#: utils.php:1401
+msgid "Participation of less than 50%"
+msgstr ""
+
+#: utils.php:1408
+msgid "Legends"
+msgstr ""
+
+#: utils.php:1411
+msgid "Icons"
+msgstr ""
+
+#: utils.php:1412
+msgid "Colors"
+msgstr ""
+
+#: utils.php:1413
+msgid "Arrows"
+msgstr ""
+
+#: utils.php:1752
+msgid "The news have not been loaded yet. Please come back in a couple of minutes."
+msgstr ""
+
+#: utils.php:1756
+msgid "Sorry, but we couldn't find any news related to this owner's power network."
+msgstr ""
+
+#: utils.php:1837
+msgid "billions"
+msgstr ""
+
+#: utils.php:1839
+msgid "millions"
+msgstr ""
+
+#: utils.php:1841
+msgid "thousand"
+msgstr ""
+
+#: utils.php:1848
+msgid "State"
+msgstr ""
+
+#: utils.php:1849
+msgid "Private enterprise"
+msgstr ""
+
+#: utils.php:1850
+msgid "Person"
+msgstr ""
+
+#: options.php:65
+msgid "Settings of the Who Owns Plugin"
+msgstr ""
+
+#: options.php:73
+msgid "General settings"
+msgstr ""
+
+#: options.php:77
+msgid "Slug for the owners' section of the website"
+msgstr ""
+
+#: options.php:82
+msgid "Maximum number of shareholders to display in the edit form"
+msgstr ""
+
+#: options.php:87
+msgid "Maximum number of related owners to display in the edit form"
+msgstr ""
+
+#: options.php:92
+msgid "Number of owners to display per page in the ranking table"
+msgstr ""
+
+#: options.php:97
+msgid "Reference enterprise/person to track"
+msgstr ""
+
+#: options.php:99
+msgid "Is there any of the enterprises or persons of the database which participations should be tracked? If so, for each owner the plugin will provide [through function whoowns_get_owner_data] the final participation of the chosen reference in its controllers chain"
+msgstr ""
+
+#: options.php:104
+msgid "Default size of the owner image. Put width and height separated by an \"x\". For example: 300x300"
+msgstr ""
+
+#: options.php:109
+msgid "News related to network"
+msgstr ""
+
+#: options.php:113
+msgid "News search engine"
+msgstr ""
+
+#: options.php:123
+msgid "Date format for showing the  news"
+msgstr ""
+
+#: options.php:128
+msgid "News sources from internet (one per line)"
+msgstr ""
+
+#: options.php:133
+msgid "Power network graphic"
+msgstr ""
+
+#: options.php:137
+msgid "Maximum number of nodes for a power network graph to show all names"
+msgstr ""
+
+#: options.php:142
+msgid "Maximum number of edges for a power network graph to show arrows while moving canvas"
+msgstr ""
+
+#: options.php:147
+msgid "Format of the legends in the network graphic"
+msgstr ""
+
+#: options.php:152
+msgid "Size of the icons of the legends of the network graphic"
+msgstr ""
+
+#: options.php:157
+msgid "Settings for scheduling network updates"
+msgstr ""
+
+#: options.php:161
+msgid "How often should the plugin check for changes in the database and recalculate the power indexes and ranking?"
+msgstr ""
+
+#: options.php:168
+msgid "Take care to not put it too frequently, because there is a good quantity of relatively heavy calculations. If the server is good and you have a small database, it's ok to have it hourly, but we recommend the frequency to be once or twice daily"
+msgstr ""
+
+#: options.php:173
+msgid "Reference local time for the scheduled updates (24h format)"
+msgstr ""
+
+#: options.php:176
+msgid "If the frequency is once daily, we suggest that you choose some time in late night, like midnight (0). Important: this time depends on the local time zone that you chose in the website configuration in \"general settings\"."
+msgstr ""
+
+#: independent_scripts/update.php:16
 #: independent_scripts/get_owner_images.php:14
 #: independent_scripts/import_csv_from_old_model.php:21
 #: independent_scripts/get_dbpedia_links.php:29
 msgid "You are not allowed to access this area of the website"
 msgstr ""
 
-#: admin.php:5 admin.php:5
-msgid "Details"
-msgstr ""
-
-#: admin.php:11 admin.php:11
-msgid "Owner Image"
-msgstr ""
-
-#: admin.php:36 admin.php:36
-msgid "Legal registration ID"
-msgstr ""
-
-#: admin.php:37 admin.php:37
-msgid "What is the formal registration identity of this owner?"
-msgstr ""
-
-#: admin.php:47 admin.php:47
-msgid "Type of this Owner"
-msgstr ""
-
-#: admin.php:48 admin.php:48
-msgid "Is this owner an enterprise? a person? other type? Please choose below:"
-msgstr ""
-
-#: admin.php:50 admin.php:50
-msgid "Type"
-msgstr ""
-
-#: admin.php:52 admin.php:92 admin.php:52 admin.php:92
-msgid "None"
-msgstr ""
-
-#: admin.php:68 admin.php:68
-msgid "URI in dbpedia"
-msgstr ""
-
-#: admin.php:69 admin.php:69
-msgid "Leave it blank if you don't know what dbpedia is."
-msgstr ""
-
-#: admin.php:70 admin.php:70
-msgid "URI in dbpedia:"
-msgstr ""
-
-#: admin.php:82 admin.php:82
-msgid "Net revenue"
-msgstr ""
-
-#: admin.php:83 admin.php:83
-msgid ""
-"What is the net revenue of this owner? You must also define the date and "
-"period of this information, along with the source"
-msgstr ""
-
-#: admin.php:84 admin.php:84
-msgid "Net revenue in $ millions:"
-msgstr ""
-
-#: admin.php:87 admin.php:87
-msgid "From what year is this information?"
-msgstr ""
-
-#: admin.php:90 admin.php:90
-msgid "This revenue is for how many months?"
-msgstr ""
-
-#: admin.php:97 admin.php:97
-msgid "trimester"
-msgstr ""
-
-#: admin.php:100 admin.php:100
-msgid "semester"
-msgstr ""
-
-#: admin.php:103 admin.php:103
-msgid "year"
-msgstr ""
-
-#: admin.php:116 admin.php:116
-msgid "What is the name of the source of this information?"
-msgstr ""
-
-#: admin.php:119 admin.php:119
-msgid "What is the internet address of this source?"
-msgstr ""
-
-#: admin.php:132 admin.php:132
-msgid "Owners and shares"
-msgstr ""
-
-#: admin.php:133 admin.php:133
-msgid ""
-"Who owns this enterprise? The information must be validated by source "
-"documents from a Junta Comercial or from the Receita Federal"
-msgstr ""
-
-#: admin.php:137 admin.php:137
-msgid "Name"
-msgstr ""
-
-#: admin.php:138 admin.php:138
-msgid "Ownership Shares (in percentage)"
-msgstr ""
-
-#: admin.php:149 admin.php:149
-msgid "Add more shareholders..."
-msgstr ""
-
-#: admin.php:149 admin.php:149
-msgid "Hide"
-msgstr ""
-
-#: admin.php:175 admin.php:175
-msgid "Source of shareholders data"
-msgstr ""
-
-#: admin.php:177 admin.php:177
-msgid "Where did you get the shareholders data from?"
-msgstr ""
-
-#: admin.php:181 admin.php:181
-msgid "Year of this information:"
-msgstr ""
-
-#: admin.php:184 admin.php:184
-msgid "Please attach the documents to validate the above mentioned source:"
-msgstr ""
-
-#: admin.php:190 admin.php:190
-msgid "Delete File"
-msgstr ""
-
-#: admin.php:194 admin.php:194
-msgid "Add document"
-msgstr ""
-
-#: admin.php:311 admin.php:324 admin.php:311 admin.php:324
-msgid "Error: you did not specify valid parameters for this callback"
-msgstr ""
-
-#: admin.php:320 admin.php:320
-msgid ""
-"Error: I was not able to delete the file. Therefore, I only erased the "
-"associated metadata"
-msgstr ""
-
-#: init.php:21 init.php:21
-msgid "Search owner types"
-msgstr ""
-
-#: init.php:22 init.php:22
-msgid "All owner types"
-msgstr ""
-
-#: init.php:25 init.php:25
-msgid "Edit Owner Type"
-msgstr ""
-
-#: init.php:26 init.php:26
-msgid "Update Owner Type"
-msgstr ""
-
-#: init.php:27 init.php:27
-msgid "Add New Owner Type"
-msgstr ""
-
-#: init.php:28 init.php:28
-msgid "New Owner Type"
-msgstr ""
-
-#: init.php:29 init.php:29
-msgid "Owner Types"
-msgstr ""
-
-#: init.php:46 init.php:46
-msgid "Search source types"
-msgstr ""
-
-#: init.php:47 init.php:47
-msgid "All source types"
-msgstr ""
-
-#: init.php:50 init.php:50
-msgid "Edit Source Type"
-msgstr ""
-
-#: init.php:51 init.php:51
-msgid "Update Source Type"
-msgstr ""
-
-#: init.php:52 init.php:52
-msgid "Add New Source Type"
-msgstr ""
-
-#: init.php:53 init.php:53
-msgid "New Source Type"
-msgstr ""
-
-#: init.php:54 init.php:54
-msgid "Source Types"
-msgstr ""
-
-#: init.php:125 init.php:125
-msgid "Owner Author"
-msgstr ""
-
-#: init_admin.php:4 init_admin.php:4
-msgid "Whoowns Brazil Plugin Settings"
-msgstr ""
-
-#: init_admin.php:99 init_admin.php:101 init_admin.php:101
-msgid "Are you sure you want to delete the file \"{file}\"?"
-msgstr ""
-
-#: utils.php:354 utils.php:354
-msgid "Private enterprise"
-msgstr ""
-
-#: options.php:50 options.php:50
-msgid "Settings of the Who Owns Plugin"
-msgstr ""
-
-#: options.php:58 options.php:58
-msgid "Maximum number of shareholders to display in the edit form"
-msgstr ""
-
-#: options.php:63 options.php:63
-msgid "Number of owners to display per page in the ranking table"
-msgstr ""
-
-#: options.php:68 options.php:68
-msgid "Standard symbol for decimals"
-msgstr ""
-
-#: options.php:77 options.php:77
-msgid "Standard symbol for thousands"
-msgstr ""
-
-#: options.php:86 options.php:86
-msgid ""
-"Default size of the owner image. Put width and height separated by an \"x\". "
-"For example: 300x300"
-msgstr ""
-
-#: init_admin.php:35
-msgid "Person"
-msgstr ""
-
-#: init_admin.php:36
-msgid "State"
-msgstr ""

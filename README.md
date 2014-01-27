@@ -37,7 +37,7 @@ Please let us know if you have any doubts!
 Translations
 -----------------
 
-Who Owns Your Country is a fully internationalized (i.e. fully translateable) plugin. If you would like to make a translation of the plugin to your language, please send a message to us at contato@proprietariosdobrasil.org.br .
+Who Owns Your Country is a fully internationalized (i.e. fully translateable) plugin. If you would like to make a translation of the plugin to your language, you can do it online here at our (translation platform)[https://osx6cfk.oneskyapp.com/collaboration/project?id=6944]. If your language is not listed there, please send a message to us at contato@proprietariosdobrasil.org.br . We'll immediately add your language for you to start translating.
 
 ### Available languages
 

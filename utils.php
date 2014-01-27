@@ -1838,7 +1838,7 @@ function whoowns_template_show_factsheet_blocks($owner_data) {
 					<header><h2>
 						<a href="<?=$block->target_link?>"><?=$block->title?></a>
 					</h2></header>
-					<? include($block->html_path); ?>
+					<?php include($block->html_path); ?>
 				</div>
 				<?php
 				$first = '';

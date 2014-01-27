@@ -3,7 +3,7 @@ Contributors: dtygel
 Tags: who owns your country, power networks, corporations, economy, politics, economic chain
 Requires at least: 3.6
 Tested up to: 3.8.1
-Stable tag: 0.91
+Stable tag: 0.9
 License: AFFERO License
 License URI: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
@@ -45,7 +45,7 @@ Please let us know if you have any doubts!
 
 == Translations ==
 
-Who Owns Your Country is a fully internationalized (i.e. fully translateable) plugin. If you would like to make a translation of the plugin to your language, please send a message to us at contato@proprietariosdobrasil.org.br .
+Who Owns Your Country is a fully internationalized (i.e. fully translateable) plugin. If you would like to make a translation of the plugin to your language, you can do it online here at our (translation platform)[https://osx6cfk.oneskyapp.com/collaboration/project?id=6944]. If your language is not listed there, please send a message to us at contato@proprietariosdobrasil.org.br . We'll immediately add your language for you to start translating.
 
 = Available languages =
 
@@ -60,9 +60,6 @@ Who Owns Your Country is a fully internationalized (i.e. fully translateable) pl
 1. Page for searching the owners. Hooks in the plugin also allow the template owner to add custom columns and orderings to this page. Besides the filters (by enterprises, persons, state institutions and "ranked" corporations) and ordering, the text search form has an autocomplete feature, leading the guest directly to the factsheet og the owner found.
 
 == Changelog ==
-
-= 0.91 =
-* Fix the tags for the wordpress repository to correctly point to the latest release.
 
 = 0.9 =
 * The plugin now offers a built-in "factsheet" page of each owner, so that the plugin works on any template out of the box without the need to change it.

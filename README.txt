@@ -41,11 +41,11 @@ The plugin creates automatically a special "factsheet" page for each owner added
 
 You can make changes in the "Owners" settings page. For example, you can decide what slug defines the owner's URLs. By default, it's *owners*. If your WordPress site is configured to have permalinks (post name), then the address of an owner will be: yourwebsite/owners/name-of-the-owner. And the place where the guests can look for owners will be: yourwebsite/owners.
 
-Please let us know if you have any doubts!
+Please let us know if you have any doubts by writing to us at our [support forum](http://wordpress.org/support/plugin/who-owns-your-country).
 
 == Translations ==
 
-Who Owns Your Country is a fully internationalized (i.e. fully translateable) plugin. If you would like to make a translation of the plugin to your language, you can do it online here at our [translation platform](https://osx6cfk.oneskyapp.com/collaboration/project?id=6944). If your language is not listed there, please send a message to us at contato@proprietariosdobrasil.org.br . We'll immediately add your language for you to start translating.
+Who Owns Your Country is a fully internationalized (i.e. fully translateable) plugin. If you would like to make a translation of the plugin to your language, you can do it online at our [translation platform](https://osx6cfk.oneskyapp.com/collaboration/project?id=6944). If your language is not listed there, please send a message to us at contato@proprietariosdobrasil.org.br . We'll immediately add your language for you to start translating.
 
 = Available languages =
 

@@ -63,7 +63,9 @@ Changelog
 -----------------
 
 ### 0.91
-* Fix the tags for the wordpress repository to correctly point to the latest release.
+* Fixed the header of whoowns.php to point to most recent file
+* Fixed typo in utils.php (from <? to <?php)
+* Added translators website in the README.txt file.
 
 ### 0.9
 * The plugin now offers a built-in "factsheet" page of each owner, so that the plugin works on any template out of the box without the need to change it.

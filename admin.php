@@ -292,9 +292,6 @@ function whoowns_meta_boxes_save( $post_id ) {
     $changed_shares = whoowns_update_shareholders($post_id, $shareholders);
     #pR($changed_shares || $changed_revenue);exit;
     // If the shares or the revenue changed, it's necessary to do recalculations: Erase the network cache of all related nodes, Schedule events to refill the cache and to calculate the new accumulated power values for the whole affected nodes and finally recalculate the IPA and ranking of the whole database:
-    echo "New status = ".$_POST['post_status'].". Existing status=".get_post_status($post_id);
-    pR(get_post_ancestors( $post_id ));
-    exit;
     if ($_POST['post_status']=='publish' && ($changed_revenue || $changed_shares || get_post_status=='pending'))
     	whoowns_init_owner_universe_update($post_id);
 }

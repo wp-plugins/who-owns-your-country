@@ -86,10 +86,10 @@ function whoowns_meta_box_details ($post) {
 	<h3><?=__('Net revenue','whoowns')?></h3>
 	<p class="description"><?=__('What is the net revenue of this owner? You must also define the date and period of this information, along with the source','whoowns')?></p>
 	<p><label for="whoowns_revenue_value"><?=__('Net revenue in $ millions:','whoowns')?></label>
-	<input type="text" size="6" name="whoowns_revenue_value" id="whoowns_revenue_value" value="<?=whoowns_set_decimal_symbol($revenue['value'])?>" />
+	<input type="text" size="6" name="whoowns_revenue_value" id="whoowns_revenue_value" value="<?=(isset($revenue['value'])) ? whoowns_set_decimal_symbol($revenue['value']) : ''?>" />
 	</p>
 	<p><label for="whoowns_revenue_year"><?=__('From what year is this information?','whoowns')?></label>
-	<input type="text" size="4" name="whoowns_revenue_year" id="whoowns_revenue_year" value="<?=$revenue['year']?>" />
+	<input type="text" size="4" name="whoowns_revenue_year" id="whoowns_revenue_year" value="<?=isset($revenue['year']) ? $revenue['year'] : ''?>" />
 	</p>
 	<p><label for="whoowns_revenue_months"><?=__('This revenue is for how many months?','whoowns')?></label>
 	<select name="whoowns_revenue_months" id="whoowns_revenue_months">
@@ -118,10 +118,10 @@ function whoowns_meta_box_details ($post) {
 	</select>
 	</p>
 	<p><label for="whoowns_revenue_source_name"><?=__('What is the name of the source of this information?','whoowns')?></label><br />
-	<textarea COLS="50" ROWS="2" name="whoowns_revenue_source_name" id="whoowns_revenue_source_name"><?=$revenue['source_name']?></textarea>
+	<textarea COLS="50" ROWS="2" name="whoowns_revenue_source_name" id="whoowns_revenue_source_name"><?=(isset($revenue['source_name'])) ? $revenue['source_name'] : ''?></textarea>
 	</p>
 	<p><label for="whoowns_revenue_source_url"><?=__('What is the internet address of this source?','whoowns')?></label>
-	<input type="text" name="whoowns_revenue_source_url" id="whoowns_revenue_source_url" value="<?=$revenue['source_url']?>" />
+	<input type="text" name="whoowns_revenue_source_url" id="whoowns_revenue_source_url" value="<?=isset($revenue['source_url']) ? $revenue['source_url'] : ''?>" />
 	</p>
 	
 	<?php
@@ -130,6 +130,8 @@ function whoowns_meta_box_details ($post) {
 	$owners = whoowns_get_direct_shareholders( $post->ID );
 	$num_existing_owners=count($owners);
 	for ($i=$num_existing_owners;$i<get_option('whoowns_default_shareholders_number');$i++) {
+		if (!$owners[$i])
+			$owners[$i] = new stdClass();
 		$owners[$i]->shareholder_id='';
 	}
 	?>
@@ -285,6 +287,8 @@ function whoowns_meta_boxes_save( $post_id ) {
     foreach ($_POST as $f=>$value) {
     	if (substr($f,0,20)=='whoowns_shareholder_' || substr($f,0,14)=='whoowns_share-'){
 			list($shareholder_attr,$shareholder_id) = explode('-',str_replace('whoowns_','',$f));
+			if (!$shareholders[$shareholder_id])
+				$shareholders[$shareholder_id] = new stdClass();
    			$shareholders[$shareholder_id]->$shareholder_attr = $value;
     	}
     }
@@ -298,15 +302,15 @@ function whoowns_meta_boxes_save( $post_id ) {
 add_action( 'save_post', 'whoowns_meta_boxes_save' );
 
 function whoowns_meta_boxes_trashed( $post_id ) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	// if our current user can't edit this post, bail
 	#if( !current_user_can( 'delete_whoowns_owners' ) ) return;
 	if( !current_user_can( 'delete_posts' ) ) return;
 	
 	if (get_post_status( $post_id )=='publish') {
     	whoowns_init_owner_universe_update($post_id, true);
-		$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$wpdb->whoowns_shares." WHERE to_id = %d", $post_id ) );
-		$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$wpdb->whoowns_networks_cache." WHERE post_id = %d", $post_id ) );
+		$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$whoowns_tables->shares." WHERE to_id = %d", $post_id ) );
+		$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$whoowns_tables->networks_cache." WHERE post_id = %d", $post_id ) );
 	}
 	return true;
 }
@@ -318,15 +322,15 @@ add_action( 'untrashed_post', 'whoowns_meta_boxes_trashed');
 
 
 function whoowns_meta_boxes_delete( $post_id ) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	// if our current user can't edit this post, bail
 	#if( !current_user_can( 'delete_whoowns_owners' ) ) return;
 	if( !current_user_can( 'delete_posts' ) ) return;
 	
    	whoowns_init_owner_universe_update($post_id, true);
-	$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$wpdb->whoowns_shares." WHERE to_id = %d", $post_id ) );
-	$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$wpdb->whoowns_shares." WHERE from_id = %d", $post_id ) );
-	$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$wpdb->whoowns_networks_cache." WHERE post_id = %d", $post_id ) );
+	$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$whoowns_tables->shares." WHERE to_id = %d", $post_id ) );
+	$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$whoowns_tables->shares." WHERE from_id = %d", $post_id ) );
+	$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$whoowns_tables->networks_cache." WHERE post_id = %d", $post_id ) );
 	return true;
 }
 add_action( 'delete_post', 'whoowns_meta_boxes_delete', 10 );

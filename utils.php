@@ -85,13 +85,13 @@ function whoowns_get_owner_type($post_id,$provide_links=false) {
 function whoowns_get_direct_shareholders($post_id,$provide_links=false,$full_data=false) {
 	if (!$post_id)
 		return false;
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	$post_ids = (is_array($post_id))
 		? $post_id
 		: array($post_id);
 	$res = array();
 	foreach ($post_ids as $i=>$p) {
-		$sql = "SELECT b.id as share_id, a.post_title as shareholder_name, b.from_id as shareholder_id, b.share, b.relative_share FROM ".$wpdb->posts." a, ".$wpdb->whoowns_shares." b WHERE a.ID=b.from_id AND to_id='$p' ORDER BY b.share DESC";
+		$sql = "SELECT b.id as share_id, a.post_title as shareholder_name, b.from_id as shareholder_id, b.share, b.relative_share FROM ".$wpdb->posts." a, ".$whoowns_tables->shares." b WHERE a.ID=b.from_id AND to_id='$p' ORDER BY b.share DESC";
 		$res[$i] = $wpdb->get_results($sql);
 		if ($res[$i]) {
 			if ($full_data || $provide_links) {
@@ -298,7 +298,7 @@ add_action('whoowns-update-metakey-controlled-by', 'whoowns_update_metakey_contr
 
 
 function whoowns_get_direct_participations($post_id,$provide_links=false,$min_share=false) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	$post_ids = (is_array($post_id))
 		? $post_id
 		: array($post_id);
@@ -306,7 +306,7 @@ function whoowns_get_direct_participations($post_id,$provide_links=false,$min_sh
 		$min_share = "AND b.relative_share>$min_share";
 	$res = array();
 	foreach ($post_ids as $i=>$p) {
-		$sql = "SELECT b.id as share_id, a.ID, b.share, b.relative_share FROM ".$wpdb->posts." a, ".$wpdb->whoowns_shares." b WHERE a.ID=b.to_id AND from_id='$p' $min_share ORDER BY a.post_title";
+		$sql = "SELECT b.id as share_id, a.ID, b.share, b.relative_share FROM ".$wpdb->posts." a, ".$whoowns_tables->shares." b WHERE a.ID=b.to_id AND from_id='$p' $min_share ORDER BY a.post_title";
 		$res[$i] = $wpdb->get_results($sql);
 		if ($res[$i]) {
 			foreach ($res[$i] as $j=>$r) {
@@ -323,7 +323,7 @@ function whoowns_get_direct_participations($post_id,$provide_links=false,$min_sh
 	return ($res) ? $res : array();
 }
 function whoowns_has_participations($post_id,$min_share=false) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	$post_ids = (is_array($post_id))
 		? $post_id
 		: array($post_id);
@@ -331,7 +331,7 @@ function whoowns_has_participations($post_id,$min_share=false) {
 		$min_share = "AND relative_share>$min_share";
 	$res = array();
 	foreach ($post_ids as $i=>$p) {
-		$sql = "SELECT id as share_id FROM ".$wpdb->whoowns_shares." WHERE from_id='$p' $min_share";
+		$sql = "SELECT id as share_id FROM ".$whoowns_tables->shares." WHERE from_id='$p' $min_share";
 		$res[$i] = count($wpdb->get_results($sql));
 	}
 	if (count($res)==1)
@@ -532,7 +532,7 @@ function whoowns_get_participations_of_controlled_enterprises($postid,$controlle
 
 
 function whoowns_update_shareholders($post_id, $submitted_shareholders = array()) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	$actual_shareholders = whoowns_get_direct_shareholders($post_id);
 	$actual_direct_controller = whoowns_get_direct_controller($post_id);
 	$new_shareholders = $submitted_shareholders;
@@ -542,7 +542,7 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 		foreach ($submitted_shareholders as $i=>$submitted_shareholder) {
 			if ( $actual_shareholder->shareholder_id == $submitted_shareholder->shareholder_id ) {
 				$affected_rows = $wpdb->update(
-					$wpdb->whoowns_shares, 
+					$whoowns_tables->shares, 
 					array( 
 						'from_id' => $actual_shareholder->shareholder_id,
 						'to_id' => $post_id,
@@ -564,7 +564,7 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 		}
 		if (!$it_exists) {
 			$wpdb->delete(
-				$wpdb->whoowns_shares, 
+				$whoowns_tables->shares, 
 				array( 'id' => $actual_shareholder->share_id )
 			);
 			$changed = true;
@@ -574,7 +574,7 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 		foreach ($new_shareholders as $new_shareholder) {
 			if ($new_shareholder->shareholder_id) {
 				$wpdb->insert(
-					$wpdb->whoowns_shares, 
+					$whoowns_tables->shares, 
 					array( 
 						'from_id' => $new_shareholder->shareholder_id,
 						'to_id' => $post_id,
@@ -599,7 +599,7 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 		$shareholders = whoowns_get_direct_shareholders($post_id);
 		foreach ($shareholders as $shareholder) {
 			$wpdb->update(
-				$wpdb->whoowns_shares, 
+				$whoowns_tables->shares, 
 				array( 
 					'relative_share' => $relative_shares[$shareholder->shareholder_id]
 					),
@@ -635,14 +635,14 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 
 //This function prepares the system to update the whole universe related to an owner. It's called when something in the shareholders or revenue of owner $postid was changed.
 function whoowns_init_owner_universe_update($postid, $was_deleted=false) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	$net = whoowns_generate_full_network($postid);
 	
 	if ($was_deleted)
 		$net = array_diff($net, array($postid));
 	
 	//Erasing the cache of all nodes of the network:
-	$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$wpdb->whoowns_networks_cache." WHERE post_id IN (%d)", implode(', ',$net) ) );
+	$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$whoowns_tables->networks_cache." WHERE post_id IN (%d)", implode(', ',$net) ) );
 	
 	whoowns_init_update($net);
 }
@@ -1078,7 +1078,7 @@ function whoowns_get_main_actors_in_network($postid, $provide_links=false) {
 
 //$dir is the direction of the network from $postid: upstream is 'participation', downstream is 'composition' and both directions is 'all'
 function whoowns_generate_directed_network($postid,$net=array(),$dir,$minimum_share=0) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	//echo $postid."-";
 	if (!in_array($postid,$net)) {
 		$net[] = $postid;
@@ -1092,7 +1092,7 @@ function whoowns_generate_directed_network($postid,$net=array(),$dir,$minimum_sh
 	
 	//Downstream: Chain of composition (shareholding composition)
 	if (in_array($dir,array('composition','all'))) {
-		$sql = "SELECT from_id FROM ".$wpdb->whoowns_shares." WHERE to_id='$postid' $minimum_share_sql";
+		$sql = "SELECT from_id FROM ".$whoowns_tables->shares." WHERE to_id='$postid' $minimum_share_sql";
 		$res = $wpdb->get_results($sql);
 		if ($res) {
 			foreach ($res as $r) {
@@ -1103,7 +1103,7 @@ function whoowns_generate_directed_network($postid,$net=array(),$dir,$minimum_sh
 	
 	//Upstream: Chain of participations (shares ownership)
 	if (in_array($dir,array('participation','all'))) {
-		$sql = "SELECT to_id, relative_share FROM ".$wpdb->whoowns_shares." WHERE from_id='$postid' $minimum_share_sql";
+		$sql = "SELECT to_id, relative_share FROM ".$whoowns_tables->shares." WHERE from_id='$postid' $minimum_share_sql";
 		$res = $wpdb->get_results($sql);
 		//echo "$sql<br>";
 		if ($res) {
@@ -1143,11 +1143,11 @@ function whoowns_generate_network($postid,$mode='unique',$show_dir=false) {
 
 
 function whoowns_get_network_relations($post_ids) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	if (!is_array($post_ids))
 		return false;
 	$post_ids = implode(',',$post_ids);
-	$sql = "SELECT a.id as share_id, a.from_id as source_id, b.post_title as 'source_name', a.to_id as target_id, c.post_title as 'target_name', a.share, a.relative_share FROM ".$wpdb->whoowns_shares." a, ".$wpdb->posts." b, ".$wpdb->posts." c WHERE a.from_id=b.ID AND a.to_id=c.ID AND a.to_id IN ($post_ids) AND a.from_id IN ($post_ids)";
+	$sql = "SELECT a.id as share_id, a.from_id as source_id, b.post_title as 'source_name', a.to_id as target_id, c.post_title as 'target_name', a.share, a.relative_share FROM ".$whoowns_tables->shares." a, ".$wpdb->posts." b, ".$wpdb->posts." c WHERE a.from_id=b.ID AND a.to_id=c.ID AND a.to_id IN ($post_ids) AND a.from_id IN ($post_ids)";
 	$res = $wpdb->get_results($sql);
 	return $res;	
 }
@@ -1555,14 +1555,14 @@ function whoowns_select_owners($filters,$s='',$orderby,$order,$page=0) {
 
 
 function whoowns_retrieve_cached($postid,$fields,$decoded=false) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 
 	if (!$postid || !$fields)
 		return false;
 	$fields_sql = (is_array($fields))
 		? implode(',',$fields)
 		: $fields;
-	$sql = "SELECT $fields_sql FROM ".$wpdb->whoowns_networks_cache." WHERE post_id='$postid'";
+	$sql = "SELECT $fields_sql FROM ".$whoowns_tables->networks_cache." WHERE post_id='$postid'";
 	if (!($res = $wpdb->get_results($sql)))
 		return false;
 	if ($decoded) {
@@ -1580,15 +1580,15 @@ function whoowns_retrieve_cached($postid,$fields,$decoded=false) {
 
 
 function whoowns_save_cached($postid,$values) {
-	global $wpdb;
+	global $whoowns_tables, $wpdb;
 	foreach ($values as $col=>$val)
 		if (is_array($val) || is_object($val))
 			$values[$col]=json_encode($val);
-	$sql = "SELECT post_id FROM ".$wpdb->whoowns_networks_cache." WHERE post_id='$postid'";
+	$sql = "SELECT post_id FROM ".$whoowns_tables->networks_cache." WHERE post_id='$postid'";
 	$res = $wpdb->get_results($sql);
 	$res = ($res[0])
-		? $wpdb->update( $wpdb->whoowns_networks_cache, $values, array('post_id'=>$postid))
-		: $wpdb->insert( $wpdb->whoowns_networks_cache, array_merge(array('post_id'=>$postid),$values));
+		? $wpdb->update( $whoowns_tables->networks_cache, $values, array('post_id'=>$postid))
+		: $wpdb->insert( $whoowns_tables->networks_cache, array_merge(array('post_id'=>$postid),$values));
 	return $res;
 }
 

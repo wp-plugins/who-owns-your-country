@@ -66,6 +66,9 @@ Screenshots
 Changelog
 -----------------
 
+### 0.93
+* Added pt_PT language
+
 ### 0.92
 * Fixed some PHP warnings for empty objects
 * Changed the way whoowns tables are called

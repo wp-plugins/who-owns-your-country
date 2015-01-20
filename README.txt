@@ -3,7 +3,7 @@ Contributors: dtygel
 Tags: who owns your country, power networks, corporations, economy, politics, economic chain
 Requires at least: 3.6
 Tested up to: 4.1
-Stable tag: 0.92
+Stable tag: 0.93
 License: AFFERO License
 License URI: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
@@ -55,6 +55,7 @@ If your language is not listed there, please send a message to us at contato@pro
 
 * English
 * Brazilian Portuguese, by daniel tygel
+* Portugal Portuguese, by daniel tygel
 
 == Screenshots ==
 
@@ -64,6 +65,9 @@ If your language is not listed there, please send a message to us at contato@pro
 1. Page for searching the owners. Hooks in the plugin also allow the template owner to add custom columns and orderings to this page. Besides the filters (by enterprises, persons, state institutions and "ranked" corporations) and ordering, the text search form has an autocomplete feature, leading the guest directly to the factsheet og the owner found.
 
 == Changelog ==
+
+= 0.93 =
+* Added pt_PT language
 
 = 0.92 =
 * Fixed some PHP warnings for empty objects

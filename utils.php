@@ -1660,8 +1660,10 @@ function whoowns_template_get_owner_data($postid,$section) {
 			$owner_data->random_related_post = whoowns_get_owner_data(whoowns_get_network_related_articles($postid, 'post', array('orderby'=>'rand', 'posts_per_page'=>1)), true);
 		break;
 	}
-	if (!isset($owner_data->type))
+	if (!isset($owner_data->type)) {
+		$owner_data = new stdClass();
 		$owner_data->type = whoowns_get_owner_type($postid);
+	}
 	
 	return $owner_data;
 }

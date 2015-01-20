@@ -69,6 +69,12 @@ function whoowns_set_defaults() {
 }
 
 function whoowns_settings_page() {
+	// If settings are updated, I must clear the rewrite rules cache and initialize the update schedule:
+	if(isset($_GET['settings-updated']) && $_GET['settings-updated']) {
+		global $wp_rewrite;
+		$wp_rewrite->flush_rules( false );
+		whoowns_initialize_update_schedule();
+	}
 	?>
 	<div class="wrap">
 	<?php screen_icon(); ?>
@@ -197,9 +203,4 @@ function whoowns_settings_page() {
 	</div>
 	<?php
 }
-
-function whoowns_changed_settings() {
-	whoowns_initialize_update_schedule();
-}
-add_action('customize_save_after', 'whoowns_changed_settings');
 ?>

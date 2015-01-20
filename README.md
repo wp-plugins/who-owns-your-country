@@ -66,6 +66,10 @@ Screenshots
 Changelog
 -----------------
 
+### 0.92
+* Fixed some PHP warnings for empty objects
+* Changed the way whoowns tables are called
+
 ### 0.91
 * Fixed the header of whoowns.php to point to most recent file
 * Fixed typo in utils.php (from <? to <?php)

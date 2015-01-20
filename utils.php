@@ -1546,6 +1546,7 @@ function whoowns_select_owners($filters,$s='',$orderby,$order,$page=0) {
 	foreach ($res->posts as $i=>$r) {
 		$owners[] = whoowns_get_owner_data($r,true);
 	}
+	$return = new stdClass();
 	$return->found_posts = $res->found_posts;
 	$return->max_num_pages = $res->max_num_pages;
 	$return->owners = $owners;
@@ -1969,6 +1970,7 @@ function whoowns_template_show_owners($owners, $hide_columns=array()) {
 	</tbody>
 	</table>
 	<?php
+	$return = new stdClass();
 	$return->posts_found = $owners->found_posts;
 	$return->max_num_pages = $owners->max_num_pages;
 	return $return;

@@ -352,6 +352,8 @@ function whoowns_meta_box_related_owners ($post) {
 	#pR($owners);exit;
 	$num_existing_owners=count($owners);
 	for ($i=$num_existing_owners;$i<get_option('whoowns_default_shareholders_number');$i++) {
+		if (!isset($owners[$i]))
+			$owners[$i] = new stdClass();
 		$owners[$i]->ID='';
 	}
 	?>

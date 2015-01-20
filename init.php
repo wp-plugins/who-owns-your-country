@@ -218,6 +218,13 @@ function add_whoowns_script($hook) {
 add_action('wp_enqueue_scripts', 'add_whoowns_script');
 add_action('admin_enqueue_scripts', 'add_whoowns_script');
 
+function add_whoowns_styles() {
+	wp_enqueue_style( 'whoowns-css', plugins_url('/theme-files/whoowns.css', __FILE__ ) 
+);
+	wp_enqueue_style( 'font-awesome-styles', plugins_url('/theme-files/fontello.css', __FILE__ ) );
+}
+add_action('wp_enqueue_scripts', 'add_whoowns_styles',0);
+
 function whoowns_redirect_after_login( $redirect_to, $request, $user ) {
 	global $user;
     if( isset( $user->roles ) && is_array( $user->roles ) ) {
@@ -233,4 +240,24 @@ function whoowns_redirect_after_login( $redirect_to, $request, $user ) {
     }
 }
 add_filter("login_redirect", "whoowns_redirect_after_login",10,3);
+
+function include_template_files($template) {
+    $plugin_dir = dirname( __FILE__ );
+    $theme_dir = get_template_directory();
+
+    if (is_post_type_archive( 'whoowns_owner' )) {
+        $template_filename = 'archive-whoowns_owner.php';
+        
+    } elseif (get_post_type() == 'whoowns_owner' ){
+        $template_filename = 'single-whoowns_owner.php';
+    }
+    
+    if ($template_filename && !file_exists($theme_dir.'/'.$template_filename)) {
+        	$plugin_template = $plugin_dir . '/theme-files/' . $template_filename;
+        	return $plugin_template;
+    }
+    
+    return $template;
+}
+add_filter( 'template_include', 'include_template_files' );
 ?>

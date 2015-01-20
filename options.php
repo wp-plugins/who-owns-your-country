@@ -69,7 +69,7 @@ function whoowns_set_defaults() {
 }
 
 function whoowns_settings_page() {
-	// If settings are updated, I must clear the rewrite rules cache and initialize the update schedule:
+	// If settings are updated, the rewrite rules cache must be cleared and the update schedule initialized:
 	if(isset($_GET['settings-updated']) && $_GET['settings-updated']) {
 		global $wp_rewrite;
 		$wp_rewrite->flush_rules( false );

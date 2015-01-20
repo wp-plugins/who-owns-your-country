@@ -1607,6 +1607,8 @@ function whoowns_template_get_owner_data($postid,$section) {
 		
 		
 		case 'news':
+			if (!$owner_data)
+				$owner_data = new stdClass();
 			$owner_data->news = array_slice(whoowns_get_network_related_news($postid),0,30);
 		break;
 		

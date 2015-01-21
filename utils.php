@@ -1665,7 +1665,8 @@ function whoowns_template_get_owner_data($postid,$section) {
 		break;
 	}
 	if (!isset($owner_data->type)) {
-		$owner_data = new stdClass();
+		if (!isset($owner_data))
+			$owner_data = new stdClass();
 		$owner_data->type = whoowns_get_owner_type($postid);
 	}
 	

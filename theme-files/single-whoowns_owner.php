@@ -4,6 +4,7 @@
 	*/
 	
 	//whoowns_update();exit;
+	//whoowns_init_owner_universe_update(get_the_ID());exit;
 	
 	$section = ($_GET['section'])
 		? $_GET['section']
@@ -16,6 +17,7 @@
 
 	#pR($owner_data);exit;
 ?>
+<h1 class="entry-title"><?php the_title(); ?></h1>
 <?=whoowns_template_show_factsheet_sections_submenu($section)?>
 <section id="mainbody">
 	<div id="whoowns">

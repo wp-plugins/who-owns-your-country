@@ -1,349 +1,407 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Who owns the country? A Worpress Plugin\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-28 04:24-0200\n"
-"PO-Revision-Date: 2013-11-28 12:26-0300\n"
+"Project-Id-Version: Who Owns Your Country\n"
+"POT-Creation-Date: 2015-01-21 10:16+0000\n"
+"PO-Revision-Date: 2015-01-21 08:22-0300\n"
 "Last-Translator: daniel tygel <dtygel@eita.org.br>\n"
-"Language-Team: \n"
-"Language: \n"
+"Language-Team: Alain Bertrand <alain.bertrand.mu@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: French\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Basepath: ~/grit/proprietariosdobrasil.org.br/wordpress/wp-content/plugins/whoowns/\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: fr_FR\n"
 
-#: whoowns.php:20
-#: init.php:74
-#: init_admin.php:4
+#: ../admin.php:6 ../admin.php:7
+msgid "Related Owners"
+msgstr "Propriétaires affiliés"
+
+#: ../admin.php:358
+msgid "Who are the owners related to this article?"
+msgstr "Qui sont les propriétaires reliés à cet article ?"
+
+#: ../admin.php:365
+msgid "Add more..."
+msgstr "Autres..."
+
+#: ../init.php:7
+msgid "Owner types"
+msgstr "Types de Proprietaires"
+
+#: ../init.php:8
+msgid "Owner type"
+msgstr "Type de propriétaire"
+
+#: ../init.php:32
+msgid "Source types"
+msgstr "Types de sources"
+
+#: ../init.php:33
+msgid "Source type"
+msgstr "Type de la source"
+
+#: ../init.php:58 ../init.php:59
+msgid "State or Province"
+msgstr "Etat ou Région"
+
+#: ../init.php:60
+msgid "Search states"
+msgstr "Rechercher dans les états"
+
+#: ../init.php:61
+msgid "All states"
+msgstr "Tous les états"
+
+#: ../init.php:62 ../init.php:63
+msgid "Region"
+msgstr "Région"
+
+#: ../init.php:64
+msgid "Edit state"
+msgstr "Modifier état"
+
+#: ../init.php:65
+msgid "Update state"
+msgstr "Mettre à jour état"
+
+#: ../init.php:66
+msgid "Add New state"
+msgstr "Ajouter nouvel état"
+
+#: ../init.php:67
+msgid "New state"
+msgstr "Nouvel état"
+
+#: ../init.php:68
+msgid "States"
+msgstr "Etats"
+
+#: ../init.php:87
+msgid "Owner"
+msgstr "Propriétaire"
+
+#: ../utils.php:187
+msgid "Information not available."
+msgstr "Information non-disponible"
+
+#: ../utils.php:409
+msgid "Directly controlled:"
+msgstr "Directement contrôlé(e) par :"
+
+#: ../utils.php:410
+msgid "Indirectly controlled:"
+msgstr "Contrôlé(e) indirectement par :"
+
+#: ../utils.php:419
+msgid "None."
+msgstr "Aucun."
+
+#: ../utils.php:439
+msgid "see all"
+msgstr "tout afficher"
+
+#: ../utils.php:1285
+msgid "List view"
+msgstr "Affichage par Liste"
+
+#: ../utils.php:1288
+msgid "Direct shareholders:"
+msgstr "Actionnaires directs :"
+
+#: ../utils.php:1294
+msgid "Controlled enterprises:"
+msgstr "Sociétés contrôlées :"
+
+#: ../utils.php:1300
+msgid "Controlled by:"
+msgstr "Contrôlées par :"
+
+#: ../utils.php:1306
+msgid "All Participations:"
+msgstr "Toutes les Participations :"
+
+#: ../utils.php:1307 ../utils.php:1315
+msgid "Meaning of the values in parenthesis:"
+msgstr "Signification des valeurs entre parenthèses :"
+
+#: ../utils.php:1307 ../utils.php:1315
+msgid "share"
+msgstr "Action"
+
+#: ../utils.php:1383
+msgid "Center of <i>this</i> network"
+msgstr "Centre de <i>ce</i> réseau"
+
+#: ../utils.php:1397
+msgid "Control over the enterprise (>50%)"
+msgstr "Prise de Contrôle sur la societe (>50%)"
+
+#: whoowns.php:20 init.php:74 init_admin.php:4
 msgid "Owners"
-msgstr ""
+msgstr "Propriétaires"
 
-#: whoowns.php:21
-#: init.php:75
+#: whoowns.php:21 init.php:75
 msgid "Parent Owner:"
-msgstr ""
+msgstr "Propriétaire-mère"
 
-#: whoowns.php:22
-#: init.php:76
+#: whoowns.php:22 init.php:76
 msgid "All Owners"
-msgstr ""
+msgstr "Tous Propriétaires"
 
-#: whoowns.php:23
-#: init.php:77
+#: whoowns.php:23 init.php:77
 msgid "View Owner"
-msgstr ""
+msgstr "Afficher Propriétaire"
 
-#: whoowns.php:24
-#: init.php:78
+#: whoowns.php:24 init.php:78
 msgid "Add New Owner"
-msgstr ""
+msgstr "Ajouter Nouveau Propriétaire"
 
-#: whoowns.php:25
-#: init.php:79
+#: whoowns.php:25 init.php:79
 msgid "New Owner"
-msgstr ""
+msgstr "Nouveau Propriétaire"
 
-#: whoowns.php:26
-#: init.php:80
+#: whoowns.php:26 init.php:80
 msgid "Edit Owner"
-msgstr ""
+msgstr "Modifier Propriétaire"
 
-#: whoowns.php:27
-#: init.php:81
+#: whoowns.php:27 init.php:81
 msgid "Update Owner"
-msgstr ""
+msgstr "Mettre à jour Propriétaire"
 
-#: whoowns.php:28
-#: init.php:82
+#: whoowns.php:28 init.php:82
 msgid "Search owners"
-msgstr ""
+msgstr "Rechercher dans les Propriétaires"
 
-#: whoowns.php:29
-#: init.php:83
+#: whoowns.php:29 init.php:83
 msgid "No owners found"
-msgstr ""
+msgstr "Aucun propriétaire trouvé"
 
-#: whoowns.php:30
-#: init.php:84
+#: whoowns.php:30 init.php:84
 msgid "No owners found in Trash"
-msgstr ""
+msgstr "Aucun propriétaire trouvé dans la poubelle"
 
-#: whoowns.php:33
-#: init.php:87
-msgid "owners"
-msgstr ""
-
-#: whoowns.php:39
-#: init.php:93
-msgid "whoowns_owner"
-msgstr ""
-
-#: whoowns.php:40
-#: init.php:94
+#: whoowns.php:40 init.php:94
 msgid "Facts-sheet about an Owner"
-msgstr ""
-
-#: whoowns.php:69
-msgid "Shareholders (if any)"
-msgstr ""
-
-#: independent_scripts/get_owner_images.php:14
-#: independent_scripts/import_csv_from_old_model.php:21
-#: independent_scripts/get_dbpedia_links.php:29
-msgid "You are not allowed to access this area of the website"
-msgstr ""
+msgstr "Fiche-info Propriétaire"
 
 #: admin.php:5
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 #: admin.php:11
 msgid "Owner Image"
-msgstr ""
+msgstr "Illustration du Proprietaire"
 
 #: admin.php:36
 msgid "Legal registration ID"
-msgstr ""
+msgstr "Identifiant d'Enregistrement Légal"
 
 #: admin.php:37
 msgid "What is the formal registration identity of this owner?"
-msgstr ""
+msgstr "Quelle est l’entité légale enregistrée au nom du propriétaire ?"
 
 #: admin.php:47
 msgid "Type of this Owner"
-msgstr ""
+msgstr "Qualité du Propriétaire"
 
 #: admin.php:48
 msgid "Is this owner an enterprise? a person? other type? Please choose below:"
 msgstr ""
+"Le propriétaire, est-ce une société ? Une personne ? ou Autre ? Choisissez "
+"ci-dessous :"
 
 #: admin.php:50
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
-#: admin.php:52
-#: admin.php:92
+#: admin.php:52 admin.php:92
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: admin.php:68
 msgid "URI in dbpedia"
-msgstr ""
+msgstr "Adresse URI dans dbpedia"
 
 #: admin.php:69
 msgid "Leave it blank if you don't know what dbpedia is."
-msgstr ""
+msgstr "Laissez ce champ libre si vous ne savez pas ce qu'est dbpedia."
 
 #: admin.php:70
 msgid "URI in dbpedia:"
-msgstr ""
+msgstr "Adresse URI dans dbpedia"
 
 #: admin.php:82
 msgid "Net revenue"
-msgstr ""
+msgstr "Chiffre d'Affaires Net"
 
 #: admin.php:83
-msgid "What is the net revenue of this owner? You must also define the date and period of this information, along with the source"
+msgid ""
+"What is the net revenue of this owner? You must also define the date and "
+"period of this information, along with the source"
 msgstr ""
+"Quel est le Chiffre d'Affaires Net (CA) du propriétaire ? Vous devez "
+"également mentionner la date et la période liées à cette information, de "
+"même que sa source."
 
 #: admin.php:84
 msgid "Net revenue in $ millions:"
-msgstr ""
+msgstr "Chiffre d'Affaires Net (CA) en $ millions :"
 
 #: admin.php:87
 msgid "From what year is this information?"
-msgstr ""
+msgstr "De quelle année date l'information ?"
 
 #: admin.php:90
 msgid "This revenue is for how many months?"
-msgstr ""
+msgstr "Sur combien de mois court le Chiffre d'Affaires ?"
 
 #: admin.php:97
 msgid "trimester"
-msgstr ""
+msgstr "Trimestre"
 
 #: admin.php:100
 msgid "semester"
-msgstr ""
+msgstr "Semestre"
 
 #: admin.php:103
 msgid "year"
-msgstr ""
+msgstr "Année"
 
 #: admin.php:116
 msgid "What is the name of the source of this information?"
-msgstr ""
+msgstr "Quelle est la source de l'information ?"
 
 #: admin.php:119
 msgid "What is the internet address of this source?"
-msgstr ""
+msgstr "Quelle est l'adresse Internet de la source ?"
 
 #: admin.php:132
 msgid "Owners and shares"
-msgstr ""
+msgstr "Propriétaires et Actionnariat"
 
 #: admin.php:133
-msgid "Who owns this enterprise? The information must be validated by source documents from a Junta Comercial or from the Receita Federal"
+msgid ""
+"Who owns this enterprise? The information must be validated by source "
+"documents from a Junta Comercial or from the Receita Federal"
 msgstr ""
+"Qui est propriétaire de cette entreprise ? L'information doit être validée "
+"par des documents issus d'une Chambre de Commerces ou de l'Administration "
+"Fiscale."
 
 #: admin.php:137
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: admin.php:138
 msgid "Ownership Shares (in percentage)"
-msgstr ""
+msgstr "Actionnariat (en pourcentage)"
 
 #: admin.php:149
 msgid "Add more shareholders..."
-msgstr ""
+msgstr "Autres Actionnaires..."
 
 #: admin.php:149
 msgid "Hide"
-msgstr ""
+msgstr "Escamoter"
 
 #: admin.php:175
 msgid "Source of shareholders data"
-msgstr ""
+msgstr "Source des données des actionnaires"
 
 #: admin.php:177
 msgid "Where did you get the shareholders data from?"
-msgstr ""
+msgstr "D’où proviennent vos données d'actionnaires"
 
 #: admin.php:181
 msgid "Year of this information:"
-msgstr ""
+msgstr "Année de l'information :"
 
 #: admin.php:184
 msgid "Please attach the documents to validate the above mentioned source:"
 msgstr ""
+"Merci de joindre les pièces justificatives relatives à la source mentionnée :"
 
 #: admin.php:190
 msgid "Delete File"
-msgstr ""
+msgstr "Supprimer le fichier"
 
 #: admin.php:194
 msgid "Add document"
-msgstr ""
+msgstr "Ajouter un document"
 
-#: admin.php:311
-#: admin.php:324
+#: admin.php:311 admin.php:324
 msgid "Error: you did not specify valid parameters for this callback"
 msgstr ""
+"Erreur : Vous n'avez pas spécifié les paramètres valides pour ce rappel"
 
 #: admin.php:320
-msgid "Error: I was not able to delete the file. Therefore, I only erased the associated metadata"
+msgid ""
+"Error: I was not able to delete the file. Therefore, I only erased the "
+"associated metadata"
 msgstr ""
+"Erreur : Je n'ai pas été en mesure de supprimer le fichier. Je n'ai effacé "
+"que les métadonnées associées."
 
 #: init.php:21
 msgid "Search owner types"
-msgstr ""
+msgstr "Rechercher dans les types de propriétaires"
 
 #: init.php:22
 msgid "All owner types"
-msgstr ""
+msgstr "Tous les types de propriétaires"
 
 #: init.php:25
 msgid "Edit Owner Type"
-msgstr ""
+msgstr "Modifier type de propriétaire"
 
 #: init.php:26
 msgid "Update Owner Type"
-msgstr ""
+msgstr "Mettre à jour type de propriétaire"
 
 #: init.php:27
 msgid "Add New Owner Type"
-msgstr ""
+msgstr "Ajouter un nouveau type de propriétaire"
 
 #: init.php:28
 msgid "New Owner Type"
-msgstr ""
+msgstr "Nouveau type de propriétaire"
 
 #: init.php:29
 msgid "Owner Types"
-msgstr ""
+msgstr "Types de propriétaires"
 
 #: init.php:46
 msgid "Search source types"
-msgstr ""
+msgstr "Rechercher dans les types de sources"
 
 #: init.php:47
 msgid "All source types"
-msgstr ""
+msgstr "Tous types de sources"
 
 #: init.php:50
 msgid "Edit Source Type"
-msgstr ""
+msgstr "Modifier type de source"
 
 #: init.php:51
 msgid "Update Source Type"
-msgstr ""
+msgstr "Mettre à jour type de source"
 
 #: init.php:52
 msgid "Add New Source Type"
-msgstr ""
+msgstr "Ajouter nouveau type de source"
 
 #: init.php:53
 msgid "New Source Type"
-msgstr ""
+msgstr "Nouveau type de source"
 
 #: init.php:54
 msgid "Source Types"
-msgstr ""
-
-#: init.php:125
-msgid "Owner Author"
-msgstr ""
+msgstr "Types de sources"
 
 #: init_admin.php:4
 msgid "Whoowns Brazil Plugin Settings"
-msgstr ""
+msgstr "Réglages pour le plugin Whoowns Brazil"
 
-#: init_admin.php:99
-#: init_admin.php:101
+#: init_admin.php:99 init_admin.php:101
 msgid "Are you sure you want to delete the file \"{file}\"?"
-msgstr ""
-
-#: utils.php:354
-msgid "Private enterprise"
-msgstr ""
-
-#: options.php:50
-msgid "Settings of the Who Owns Plugin"
-msgstr ""
-
-#: options.php:58
-msgid "Maximum number of shareholders to display in the edit form"
-msgstr ""
-
-#: options.php:63
-msgid "Number of owners to display per page in the ranking table"
-msgstr ""
-
-#: options.php:68
-msgid "Standard symbol for decimals"
-msgstr ""
-
-#: options.php:77
-msgid "Standard symbol for thousands"
-msgstr ""
-
-#: options.php:86
-msgid "Default size of the owner image. Put width and height separated by an \"x\". For example: 300x300"
-msgstr ""
-
-#: init_admin.php:35
-msgid "Person"
-msgstr ""
-
-#: init_admin.php:36
-msgid "State"
-msgstr ""
-
+msgstr "Etes-vous sûr de vouloir supprimer le fichier \"{file}\" ?"

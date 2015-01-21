@@ -656,7 +656,7 @@ function whoowns_init_update($net) {
 	}*/
 	
 	$whoowns_cron = get_option('whoowns_cron');
-	if ($whoowns_cron['postids']) {
+	if (isset($whoowns_cron['postids']) && $whoowns_cron['postids']) {
 		$net = array_unique(array_merge($net,$whoowns_cron['postids']));
 	}
 	$whoowns_cron['stage'] = 1;
@@ -819,7 +819,7 @@ function whoowns_check_if_interchainer($postids, $save_metadata=false) {
 	$is_interchainer = array();
 	foreach ($postids as $postid) {
 		//INTERCHAIN PARTICIPATIONS:
-		//Definition of non-controlled enterprises with interchain participations: The criteria is that the enterprise is nos controlled by any other enterprise and is not an ultimate controller, but participates directly in more than one different chain (be it by it or by a directly controlled enterprise)
+		//Definition of non-controlled enterprises with interchain participations: The criteria is that the enterprise is not controlled by any other enterprise and is not an ultimate controller, but participates directly in more than one different chain (be it by it or by a directly controlled enterprise)
 		$type = whoowns_get_owner_type($postid);
 		if ($type && $type->slug!='private-enterprise') {
 			$is_interchainer[$postid] = false;
@@ -973,10 +973,10 @@ function whoowns_calculate_revenue($postids) {
 	$value = array();
 	foreach ($postids as $i=>$postid) {
 		$revenue = get_post_meta($postid, 'whoowns_revenue', true);
-		$months = (intval($revenue['months']))
+		$months = (isset($revenue['months']) && intval($revenue['months']))
 			? intval($revenue['months'])
 			: 12;
-		$v = floatval($revenue['value']);
+		$v = (isset($revenue['value'])) ? floatval($revenue['value']) : 0;
 		if ($v && $months<=12)
 			$value[$postid] = ($v/$months)*12;
 	}
@@ -1121,6 +1121,8 @@ function whoowns_generate_directed_network($postid,$net=array(),$dir,$minimum_sh
 function whoowns_generate_network($postid,$mode='unique',$show_dir=false) {
 	$cached=true;
 	if ($show_dir || !($net = whoowns_retrieve_cached($postid,'post_ids',true))) {
+		if (!$net)
+			$net = array();
 		$net['participation'] = whoowns_generate_directed_network($postid,array(),'participation');
 		$net['composition'] = whoowns_generate_directed_network($postid,array(),'composition');
 		$cached=false;

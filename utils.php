@@ -730,8 +730,8 @@ function whoowns_update_network_cache($postid, $conclude) {
 	$html = ob_get_contents();
 	ob_end_clean();
 	whoowns_save_cached($postid,array('cy_list'=>trim($html)));
-	/*//repopulate news:
-	whoowns_update_network_related_news($postid);*/
+	//repopulate news:
+	whoowns_update_network_related_news($postid);
 	
 	// If this was the last postid of the targets, it's time to go to the next stage of action whoowns-update
 	if ($conclude) {

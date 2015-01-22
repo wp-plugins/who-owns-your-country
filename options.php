@@ -28,7 +28,7 @@ function whoowns_set_defaults() {
 	update_option('whoowns_default_related_owners_number',15);
 	update_option('whoowns_relative_share_for_dummy_shareholders',5);
 	update_option('whoowns_owners_per_page',400);
-	update_option('whoowns_owner_image_size','300x300');
+	update_option('whoowns_owner_image_size','150x150');
 	update_option('whoowns_legends_icon_size','16');
 	update_option('whoowns_legends_format','horizontal');
 	update_option('whoowns_threshold_show_names_in_network',15);
@@ -38,7 +38,7 @@ function whoowns_set_defaults() {
 	update_option('whoowns_news_date_format','d/m/Y');
 	update_option('whoowns_reference_owner','');
 	update_option('whoowns_cron_ref_hour','0');
-	update_option('whoowns_cron_frequency','daily');
+	update_option('whoowns_cron_frequency','hourly');
 	
 	update_option('whoowns_factsheet_sections', array(
 			10 => array('ord'=>10, 'slug'=>'factsheet','title'=>'global vision', 'path'=>plugin_dir_path(__FILE__)."theme-files/layouts/single-whoowns_owner.factsheet.php"),

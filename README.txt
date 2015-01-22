@@ -15,7 +15,7 @@ Calculate the Economic Power Networks in your country, showing enterprises, peop
 
 What is the economic power structure of the private groups in your country? Who are the actors who accumulate the most power in this structure, and what is the relationship amongst them? What is the degree of influence of this invisible power structure, over government decisions in terms of development and economic policies? How does the State relate and feed this power structure and what are the counterparts of this relationship for the well being of society? It is with the objective to respond to these and other questions that we built the “Brazil's Owners” Project and corresponding methodology.
 
-"Who Owns your Country" is a plugin for Wordpress which uses the methodology developped by EITA (http://eita.org.br) and IMD (http://maisdemocracia.org.br) for the project "WHO OWNS BRAZIL" (http://proprietariosdobrasil.eita.org.br).
+"Who Owns your Country" is a plugin for Wordpress which uses the methodology developped by EITA (http://eita.org.br) and IMD (http://maisdemocracia.org.br) for the project "WHO OWNS BRAZIL" (http://proprietariosdobrasil.org.br).
 
 It connects enterprises, people and government's ownership and revenue information to build Power Networks and a ranking of the most powerful actors in this constellation, allowing visitors to see the data in a variety of ways, including charts, factsheets and interactive network maps.
 

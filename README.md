@@ -3,7 +3,7 @@ Who Owns your Country
 
 What is the economic power structure of the private groups in your country? Who are the actors who accumulate the most power in this structure, and what is the relationship amongst them? What is the degree of influence of this invisible power structure, over government decisions in terms of development and economic policies? How does the State relate and feed this power structure and what are the counterparts of this relationship for the well being of society? It is with the objective to respond to these and other questions that we built the “Brazil's Owners” Project and corresponding methodology.
 
-"Who Owns your Country" is a plugin for Wordpress which uses the methodology developped by EITA (http://eita.org.br) and IMD (http://maisdemocracia.org.br) for the project "WHO OWNS BRAZIL" (http://proprietariosdobrasil.eita.org.br).
+"Who Owns your Country" is a plugin for Wordpress which uses the methodology developped by EITA (http://eita.org.br) and IMD (http://maisdemocracia.org.br) for the project "WHO OWNS BRAZIL" (http://proprietariosdobrasil.org.br).
 
 It connects enterprises, people and government's ownership and revenue information to build Power Networks and a ranking of the most powerful actors in this constellation, allowing visitors to see the data in a variety of ways, including charts, factsheets and interactive network maps.
 
@@ -65,6 +65,16 @@ Screenshots
 
 Changelog
 -----------------
+
+### 0.94
+* Added fr_FR language fully translated: thanks Alain!
+* Fixed bug of networks cache not being cleaned after shareholder changes
+* Clear rewrite rules cache for new installs and when settings are changed
+* Fix other PHP warnings because of declaring attribute or index in empty objects and arrays
+* Avoid saving shares in revisions
+* Add title to the single_owner theme file 
+* Clean post_ids heys when generating network cache
+* Change defaults image_size to 150px and cron frequency to hourly 
 
 ### 0.93
 * Added pt_PT language

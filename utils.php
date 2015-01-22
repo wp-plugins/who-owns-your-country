@@ -642,7 +642,7 @@ function whoowns_init_owner_universe_update($postid, $was_deleted=false) {
 		$net = array_diff($net, array($postid));
 	
 	//Erasing the cache of all nodes of the network:
-	$wpdb->query( $wpdb->prepare(  "DELETE FROM ".$whoowns_tables->networks_cache." WHERE post_id IN (%d)", implode(', ',$net) ) );
+	$wpdb->query( "DELETE FROM ".$whoowns_tables->networks_cache." WHERE post_id IN (".implode(', ',$net).")" );
 	
 	whoowns_init_update($net);
 }

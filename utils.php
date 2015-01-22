@@ -1129,15 +1129,23 @@ function whoowns_generate_network($postid,$mode='unique',$show_dir=false) {
 	}
 	if ($mode=='unique') {
 		if ($show_dir) {
-			$net['participation'] = array_unique($net['participation']);
-			$net['composition'] = array_unique($net['composition']);
+			$net['participation'] = array_values(array_unique($net['participation']));
+			$net['composition'] = array_values(array_unique($net['composition']));
 		} elseif (!$cached) {
-			$net = array_unique(array_merge($net['participation'],$net['composition']));
+			$net = array_values(array_unique(array_merge($net['participation'],$net['composition'])));
 			whoowns_save_cached($postid,array('post_ids'=>$net));
 		}
 	}
-	if ($mode=='without_reference')
-		unset($net[0], $net['participation'][0], $net['composition'][0]);
+	if ($mode=='without_reference') {
+		if ($net[0]) {
+			unset($net[0]);
+			$net = array_values($net);
+		} else {
+			unset($net['participation'][0], $net['composition'][0]);
+			$net['participation'] = array_values($net['participation']);
+			$net['composition'] = array_values($net['composition']);
+		}
+	}
 	//pR($net);
 	return $net;
 }

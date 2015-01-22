@@ -749,7 +749,7 @@ add_action( 'whoowns-update-network-cache','whoowns_update_network_cache' );
 //This function gets the whole universe of points related to this reference. This is useful for calculating the accumulated power, interchainer and final controllers, not for the graphic. Use with care...
 function whoowns_generate_full_network($postid) {
 	$full_net = whoowns_generate_directed_network($postid,array(),'all');
-	return array_unique($full_net);
+	return array_values(array_unique($full_net));
 }
 
 

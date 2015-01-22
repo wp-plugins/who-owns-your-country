@@ -7,7 +7,7 @@ What is the economic power structure of the private groups in your country? Who 
 
 It connects enterprises, people and government's ownership and revenue information to build Power Networks and a ranking of the most powerful actors in this constellation, allowing visitors to see the data in a variety of ways, including charts, factsheets and interactive network maps.
 
-For more information on the methodology, visit http://www.proprietariosdobrasil.org.br/index.php/en/ . We also have a paper about the methodology in English which will soon be available.
+For more information on the methodology, visit http://proprietariosdobrasil.org.br/inicio/metodologia . We also have a paper about the methodology in English available at http://www.proprietariosdobrasil.org.br/tygel_who_owns_brazil.pdf
 
 Contributions
 -------------------

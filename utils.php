@@ -674,13 +674,14 @@ function whoowns_update() {
 		return false;
 	} elseif ($whoowns_cron['status']=='concluded') {
 		$whoowns_cron['stage']++;
-		if ($whoowns_cron['stage']>5) {
+		/*if ($whoowns_cron['stage']>6) {
 			update_option('whoowns_cron','');
 			return true;
-		}
+		}*/
 	}
 		
 	$postids = $whoowns_cron['postids'];
+
 	$whoowns_cron['status'] = 'working';
 	update_option('whoowns_cron', $whoowns_cron);
 	switch ($whoowns_cron['stage']) {
@@ -702,16 +703,11 @@ function whoowns_update() {
 		case 6:
 			whoowns_batch_update_power_index_and_rank();
 		break;
-		case 7:
-			$conclude = false;
-			foreach ($net as $i=>$n_postid) {
-				if ($i == (count($net)-1))
-					$conclude = true;
-				wp_schedule_single_event( time()+($i*30), 'whoowns-update-network-cache', array($n_postid, $conclude) );
-			}
-		break;
 	}
-	if ($whoowns_cron['stage']!=7) {
+	if ($whoowns_cron['stage']==6) {
+		update_option('whoowns_cron','');
+		return true;
+	} else {
 		$whoowns_cron['status'] = 'concluded';
 		update_option('whoowns_cron', $whoowns_cron);
 		wp_schedule_single_event( time(), 'whoowns-update' );

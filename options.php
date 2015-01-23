@@ -8,6 +8,7 @@ function whoowns_register_settings() {
 	register_setting( 'whoowns', 'whoowns_owners_per_page' );
 	register_setting( 'whoowns', 'whoowns_owner_image_size' );
 	register_setting( 'whoowns', 'whoowns_owner_slug' );
+	register_setting( 'whoowns', 'whoowns_currency' );
 	register_setting( 'whoowns', 'whoowns_legends_icon_size' );
 	register_setting( 'whoowns', 'whoowns_legends_format' );
 	register_setting( 'whoowns', 'whoowns_threshold_show_names_in_network' );
@@ -18,27 +19,38 @@ function whoowns_register_settings() {
 	register_setting( 'whoowns', 'whoowns_reference_owner' );
 	register_setting( 'whoowns', 'whoowns_cron_ref_hour' );
 	register_setting( 'whoowns', 'whoowns_cron_frequency' );
+	register_setting( 'whoowns', 'whoowns_cron_threshold' );
 }
 
 function whoowns_set_defaults() {
-	add_option('whoowns_owner_slug','owners');
-	add_option('whoowns_default_shareholders_number',15);
-	add_option('whoowns_default_related_owners_number',15);
-	add_option('whoowns_relative_share_for_dummy_shareholders',5);
-	add_option('whoowns_owners_per_page',400);
-	add_option('whoowns_owner_image_size','300x300');
-	add_option('whoowns_legends_icon_size','16');
-	add_option('whoowns_legends_format','horizontal');
-	add_option('whoowns_threshold_show_names_in_network',15);
-	add_option('whoowns_threshold_show_arrows_in_network_when_move',20);
-	add_option('whoowns_news_search_api','bing');
-	add_option('whoowns_news_sources',"valor.com.br\nbrasildefato.com.br");
-	add_option('whoowns_news_date_format','d/m/Y');
-	add_option('whoowns_reference_owner','');
-	add_option('whoowns_cron_ref_hour','0');
-	add_option('whoowns_cron_frequency','daily');
+	update_option('whoowns_owner_slug','owners');
+	update_option('whoowns_currency','US$');
+	update_option('whoowns_default_shareholders_number',15);
+	update_option('whoowns_default_related_owners_number',15);
+	update_option('whoowns_relative_share_for_dummy_shareholders',5);
+	update_option('whoowns_owners_per_page',400);
+	update_option('whoowns_owner_image_size','150x150');
+	update_option('whoowns_legends_icon_size','16');
+	update_option('whoowns_legends_format','horizontal');
+	update_option('whoowns_threshold_show_names_in_network',15);
+	update_option('whoowns_threshold_show_arrows_in_network_when_move',20);
+	update_option('whoowns_news_search_api','bing');
+	update_option('whoowns_news_sources',"valor.com.br\nbrasildefato.com.br");
+	update_option('whoowns_news_date_format','d/m/Y');
+	update_option('whoowns_reference_owner','');
+	update_option('whoowns_cron_ref_hour','0');
+	update_option('whoowns_cron_frequency','hourly');
+	update_option('whoowns_cron_threshold',150);
+	
+	update_option('whoowns_factsheet_sections', array(
+			10 => array('ord'=>10, 'slug'=>'factsheet','title'=>'global vision', 'path'=>plugin_dir_path(__FILE__)."theme-files/layouts/single-whoowns_owner.factsheet.php"),
+			20 => array('ord'=>20, 'slug'=>'power_network','title'=>'power network', 'path'=>plugin_dir_path(__FILE__)."theme-files/layouts/single-whoowns_owner.power_network.php"),
+			30 => array('ord'=>30, 'slug'=>'related_posts','title'=>'related articles', 'path'=>plugin_dir_path(__FILE__)."theme-files/layouts/single-whoowns_owner.related_posts.php"),
+			40 => array('ord'=>40, 'slug'=>'news','title'=>'in the media', 'path'=>plugin_dir_path(__FILE__)."theme-files/layouts/single-whoowns_owner.news.php")
+		)
+	);
 		
-	add_option('whoowns_supported_file_types',array('application/pdf', 'application/postscript', 'text/plain', 'image/bmp', 'application/msword', 'image/gif', 'text/html', 'image/jpeg', 'application/vnd.ms-powerpoint', 'text/richtext', 'image/tiff', 'application/zip', 'application/x-abiword', 'text/csv', 'message/rfc822', 'application/x-gnumeric', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.oasis.opendocument.presentation', 'application/vnd.oasis.opendocument.spreadsheet', 'application/vnd.oasis.opendocument.text', 'image/vnd.adobe.photoshop', 'image/png', 'text/richtext', 'application/rtf', 'image/svg+xml'));
+	update_option('whoowns_supported_file_types',array('application/pdf', 'application/postscript', 'text/plain', 'image/bmp', 'application/msword', 'image/gif', 'text/html', 'image/jpeg', 'application/vnd.ms-powerpoint', 'text/richtext', 'image/tiff', 'application/zip', 'application/x-abiword', 'text/csv', 'message/rfc822', 'application/x-gnumeric', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.oasis.opendocument.presentation', 'application/vnd.oasis.opendocument.spreadsheet', 'application/vnd.oasis.opendocument.text', 'image/vnd.adobe.photoshop', 'image/png', 'text/richtext', 'application/rtf', 'image/svg+xml'));
 	update_option('whoowns_capabilities',array (
 		'contributor'=>array(
 			'read_whoowns_owners',
@@ -59,6 +71,12 @@ function whoowns_set_defaults() {
 }
 
 function whoowns_settings_page() {
+	// If settings are updated, the rewrite rules cache must be cleared and the update schedule initialized:
+	if(isset($_GET['settings-updated']) && $_GET['settings-updated']) {
+		global $wp_rewrite;
+		$wp_rewrite->flush_rules( false );
+		whoowns_initialize_update_schedule();
+	}
 	?>
 	<div class="wrap">
 	<?php screen_icon(); ?>
@@ -76,6 +94,11 @@ function whoowns_settings_page() {
 		<tr valign="top">
 		<th scope="row"><?=__('Slug for the owners\' section of the website','whoowns')?></th>
 		<td><input type="text" name="whoowns_owner_slug" value="<?=get_option('whoowns_owner_slug')?>" /></td>
+		</tr>
+		
+		<tr valign="top">
+		<th scope="row"><?=__('Currency','whoowns')?></th>
+		<td><input type="text" name="whoowns_currency" value="<?=get_option('whoowns_currency')?>" /></td>
 		</tr>
 		
 		<tr valign="top">
@@ -182,9 +205,4 @@ function whoowns_settings_page() {
 	</div>
 	<?php
 }
-
-function whoowns_changed_settings() {
-	whoowns_initialize_update_schedule();
-}
-add_action('customize_save_after', 'whoowns_changed_settings');
 ?>

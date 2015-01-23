@@ -442,15 +442,19 @@ add_action('wp_ajax_whoowns_delete_file', 'whoowns_delete_file_callback');
 function whoowns_initialize_update_schedule() {
 	$frequency = get_option('whoowns_cron_frequency');
 	if ( !in_array($frequency, array_keys(wp_get_schedules())) )
-		$frequency = 'daily';
-	if (!($ref_hour = get_option('whoowns_cron_ref_hour')))
-		$ref_hour = 24;
+		$frequency = 'hourly';
 	$date = date('G-i-s',current_time('timestamp'));
 	list($h,$m,$s) = explode('-',$date);
-	$interval = ($ref_hour>$h)
-		? ($ref_hour-1)-$h
-		: ($h-1)-$ref_hour;
-	$interval = $interval*3600 + $m*60 + $s;
+	if ($frequency=='hourly') {
+		$interval = 3600 - $m*60 - $s;
+	} else {
+		if (!($ref_hour = get_option('whoowns_cron_ref_hour')))
+			$ref_hour = 24;
+		$interval = ($ref_hour>$h)
+			? ($ref_hour-1)-$h
+			: ($h-1)-$ref_hour;
+		$interval = $interval*3600 + $m*60 + $s;
+	}
 	wp_clear_scheduled_hook( 'whoowns-update' );
 	wp_schedule_event(time()+$interval, $frequency, 'whoowns-update');
 }

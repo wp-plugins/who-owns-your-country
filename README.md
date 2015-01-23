@@ -60,14 +60,18 @@ Screenshots
 *3. Factsheet page - section "In the media". In the configuration of the plugin, you can choose which news websites will be consulted regularly to show the last news related to the owner's power network.*
 ![Screenshot 3](http://ps.w.org/who-owns-your-country/assets/screenshot-3.png?rev=845477)
 
-*4. Page for searching the owners. Hooks in the plugin also allow the template owner to add custom columns and orderings to this page. Besides the filters (by enterprises, persons, state institutions and "ranked" corporations) and ordering, the text search form has an autocomplete feature, leading the guest directly to the factsheet og the owner found.*
+*4. Page for searching the owners. Hooks in the plugin also allow the template owner to add custom columns and orderings to this page. Besides the filters (by enterprises, persons, state institutions and "ranked" corporations) and ordering, the text search form has an autocomplete feature, leading the guest directly to the factsheet of the owner found.*
 ![Screenshot 4](http://ps.w.org/who-owns-your-country/assets/screenshot-4.png?rev=845477) 
 
 Changelog
 -----------------
 
 ### 0.94
-* Added fr_FR language fully translated: thanks Alain!
+* Update network immediately when there are less owners than the configured threshold of 150 owners
+* Make hourly crons start right in the next hour, and not only when the reference time occurs
+* Include the 6th step - which was not being run - in cron updates of the owners network
+* Added paper in English about the methodology in readme files
+* Correct proprietariosdobrasil.org.br link in readme files
 * Fixed bug of networks cache not being cleaned after shareholder changes
 * Clear rewrite rules cache for new installs and when settings are changed
 * Fix other PHP warnings because of declaring attribute or index in empty objects and arrays

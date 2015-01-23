@@ -3,7 +3,7 @@ Contributors: dtygel
 Tags: who owns your country, power networks, corporations, economy, politics, economic chain
 Requires at least: 3.6
 Tested up to: 4.1
-Stable tag: 0.93
+Stable tag: 0.94
 License: AFFERO License
 License URI: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
@@ -62,9 +62,23 @@ If your language is not listed there, please send a message to us at contato@pro
 1. Factsheet page of an owner (Section: global vision). The factsheet comes out of the box with the following sections: *Global Vision*, *Power Network* (graphic and list views), *Related articles*, *In the media*. This screenshot exemplifies the plugin's hooks: the hooks are used to add two more sections (*electoral donations* and *public fundings*), and also to change the name of a section ("Related articles" was renamed to "Power analysis")
 1. Factsheet page - section "Power network". At the left you have the list view, and in the center there is the graphic view. The map is fully interactive, and clicking on any element opens up a box on the top left with its details.
 1. Factsheet page - section "In the media". In the configuration of the plugin, you can choose which news websites will be consulted regularly to show the last news related to the owner's power network.
-1. Page for searching the owners. Hooks in the plugin also allow the template owner to add custom columns and orderings to this page. Besides the filters (by enterprises, persons, state institutions and "ranked" corporations) and ordering, the text search form has an autocomplete feature, leading the guest directly to the factsheet og the owner found.
+1. Page for searching the owners. Hooks in the plugin also allow the template owner to add custom columns and orderings to this page. Besides the filters (by enterprises, persons, state institutions and "ranked" corporations) and ordering, the text search form has an autocomplete feature, leading the guest directly to the factsheet of the owner found.
 
 == Changelog ==
+
+= 0.94 =
+* Update network immediately when there are less owners than the configured threshold of 150 owners
+* Make hourly crons start right in the next hour, and not only when the reference time occurs
+* Include the 6th step - which was not being run - in cron updates of the owners network
+* Added paper in English about the methodology in readme files
+* Correct proprietariosdobrasil.org.br link in readme files
+* Fixed bug of networks cache not being cleaned after shareholder changes
+* Clear rewrite rules cache for new installs and when settings are changed
+* Fix other PHP warnings because of declaring attribute or index in empty objects and arrays
+* Avoid saving shares in revisions
+* Add title to the single_owner theme file 
+* Clean post_ids heys when generating network cache
+* Change defaults image_size to 150px and cron frequency to hourly 
 
 = 0.93 =
 * Added pt_PT language

@@ -19,6 +19,7 @@ function whoowns_register_settings() {
 	register_setting( 'whoowns', 'whoowns_reference_owner' );
 	register_setting( 'whoowns', 'whoowns_cron_ref_hour' );
 	register_setting( 'whoowns', 'whoowns_cron_frequency' );
+	register_setting( 'whoowns', 'whoowns_cron_threshold' );
 }
 
 function whoowns_set_defaults() {
@@ -39,6 +40,7 @@ function whoowns_set_defaults() {
 	update_option('whoowns_reference_owner','');
 	update_option('whoowns_cron_ref_hour','0');
 	update_option('whoowns_cron_frequency','hourly');
+	update_option('whoowns_cron_threshold',150);
 	
 	update_option('whoowns_factsheet_sections', array(
 			10 => array('ord'=>10, 'slug'=>'factsheet','title'=>'global vision', 'path'=>plugin_dir_path(__FILE__)."theme-files/layouts/single-whoowns_owner.factsheet.php"),

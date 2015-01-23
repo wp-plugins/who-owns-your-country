@@ -284,6 +284,7 @@ function whoowns_update_metakey_controlled_by($postids) {
 		$postids = array($postids);
 	foreach ($postids as $postid) {
 		$controllers = whoowns_get_controllers($postid);
+		// echo "<h1>$postid</h1>";print_r($controllers); // for debugging
 		if ($controllers[0]) {
 			update_post_meta($postid, 'whoowns_controlled_by', $controllers[0]);
 			update_post_meta($postid, 'whoowns_controlled_by_final', end($controllers));
@@ -648,13 +649,6 @@ function whoowns_init_owner_universe_update($postid, $was_deleted=false) {
 }
 // This is the function which configures the whoowns-update schedule for the owners in the $net array:
 function whoowns_init_update($net) {
-	// Scheduling events (every 2 seconds) to re-cache the power network of each node:
-	// Note: I've put the metakey updates in the midnight cron (look at 'whoowns_update' function)...
-	/*foreach ($net as $i=>$n_postid) {
-		wp_schedule_single_event( time()+($i*2), 'whoowns-update-metakey-controlled-by', array($n_postid) );
-		wp_schedule_single_event( time()+(($i+1)*2), 'whoowns-update-metakey-controls-final', array($n_postid) );
-	}*/
-	
 	$whoowns_cron = get_option('whoowns_cron');
 	if (isset($whoowns_cron['postids']) && $whoowns_cron['postids']) {
 		$net = array_unique(array_merge($net,$whoowns_cron['postids']));
@@ -663,6 +657,11 @@ function whoowns_init_update($net) {
 	$whoowns_cron['status'] = 'waiting';
 	$whoowns_cron['postids'] = $net;
 	update_option('whoowns_cron', $whoowns_cron);
+	
+	//If there are less owners than the "whoowns_cron_threshold" setting, the update will be run immediately:
+	if (whoowns_get_total_number_of_owners() <= get_option('whoowns_cron_threshold')) {
+		whoowns_update();
+	};
 }
 function whoowns_update() {
 	$whoowns_cron = get_option('whoowns_cron');
@@ -799,7 +798,7 @@ function whoowns_update_accumulated_power($postids) {
 		else
 			delete_post_meta($postid, 'whoowns_PA');
 	}
-	#pR("PA($postid) = $PA");
+	// pR("PA($postid) = $PA"); // for debugging
 }
 
 
@@ -849,6 +848,8 @@ function whoowns_check_if_interchainer($postids, $save_metadata=false) {
 		}
 	}
 	
+	//pR($is_interchainer);exit; // for debugging
+	
 	// Save the meta post information:
 	if ($save_metadata) {
 		foreach ($postids as $postid) {
@@ -891,7 +892,7 @@ function whoowns_update_final_controllers($postids) {
 				(whoowns_get_directly_controlled($postid)) || 
 				!whoowns_has_participations($postid, 0.0001)
 			);
-			#pR($is_final_controller);exit;
+			//echo "<h1>$postid</h1>";pR($is_final_controller);exit; // for debugging
 		}
 		if ($is_final_controller) {
 			update_post_meta($postid,'whoowns_is_final_controller',1);
@@ -901,6 +902,8 @@ function whoowns_update_final_controllers($postids) {
 	}
 	
 	$final_controllers_loop = $final_controllers;
+	
+	//pR($final_controllers);exit; // for debugging
 	
 	// Definition of the enterprise as "final controller" - SECOND CRITERIA: 
 	// There can only be one single final controller in a chain. If there is 
@@ -943,6 +946,8 @@ function whoowns_update_final_controllers($postids) {
 			}
 		}
 	}
+	
+	//pR($final_controllers);exit; // for debugging
 	
 	$sql = "SELECT post_id FROM ".$wpdb->prefix."postmeta WHERE meta_key = 'whoowns_is_final_controller' AND post_id IN (".implode(",",$postids).") AND post_id NOT IN (".implode(",",$final_controllers).")";
 	$extra_postids = $wpdb->get_col($sql);
@@ -1558,7 +1563,14 @@ function whoowns_select_owners($filters,$s='',$orderby,$order,$page=0) {
 	$return->owners = $owners;
 	return $return;
 }
-
+function whoowns_get_total_number_of_owners() {
+	$args = array(
+		'post_type' => 'whoowns_owner', 
+		'fields' => 'ids'
+	);
+	$res = new WP_Query( $args );
+	return $res->found;
+}
 
 
 function whoowns_retrieve_cached($postid,$fields,$decoded=false) {

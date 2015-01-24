@@ -1993,9 +1993,9 @@ function whoowns_template_show_owners($owners, $hide_columns=array()) {
 	<tbody>
 	<?php
 	foreach ($owners as $owner) {
-		$IPA_txt = number_format_i18n($owner->IPA,10);
+		$IPA_txt = number_format_i18n($owner->IPA*100,6);
 		if ($owner->IPAR)
-			$IPA_txt .= "<br />(".__('among ranked:', 'whoowns')." ".number_format_i18n($owner->IPAR,10).")";
+			$IPA_txt .= "<br />(".__('among ranked:', 'whoowns')." ".number_format_i18n($owner->IPAR*100,2)."%)";
 			
 		$controlled_by_final_txt = ($owner->controlled_by_final)
 			? '<a href="'.get_post_permalink($owner->controlled_by_final).'">'.get_the_title($owner->controlled_by_final).'</a>'

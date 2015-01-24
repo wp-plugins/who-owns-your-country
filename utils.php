@@ -1517,7 +1517,7 @@ function whoowns_select_owners($filters,$s='',$orderby,$order,$page=0) {
 			$order = 'DESC';
 		}
 	} elseif (!$orderby) {
-		$orderby = 'name';
+		$orderby = 'whoowns_PA';
 	}
 	/*elseif (is_array($filters)) {
 		$args['post__in'] = $filters;

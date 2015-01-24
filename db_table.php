@@ -54,6 +54,7 @@ function whoowns_table_update($installed_ver) {
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 	dbDelta($sql1);
 	dbDelta($sql2);
+	//echo $wpdb->last_error; exit;
 
 	if ($installed_ver)
 		update_option('whoowns_table_db_version', $whoowns_table_db_version);

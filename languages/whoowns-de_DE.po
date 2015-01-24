@@ -7,343 +7,896 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Who owns the country? A Worpress Plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-28 04:24-0200\n"
-"PO-Revision-Date: 2013-11-28 12:28-0300\n"
+"POT-Creation-Date: 2015-01-24 01:21-0300\n"
+"PO-Revision-Date: 2015-01-24 01:21-0300\n"
 "Last-Translator: daniel tygel <dtygel@eita.org.br>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: German\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Basepath: ~/grit/proprietariosdobrasil.org.br/wordpress/wp-content/plugins/whoowns/\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-SearchPath-0: ..\n"
 
-#: whoowns.php:20
-#: init.php:74
-#: init_admin.php:4
-msgid "Owners"
-msgstr ""
-
-#: whoowns.php:21
-#: init.php:75
-msgid "Parent Owner:"
-msgstr ""
-
-#: whoowns.php:22
-#: init.php:76
-msgid "All Owners"
-msgstr ""
-
-#: whoowns.php:23
-#: init.php:77
-msgid "View Owner"
-msgstr ""
-
-#: whoowns.php:24
-#: init.php:78
-msgid "Add New Owner"
-msgstr ""
-
-#: whoowns.php:25
-#: init.php:79
-msgid "New Owner"
-msgstr ""
-
-#: whoowns.php:26
-#: init.php:80
-msgid "Edit Owner"
-msgstr ""
-
-#: whoowns.php:27
-#: init.php:81
-msgid "Update Owner"
-msgstr ""
-
-#: whoowns.php:28
-#: init.php:82
-msgid "Search owners"
-msgstr ""
-
-#: whoowns.php:29
-#: init.php:83
-msgid "No owners found"
-msgstr ""
-
-#: whoowns.php:30
-#: init.php:84
-msgid "No owners found in Trash"
-msgstr ""
-
-#: whoowns.php:33
-#: init.php:87
-msgid "owners"
-msgstr ""
-
-#: whoowns.php:39
-#: init.php:93
-msgid "whoowns_owner"
-msgstr ""
-
-#: whoowns.php:40
-#: init.php:94
-msgid "Facts-sheet about an Owner"
-msgstr ""
-
-#: whoowns.php:69
-msgid "Shareholders (if any)"
-msgstr ""
-
-#: independent_scripts/get_owner_images.php:14
-#: independent_scripts/import_csv_from_old_model.php:21
-#: independent_scripts/get_dbpedia_links.php:29
-msgid "You are not allowed to access this area of the website"
-msgstr ""
-
-#: admin.php:5
+#: ../admin.php:5
 msgid "Details"
 msgstr ""
 
-#: admin.php:11
+#: ../admin.php:6 ../admin.php:7
+msgid "Related Owners"
+msgstr ""
+
+#: ../admin.php:13
 msgid "Owner Image"
 msgstr ""
 
-#: admin.php:36
+#: ../admin.php:40
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:24
 msgid "Legal registration ID"
 msgstr ""
 
-#: admin.php:37
+#: ../admin.php:41
 msgid "What is the formal registration identity of this owner?"
 msgstr ""
 
-#: admin.php:47
+#: ../admin.php:51
 msgid "Type of this Owner"
 msgstr ""
 
-#: admin.php:48
+#: ../admin.php:52
 msgid "Is this owner an enterprise? a person? other type? Please choose below:"
 msgstr ""
 
-#: admin.php:50
+#: ../admin.php:54
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:22
 msgid "Type"
 msgstr ""
 
-#: admin.php:52
-#: admin.php:92
+#: ../admin.php:56 ../admin.php:96
 msgid "None"
 msgstr ""
 
-#: admin.php:68
+#: ../admin.php:72
 msgid "URI in dbpedia"
 msgstr ""
 
-#: admin.php:69
+#: ../admin.php:73
 msgid "Leave it blank if you don't know what dbpedia is."
 msgstr ""
 
-#: admin.php:70
+#: ../admin.php:74
 msgid "URI in dbpedia:"
 msgstr ""
 
-#: admin.php:82
+#: ../admin.php:86
 msgid "Net revenue"
 msgstr ""
 
-#: admin.php:83
-msgid "What is the net revenue of this owner? You must also define the date and period of this information, along with the source"
+#: ../admin.php:87
+msgid ""
+"What is the net revenue of this owner? You must also define the date and "
+"period of this information, along with the source"
 msgstr ""
 
-#: admin.php:84
+#: ../admin.php:88
 msgid "Net revenue in $ millions:"
 msgstr ""
 
-#: admin.php:87
+#: ../admin.php:91
 msgid "From what year is this information?"
 msgstr ""
 
-#: admin.php:90
+#: ../admin.php:94
 msgid "This revenue is for how many months?"
 msgstr ""
 
-#: admin.php:97
+#: ../admin.php:101
 msgid "trimester"
 msgstr ""
 
-#: admin.php:100
+#: ../admin.php:104
 msgid "semester"
 msgstr ""
 
-#: admin.php:103
+#: ../admin.php:107
 msgid "year"
 msgstr ""
 
-#: admin.php:116
+#: ../admin.php:120
 msgid "What is the name of the source of this information?"
 msgstr ""
 
-#: admin.php:119
+#: ../admin.php:123
 msgid "What is the internet address of this source?"
 msgstr ""
 
-#: admin.php:132
+#: ../admin.php:138
 msgid "Owners and shares"
 msgstr ""
 
-#: admin.php:133
-msgid "Who owns this enterprise? The information must be validated by source documents from a Junta Comercial or from the Receita Federal"
+#: ../admin.php:139
+msgid ""
+"Who owns this enterprise? The information must be validated by source "
+"documents from a Junta Comercial or from the Receita Federal"
 msgstr ""
 
-#: admin.php:137
+#: ../admin.php:143 ../utils.php:1752
 msgid "Name"
 msgstr ""
 
-#: admin.php:138
+#: ../admin.php:144
 msgid "Ownership Shares (in percentage)"
 msgstr ""
 
-#: admin.php:149
+#: ../admin.php:151 ../utils.php:1477
+msgid "Pending"
+msgstr ""
+
+#: ../admin.php:159
 msgid "Add more shareholders..."
 msgstr ""
 
-#: admin.php:149
+#: ../admin.php:159 ../admin.php:377
 msgid "Hide"
 msgstr ""
 
-#: admin.php:175
+#: ../admin.php:185
 msgid "Source of shareholders data"
 msgstr ""
 
-#: admin.php:177
+#: ../admin.php:187
 msgid "Where did you get the shareholders data from?"
 msgstr ""
 
-#: admin.php:181
+#: ../admin.php:191
 msgid "Year of this information:"
 msgstr ""
 
-#: admin.php:184
+#: ../admin.php:194
 msgid "Please attach the documents to validate the above mentioned source:"
 msgstr ""
 
-#: admin.php:190
+#: ../admin.php:200
 msgid "Delete File"
 msgstr ""
 
-#: admin.php:194
+#: ../admin.php:204
 msgid "Add document"
 msgstr ""
 
-#: admin.php:311
-#: admin.php:324
+#: ../admin.php:370
+msgid "Who are the owners related to this article?"
+msgstr ""
+
+#: ../admin.php:377
+msgid "Add more..."
+msgstr ""
+
+#: ../admin.php:430 ../admin.php:443
 msgid "Error: you did not specify valid parameters for this callback"
 msgstr ""
 
-#: admin.php:320
-msgid "Error: I was not able to delete the file. Therefore, I only erased the associated metadata"
+#: ../admin.php:439
+msgid ""
+"Error: I was not able to delete the file. Therefore, I only erased the "
+"associated metadata"
 msgstr ""
 
-#: init.php:21
-msgid "Search owner types"
-msgstr ""
-
-#: init.php:22
-msgid "All owner types"
-msgstr ""
-
-#: init.php:25
-msgid "Edit Owner Type"
-msgstr ""
-
-#: init.php:26
-msgid "Update Owner Type"
-msgstr ""
-
-#: init.php:27
-msgid "Add New Owner Type"
-msgstr ""
-
-#: init.php:28
-msgid "New Owner Type"
-msgstr ""
-
-#: init.php:29
-msgid "Owner Types"
-msgstr ""
-
-#: init.php:46
-msgid "Search source types"
-msgstr ""
-
-#: init.php:47
-msgid "All source types"
-msgstr ""
-
-#: init.php:50
-msgid "Edit Source Type"
-msgstr ""
-
-#: init.php:51
-msgid "Update Source Type"
-msgstr ""
-
-#: init.php:52
-msgid "Add New Source Type"
-msgstr ""
-
-#: init.php:53
-msgid "New Source Type"
-msgstr ""
-
-#: init.php:54
-msgid "Source Types"
-msgstr ""
-
-#: init.php:125
-msgid "Owner Author"
-msgstr ""
-
-#: init_admin.php:4
-msgid "Whoowns Brazil Plugin Settings"
-msgstr ""
-
-#: init_admin.php:99
-#: init_admin.php:101
-msgid "Are you sure you want to delete the file \"{file}\"?"
-msgstr ""
-
-#: utils.php:354
-msgid "Private enterprise"
-msgstr ""
-
-#: options.php:50
+#: ../options.php:83
 msgid "Settings of the Who Owns Plugin"
 msgstr ""
 
-#: options.php:58
+#: ../options.php:91
+msgid "General settings"
+msgstr ""
+
+#: ../options.php:95
+msgid "Slug for the owners' section of the website"
+msgstr ""
+
+#: ../options.php:100
+msgid "Currency"
+msgstr ""
+
+#: ../options.php:105
 msgid "Maximum number of shareholders to display in the edit form"
 msgstr ""
 
-#: options.php:63
+#: ../options.php:110
+msgid "Maximum number of related owners to display in the edit form"
+msgstr ""
+
+#: ../options.php:115
 msgid "Number of owners to display per page in the ranking table"
 msgstr ""
 
-#: options.php:68
-msgid "Standard symbol for decimals"
+#: ../options.php:120
+msgid "Reference enterprise/person to track"
 msgstr ""
 
-#: options.php:77
-msgid "Standard symbol for thousands"
+#: ../options.php:122
+msgid ""
+"Is there any of the enterprises or persons of the database which "
+"participations should be tracked? If so, for each owner the plugin will "
+"provide [through function whoowns_get_owner_data] the final participation of "
+"the chosen reference in its controllers chain"
 msgstr ""
 
-#: options.php:86
-msgid "Default size of the owner image. Put width and height separated by an \"x\". For example: 300x300"
+#: ../options.php:127
+msgid ""
+"Default size of the owner image. Put width and height separated by an \"x\". "
+"For example: 300x300"
 msgstr ""
 
-#: init_admin.php:35
-msgid "Person"
+#: ../options.php:132
+msgid "News related to network"
 msgstr ""
 
-#: init_admin.php:36
+#: ../options.php:136
+msgid "News search engine"
+msgstr ""
+
+#: ../options.php:146
+msgid "Date format for showing the  news"
+msgstr ""
+
+#: ../options.php:151
+msgid "News sources from internet (one per line)"
+msgstr ""
+
+#: ../options.php:156
+msgid "Power network graphic"
+msgstr ""
+
+#: ../options.php:160
+msgid "Maximum number of nodes for a power network graph to show all names"
+msgstr ""
+
+#: ../options.php:165
+msgid ""
+"Maximum number of edges for a power network graph to show arrows while "
+"moving canvas"
+msgstr ""
+
+#: ../options.php:170
+msgid "Format of the legends in the network graphic"
+msgstr ""
+
+#: ../options.php:175
+msgid "Size of the icons of the legends of the network graphic"
+msgstr ""
+
+#: ../options.php:180
+msgid "Settings for scheduling network updates"
+msgstr ""
+
+#: ../options.php:184
+msgid ""
+"How often should the plugin check for changes in the database and "
+"recalculate the power indexes and ranking?"
+msgstr ""
+
+#: ../options.php:191
+msgid ""
+"Take care to not put it too frequently, because there is a good quantity of "
+"relatively heavy calculations. If the server is good and you have a small "
+"database, it's ok to have it hourly, but we recommend the frequency to be "
+"once or twice daily"
+msgstr ""
+
+#: ../options.php:196
+msgid "Reference local time for the scheduled updates (24h format)"
+msgstr ""
+
+#: ../options.php:199
+msgid ""
+"If the frequency is once daily, we suggest that you choose some time in late "
+"night, like midnight (0). Important: this time depends on the local time "
+"zone that you chose in the website configuration in \"general settings\"."
+msgstr ""
+
+#: ../utils.php:187
+msgid "Information not available."
+msgstr ""
+
+#: ../utils.php:410
+msgid "Directly controlled:"
+msgstr ""
+
+#: ../utils.php:411
+msgid "Indirectly controlled:"
+msgstr ""
+
+#: ../utils.php:420
+msgid "None."
+msgstr ""
+
+#: ../utils.php:440
+msgid "see all"
+msgstr ""
+
+#: ../utils.php:1312
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:16
+msgid "List view"
+msgstr ""
+
+#: ../utils.php:1315
+msgid "Direct shareholders:"
+msgstr ""
+
+#: ../utils.php:1321
+msgid "Controlled enterprises:"
+msgstr ""
+
+#: ../utils.php:1327
+msgid "Controlled by:"
+msgstr ""
+
+#: ../utils.php:1333
+msgid "All Participations:"
+msgstr ""
+
+#: ../utils.php:1334 ../utils.php:1342
+msgid "Meaning of the values in parenthesis:"
+msgstr ""
+
+#: ../utils.php:1334 ../utils.php:1342
+msgid "final relative share"
+msgstr ""
+
+#: ../utils.php:1334 ../utils.php:1342
+msgid "relative share"
+msgstr ""
+
+#: ../utils.php:1334 ../utils.php:1342
+msgid "share"
+msgstr ""
+
+#: ../utils.php:1341
+msgid "All Controllers:"
+msgstr ""
+
+#: ../utils.php:1410
+msgid "Center of <i>this</i> network"
+msgstr ""
+
+#: ../utils.php:1414
+msgid "Enterprise with interchain participation"
+msgstr ""
+
+#: ../utils.php:1418 ../utils.php:1977
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:36
+msgid "Ultimate controller"
+msgstr ""
+
+#: ../utils.php:1424
+msgid "Control over the enterprise (>50%)"
+msgstr ""
+
+#: ../utils.php:1428
+msgid "Participation of less than 50%"
+msgstr ""
+
+#: ../utils.php:1435
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:38
+msgid "Legends"
+msgstr ""
+
+#: ../utils.php:1438
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:41
+msgid "Icons"
+msgstr ""
+
+#: ../utils.php:1439
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:42
+msgid "Colors"
+msgstr ""
+
+#: ../utils.php:1440
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:43
+msgid "Arrows"
+msgstr ""
+
+#: ../utils.php:1693
+msgid "directly"
+msgstr ""
+
+#: ../utils.php:1695
+msgid "in"
+msgstr ""
+
+#: ../utils.php:1753
+msgid "Accumulated Power"
+msgstr ""
+
+#: ../utils.php:1787
+msgid "Search by name or registration document"
+msgstr ""
+
+#: ../utils.php:1790
+msgid "All"
+msgstr ""
+
+#: ../utils.php:1791
+msgid "Ranked"
+msgstr ""
+
+#: ../utils.php:1792
+msgid "Enterprises"
+msgstr ""
+
+#: ../utils.php:1793
+msgid "Persons"
+msgstr ""
+
+#: ../utils.php:1794 ../utils.php:2326
 msgid "State"
 msgstr ""
 
+#: ../utils.php:1814
+msgid "state"
+msgstr ""
+
+#: ../utils.php:1821
+msgid "Results of the search for"
+msgstr ""
+
+#: ../utils.php:1846
+msgid "Applied filters:"
+msgstr ""
+
+#: ../utils.php:1847
+msgid "Applied filter:"
+msgstr ""
+
+#: ../utils.php:1857
+msgid "Results ordered by"
+msgstr ""
+
+#: ../utils.php:1910
+msgid "Power Network"
+msgstr ""
+
+#: ../utils.php:1923
+msgid "Network's Highlights"
+msgstr ""
+
+#: ../utils.php:1936
+msgid "Related Posts"
+msgstr ""
+
+#: ../utils.php:1946
+msgid "The Network in the Media"
+msgstr ""
+
+#: ../utils.php:1971
+msgid "Name of enterprise or person"
+msgstr ""
+
+#: ../utils.php:1973
+msgid "Ranking"
+msgstr ""
+
+#: ../utils.php:1975
+msgid "Accumulated Power Index (IPA)"
+msgstr ""
+
+#: ../utils.php:1979
+msgid "Top ultimate controlled"
+msgstr ""
+
+#: ../utils.php:1998
+msgid "among ranked:"
+msgstr ""
+
+#: ../utils.php:2005
+msgid "Click here to see details about {owner}"
+msgstr ""
+
+#: ../utils.php:2211
+msgid ""
+"The news have not been loaded yet. Please come back in a couple of minutes."
+msgstr ""
+
+#: ../utils.php:2215
+msgid ""
+"Sorry, but we couldn't find any news related to this owner's power network."
+msgstr ""
+
+#: ../utils.php:2315
+msgid "billions"
+msgstr ""
+
+#: ../utils.php:2317
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:48
+msgid "millions"
+msgstr ""
+
+#: ../utils.php:2319
+msgid "thousand"
+msgstr ""
+
+#: ../utils.php:2327
+msgid "Private enterprise"
+msgstr ""
+
+#: ../utils.php:2328
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:51
+msgid "Person"
+msgstr ""
+
+#: ../utils.php:2329
+msgid "global vision"
+msgstr ""
+
+#: ../utils.php:2330
+msgid "power network"
+msgstr ""
+
+#: ../utils.php:2331
+msgid "related articles"
+msgstr ""
+
+#: ../utils.php:2332
+msgid "in the media"
+msgstr ""
+
+#: ../init_admin.php:4
+msgid "Whoowns Brazil Plugin Settings"
+msgstr ""
+
+#: ../init_admin.php:4 ../init.php:86 ../init.php:88
+msgid "Owners"
+msgstr ""
+
+#: ../init_admin.php:118
+msgid "Are you sure you want to delete the file \"{file}\"?"
+msgstr ""
+
+#: ../init.php:7
+msgid "Owner types"
+msgstr ""
+
+#: ../init.php:8
+msgid "Owner type"
+msgstr ""
+
+#: ../init.php:9
+msgid "Search owner types"
+msgstr ""
+
+#: ../init.php:10
+msgid "All owner types"
+msgstr ""
+
+#: ../init.php:13
+msgid "Edit Owner Type"
+msgstr ""
+
+#: ../init.php:14
+msgid "Update Owner Type"
+msgstr ""
+
+#: ../init.php:15
+msgid "Add New Owner Type"
+msgstr ""
+
+#: ../init.php:16
+msgid "New Owner Type"
+msgstr ""
+
+#: ../init.php:17
+msgid "Owner Types"
+msgstr ""
+
+#: ../init.php:32
+msgid "Source types"
+msgstr ""
+
+#: ../init.php:33
+msgid "Source type"
+msgstr ""
+
+#: ../init.php:34
+msgid "Search source types"
+msgstr ""
+
+#: ../init.php:35
+msgid "All source types"
+msgstr ""
+
+#: ../init.php:38
+msgid "Edit Source Type"
+msgstr ""
+
+#: ../init.php:39
+msgid "Update Source Type"
+msgstr ""
+
+#: ../init.php:40
+msgid "Add New Source Type"
+msgstr ""
+
+#: ../init.php:41
+msgid "New Source Type"
+msgstr ""
+
+#: ../init.php:42
+msgid "Source Types"
+msgstr ""
+
+#: ../init.php:58 ../init.php:59
+msgid "State or Province"
+msgstr ""
+
+#: ../init.php:60
+msgid "Search states"
+msgstr ""
+
+#: ../init.php:61
+msgid "All states"
+msgstr ""
+
+#: ../init.php:62 ../init.php:63
+msgid "Region"
+msgstr ""
+
+#: ../init.php:64
+msgid "Edit state"
+msgstr ""
+
+#: ../init.php:65
+msgid "Update state"
+msgstr ""
+
+#: ../init.php:66
+msgid "Add New state"
+msgstr ""
+
+#: ../init.php:67
+msgid "New state"
+msgstr ""
+
+#: ../init.php:68
+msgid "States"
+msgstr ""
+
+#: ../init.php:87
+msgid "Owner"
+msgstr ""
+
+#: ../init.php:89
+msgid "Parent Owner:"
+msgstr ""
+
+#: ../init.php:90
+msgid "All Owners"
+msgstr ""
+
+#: ../init.php:91
+msgid "View Owner"
+msgstr ""
+
+#: ../init.php:92
+msgid "Add New Owner"
+msgstr ""
+
+#: ../init.php:93
+msgid "New Owner"
+msgstr ""
+
+#: ../init.php:94
+msgid "Edit Owner"
+msgstr ""
+
+#: ../init.php:95
+msgid "Update Owner"
+msgstr ""
+
+#: ../init.php:96
+msgid "Search owners"
+msgstr ""
+
+#: ../init.php:97
+msgid "No owners found"
+msgstr ""
+
+#: ../init.php:98
+msgid "No owners found in Trash"
+msgstr ""
+
+#: ../init.php:108
+msgid "Facts-sheet about an Owner"
+msgstr ""
+
+#: ../init.php:144
+msgid "Owner Author"
+msgstr ""
+
+#: ../theme-files/archive-whoowns_owner.php:18
+msgid "Look for owners"
+msgstr ""
+
+#: ../theme-files/archive-whoowns_owner.php:25
+msgid ""
+"To search our database, you can use the filters, change the ordering, and "
+"also directly type the name or registration id of a person, enterprise or "
+"state institution."
+msgstr ""
+
+#: ../theme-files/archive-whoowns_owner.php:32
+#: ../theme-files/layouts/shortcode-whoowns_show_owners_search_form.php:6
+msgid "Search Options"
+msgstr ""
+
+#: ../theme-files/archive-whoowns_owner.php:42
+#: ../theme-files/layouts/shortcode-whoowns_show_owners_search_form.php:18
+msgid "Search"
+msgstr ""
+
+#: ../theme-files/archive-whoowns_owner.php:55
+#: ../theme-files/layouts/shortcode-whoowns_show_owners_search_form.php:32
+msgid "Order by:"
+msgstr ""
+
+#: ../theme-files/archive-whoowns_owner.php:99
+#: ../theme-files/archive-whoowns_owner.php:116
+msgid "{num} results found"
+msgstr ""
+
+#: ../theme-files/archive-whoowns_owner.php:99
+#: ../theme-files/archive-whoowns_owner.php:116
+msgid "Page #{pg} of {total_pg}"
+msgstr ""
+
+#: ../theme-files/archive-whoowns_owner.php:121
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.news.php:11
+#, php-format
+msgid "News related to the power network of %s"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.news.php:31
+msgid "Read more"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.mini_power_network.php:7
+msgid "Click to enlarge"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:9
+msgid "person"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:10
+msgid "enterprise"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:28
+msgid "Enterprise ranked #{rank}"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:32
+msgid "Accumulated Power Index (API)"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:40
+msgid "Ultimate controlled enterprises"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:44
+msgid "Relative participation of {owner}"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:48
+msgid "Revenue"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:53
+msgid ""
+"We still don't know the owners of this enterprise. Do you want to "
+"collaborate opening it?"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.php:53
+msgid "Click here"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.news.php:16
+msgid "See details"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.main_actors.php:4
+msgid "Controllers"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.main_actors.php:7
+msgid "Participations"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.factsheet.random_related_post.php:6
+msgid "See all related analysis"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:21
+msgid "see legends and help"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:31
+msgid "How to navigate"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:33
+msgid "Use the navigation slider on the top left to zoom in or out."
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:34
+msgid ""
+"Move the enterprises or people and click on them to see more information."
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:35
+msgid ""
+"When you click on an enterprise or person, you'll have access to a link to "
+"open its power network."
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:36
+msgid ""
+"Move the mouse over the arrows to see the relative participations among "
+"persons and enterprises."
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:46
+msgid "Enterprise"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:47
+msgid ""
+"This is the reference of this network: the enterprise or person whose "
+"network we are seeing now."
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:48
+#, php-format
+msgid ""
+"Enterprise or person which controls the other (i.e. has more than 50% of "
+"relative participation)"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:52
+msgid "Enterprises with inter-chain participations"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:53
+msgid ""
+"The gray arrows have different widths, depending on the degree of control of "
+"one element over the other (under 50%)"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:56
+msgid "State enterprise or State institution"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.power_network.php:57
+msgid "Ultimate controllers of their power network"
+msgstr ""
+
+#: ../theme-files/layouts/single-whoowns_owner.related_posts.php:13
+#, php-format
+msgid "Related posts: %s"
+msgstr ""
+
+#: ../independent_scripts/update.php:16
+#: ../independent_scripts/get_owner_images.php:14
+#: ../independent_scripts/get_dbpedia_links.php:29
+#: ../independent_scripts/import_csv_from_old_model.php:21
+msgid "You are not allowed to access this area of the website"
+msgstr ""

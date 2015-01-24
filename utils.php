@@ -537,7 +537,7 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 	$actual_shareholders = whoowns_get_direct_shareholders($post_id);
 	$actual_direct_controller = whoowns_get_direct_controller($post_id);
 	$new_shareholders = $submitted_shareholders;
-	$changed = false;
+	$changed = array();
 	foreach ($actual_shareholders as $actual_shareholder) {
 		$it_exists=false;
 		foreach ($submitted_shareholders as $i=>$submitted_shareholder) {
@@ -557,7 +557,7 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 					)
 				);
 				if (!$changed && $affected_rows>0)
-					$changed = true;
+					$changed += array($actual_shareholder->shareholder_id);
 				$it_exists = true;
 				unset($new_shareholders[$i]);
 				break;
@@ -568,7 +568,7 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 				$whoowns_tables->shares, 
 				array( 'id' => $actual_shareholder->share_id )
 			);
-			$changed = true;
+			$changed += array('-'.$actual_shareholder->shareholder_id);
 		}
 	}
 	if (count($new_shareholders)) {
@@ -587,13 +587,13 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 						'%f'
 					)
 				);
-				$changed = true;
+				$changed += array('+'.$actual_shareholder->shareholder_id);
 			}
 		}
 	}
 		
 	//After inserting the shareholders, I must calculate and update their relative participation IF there were changes in the values:
-	if ($changed) {
+	if (count($changed)>0) {
 		//Calculating and updating relative shares:
 		$recalculate_controls = array();
 		$relative_shares = whoowns_calculate_relative_shares($post_id);
@@ -635,9 +635,17 @@ function whoowns_update_shareholders($post_id, $submitted_shareholders = array()
 
 
 //This function prepares the system to update the whole universe related to an owner. It's called when something in the shareholders or revenue of owner $postid was changed.
-function whoowns_init_owner_universe_update($postid, $was_deleted=false) {
+function whoowns_init_owner_universe_update($postid, $changed_shares=array(), $was_deleted=false) {
 	global $whoowns_tables, $wpdb;
 	$net = whoowns_generate_full_network($postid);
+	// If some of the ancient shareholders was deleted, they should also be updated!
+	if (count($changed_shares)>0) {
+		foreach ($changed_shares as $changed_share) {
+			if ($changed_share[0]=='-')
+				$net = array_merge($net, whoowns_generate_full_network(substr($changed_share,1)));
+		}
+		$net = array_values(array_unique($net));
+	}
 	
 	if ($was_deleted)
 		$net = array_diff($net, array($postid));
@@ -1078,39 +1086,47 @@ function whoowns_get_main_actors_in_network($postid, $provide_links=false) {
 
 
 //$dir is the direction of the network from $postid: upstream is 'participation', downstream is 'composition' and both directions is 'all'
-function whoowns_generate_directed_network($postid,$net=array(),$dir,$minimum_share=0) {
+function whoowns_generate_directed_network($postid,$net=array(),$dir,$minimum_share=0,$include_pending=false) {
 	global $whoowns_tables, $wpdb;
-	//echo $postid."-";
+	#$debug = true; //I only set this to true to check the route.
+	
+	if ($debug) echo $postid."-";
+	
 	if (!in_array($postid,$net)) {
 		$net[] = $postid;
 	} else
 		return $net;
 
-	//echo $postid;exit;
 	$minimum_share_sql = ($minimum_share)
 		? "AND relative_share>$minimum_share"
 		: "";
 	
 	//Downstream: Chain of composition (shareholding composition)
 	if (in_array($dir,array('composition','all'))) {
-		$sql = "SELECT from_id FROM ".$whoowns_tables->shares." WHERE to_id='$postid' $minimum_share_sql";
+		if ($include_pending)
+			$sql = "SELECT a.from_id FROM ".$whoowns_tables->shares." a WHERE a.to_id='$postid' $minimum_share_sql";
+		else
+			$sql = "SELECT a.from_id FROM ".$whoowns_tables->shares." a, ".$wpdb->posts." b WHERE a.from_id=b.ID AND b.post_status='publish' AND a.to_id='$postid' $minimum_share_sql";
 		$res = $wpdb->get_results($sql);
 		if ($res) {
 			foreach ($res as $r) {
-				$net += whoowns_generate_directed_network($r->from_id,$net,$dir,$minimum_share);
+				$net += whoowns_generate_directed_network($r->from_id,$net,$dir,$minimum_share,$include_pending);
 			}
 		}
 	}
 	
 	//Upstream: Chain of participations (shares ownership)
 	if (in_array($dir,array('participation','all'))) {
-		$sql = "SELECT to_id, relative_share FROM ".$whoowns_tables->shares." WHERE from_id='$postid' $minimum_share_sql";
+		if ($include_pending)
+			$sql = "SELECT a.to_id, a.relative_share FROM ".$whoowns_tables->shares." a WHERE a.from_id='$postid' $minimum_share_sql";
+		else
+			$sql = "SELECT a.to_id, a.relative_share FROM ".$whoowns_tables->shares." a, ".$wpdb->posts." b WHERE a.to_id=b.ID AND b.post_status='publish' AND a.from_id='$postid' $minimum_share_sql";
 		$res = $wpdb->get_results($sql);
 		//echo "$sql<br>";
 		if ($res) {
 			foreach ($res as $r) {
-				//echo $r->to_id.'-';
-				$net += whoowns_generate_directed_network($r->to_id,$net,$dir,$minimum_share);
+				if ($debug) echo $r->to_id.'-';
+				$net += whoowns_generate_directed_network($r->to_id,$net,$dir,$minimum_share,$include_pending);
 			}
 		}
 	}
@@ -1119,13 +1135,13 @@ function whoowns_generate_directed_network($postid,$net=array(),$dir,$minimum_sh
 
 
 
-function whoowns_generate_network($postid,$mode='unique',$show_dir=false) {
+function whoowns_generate_network($postid,$mode='unique',$show_dir=false,$include_pending=false) {
 	$cached=true;
 	if ($show_dir || !($net = whoowns_retrieve_cached($postid,'post_ids',true))) {
 		if (!$net)
 			$net = array();
-		$net['participation'] = whoowns_generate_directed_network($postid,array(),'participation');
-		$net['composition'] = whoowns_generate_directed_network($postid,array(),'composition');
+		$net['participation'] = whoowns_generate_directed_network($postid,array(),'participation',0,$include_pending);
+		$net['composition'] = whoowns_generate_directed_network($postid,array(),'composition',0,$include_pending);
 		$cached=false;
 	}
 	if ($mode=='unique') {
@@ -1181,11 +1197,11 @@ function whoowns_prepare_network_data_for_visualization($postid='',$net='') {
 	if ($postid && $no_net) {
 		if (!($network_data->nodes = whoowns_retrieve_cached($postid,'nodes',true))) {
 			$post_ids = whoowns_generate_network($postid);
-			$net = whoowns_get_owner_data($post_ids,true,true);
+			$net = whoowns_get_owner_data($post_ids,false,false);
 		} else
 			$cached=true;
 	} else
-		$net = whoowns_get_owner_data($net,true,true);
+		$net = whoowns_get_owner_data($net,false,false);
 	if (!$cached) {
 		//Generate the nodes:
 		$network_data->nodes = array();
@@ -1218,7 +1234,7 @@ function whoowns_prepare_network_data_for_visualization($postid='',$net='') {
 		if ($postid && $no_net)
 			whoowns_save_cached($postid,array('nodes'=>$network_data->nodes));
 	}
-	
+	//pR($network_data);exit;
 	//Now the edges:
 	$cached=false;
 	if ($postid && $no_net) {
@@ -1452,11 +1468,18 @@ add_action( 'wp_ajax_nopriv_whoowns_show_legends', 'whoowns_show_legends_callbac
 
 
 
-function whoowns_autocomplete_callback() {
+function whoowns_autocomplete_callback($include_pending=false) {
 	global $wpdb;
 	
 	$term=$_REQUEST['term'];
-	$sql = "SELECT post_title as label, ID as value FROM ".$wpdb->prefix."posts WHERE post_status='publish' AND post_type='whoowns_owner' AND post_title like '%$term%' order by post_title";
+	if ($include_pending) {
+		$status = "'publish', 'pending'";
+		$title = "IF(post_status='pending', CONCAT(post_title,' (".__('Pending', 'whoowns').")'), post_title)";
+	} else {
+		$status = "'publish'";
+		$title = "post_title";
+	}
+	$sql = "SELECT $title as label, ID as value FROM ".$wpdb->prefix."posts WHERE post_status IN ($status) AND post_type='whoowns_owner' AND post_title like '%$term%' order by post_title";
 	$res = $wpdb->get_results($sql,OBJECT);
 	echo json_encode($res);
 
@@ -1464,6 +1487,13 @@ function whoowns_autocomplete_callback() {
 }
 add_action('wp_ajax_whoowns_autocomplete', 'whoowns_autocomplete_callback');
 add_action('wp_ajax_nopriv_whoowns_autocomplete', 'whoowns_autocomplete_callback');
+
+
+function whoowns_autocomplete_include_pending_callback() {
+	whoowns_autocomplete_callback(true);
+	die();
+}
+add_action('wp_ajax_whoowns_autocomplete_include_pending', 'whoowns_autocomplete_include_pending_callback');
 
 
 

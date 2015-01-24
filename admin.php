@@ -147,6 +147,10 @@ function whoowns_meta_box_details ($post) {
 		<tbody>
 		<?php
 		foreach ($owners as $i=>$owner) {
+			$owner_name = ($i<$num_existing_owners && get_post_status($owner->shareholder_id)=='pending' )
+				? $owner->shareholder_name . " (".__('Pending', 'whoowns').")"
+				: $owner->shareholder_name;
+			
 			if ($i>$num_existing_owners && $i>=3 && !$done) {
 				$done=true;
 			?>
@@ -300,8 +304,9 @@ function whoowns_meta_boxes_save( $post_id ) {
     $changed_shares = whoowns_update_shareholders($post_id, $shareholders);
     #pR($changed_shares || $changed_revenue);exit;
     // If the shares or the revenue changed, it's necessary to do recalculations: Erase the network cache of all related nodes, Schedule events to refill the cache and to calculate the new accumulated power values for the whole affected nodes and finally recalculate the IPA and ranking of the whole database:
-    if ($_POST['post_status']=='publish' && ($changed_revenue || $changed_shares || get_post_status=='pending'))
-    	whoowns_init_owner_universe_update($post_id);
+    #pR($changed_shares);exit;
+    if ($_POST['post_status']=='publish' && ($changed_revenue || count($changed_shares)>0 || get_post_status($post_id)=='pending'))
+    	whoowns_init_owner_universe_update($post_id, $changed_shares);
 }
 add_action( 'save_post', 'whoowns_meta_boxes_save' );
 

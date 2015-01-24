@@ -2241,6 +2241,25 @@ function whoowns_get_network_related_articles($postid, $post_type='any', $extra_
 	return get_posts( $args );
 }
 
+//Shortcode for showing the form for searching with filters enabled:
+
+function whoowns_show_owners_search_form ( $atts ) {
+	extract( shortcode_atts( array(
+		'show_titles' => false,
+		'show_filters' => false,
+		'show_orderby' => false
+	), $atts ) );
+	$whoowns = whoowns_prepare_owner_selection();
+	unset($whoowns->filter_selected);
+	
+	ob_start();
+	include dirname( __FILE__ ). '/theme-files/layouts/shortcode-whoowns_show_owners_search_form.php';
+	$ret = ob_get_contents();
+	ob_end_clean();
+	return $ret;
+}
+add_shortcode( 'whoowns_search_form', 'whoowns_show_owners_search_form' );
+
 
 
 //General useful small functions:

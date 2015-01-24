@@ -77,7 +77,7 @@ If your language is not listed there, please send a message to us at contato@pro
 * Fix other PHP warnings because of declaring attribute or index in empty objects and arrays
 * Avoid saving shares in revisions
 * Add title to the single_owner theme file 
-* Clean post_ids heys when generating network cache
+* Clean post_ids keys when generating network cache
 * Change defaults image_size to 150px and cron frequency to hourly 
 
 = 0.93 =

@@ -50,7 +50,7 @@ if ($owner_data->is_closed) {
 	</div>
 	<?php if ($owner_data->is_closed) { ?>
 		<div class="<?=$second_col?>">
-			<img src="<?=plugins_url( '../../images/open_it.png' , __FILE__ )?>" /> <?=__('We still don\'t know the owners of this enterprise. Do you want to collaborate opening it?', 'whoowns')?> <a href="<?php the_permalink(); ?>/wp-login.php?action=register"><?=__('Click here', 'whoowns')?>.</a>
+			<img src="<?=plugins_url( '../../images/open_it.png' , __FILE__ )?>" /> <?=__("We still don't know the owners of this enterprise. Do you want to collaborate opening it?", 'whoowns')?> <a href="<?php the_permalink(); ?>/wp-login.php?action=register"><?=__('Click here', 'whoowns')?>.</a>
 		</div>
 	<?php } ?>
 </div>

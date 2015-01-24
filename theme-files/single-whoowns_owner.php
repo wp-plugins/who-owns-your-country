@@ -18,9 +18,9 @@
 	#pR($owner_data);exit;
 ?>
 <h1 class="entry-title"><?php the_title(); ?></h1>
-<?=whoowns_template_show_factsheet_sections_submenu($section)?>
 <section id="mainbody">
 	<div id="whoowns">
+		<?=whoowns_template_show_factsheet_sections_submenu($section)?>
 		<?php require( $section_path ); ?>
 		<br style="clear:both" />
 		<?php

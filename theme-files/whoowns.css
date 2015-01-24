@@ -34,6 +34,30 @@ div#whoowns_intro{
 	margin-bottom:10px;
 	min-height:150px;
 }
+#whoowns .column_one, #whoowns .column_one_last {
+	max-width:400px;
+	margin-left:300px
+}
+#whoowns .column_one {
+	float:left;
+	margin: 0 10px 0 20px;
+	padding-top:10px;
+}
+#whoowns .column_two {
+	padding-top:10px;
+	float:left;
+	width:300px;
+	max-height:300px;
+	margin: 0 10px 0 20px;
+}
+#whoowns .column_two img {
+	float:left;
+	margin-right:10px;
+}
+div.whoowns_details p {
+	margin: 0 0 8px 0;
+	line-height: 120%;
+}
 div#whoowns_owner_image{
 	float:left;
 	width:250px;
@@ -41,10 +65,6 @@ div#whoowns_owner_image{
 }
 div.whoowns_padding_image {
 	padding-left:250px;
-}
-div.whoowns_details p {
-	margin: 0 0 8px 0;
-	line-height: 120%;
 }
 div#whoowns-factsheet{
 	border-top: 2px solid #F3F3F3;
@@ -699,6 +719,158 @@ table#whoowns-radio td {
 #whoowns div.news_item span.news_item_date{
 	color:#666;
 }
+/*responsive*/
+#whoowns.whoowns-smartphone div.whoowns_padding_image {
+	clear:both;
+	padding-left:0;
+}
+#whoowns.whoowns-smartphone div#whoowns_owner_image {
+	min-height:0;
+}
+#whoowns.whoowns-smartphone #whoowns_factsheet_submenu ul li a, 
+#whoowns.whoowns-smartphone #whoowns_factsheet_submenu ul li span#whoowns_selected_section {
+	min-width:0;
+	padding: 6px;
+}
+#whoowns.whoowns-smartphone #whoowns_factsheet_submenu ul li {
+	width:100%;
+	line-height: 36px;
+	font-size:18px;
+}
+#whoowns.whoowns-smartphone div.one_half {
+	width:100%;
+}
+#whoowns.whoowns-smartphone div.two_half_last {
+	clear:both;
+}
+/* set which rows of the owners table will appear */
+#whoowns.whoowns-smartphone #whoowns_owners_table .whoowns_owners_table, 
+#whoowns.whoowns-tablet #whoowns_owners_table .whoowns_owners_table {
+	display:none;
+}
+#whoowns.whoowns-smartphone #whoowns_owners_table .whoowns_owners_table.name,
+#whoowns.whoowns-smartphone #whoowns_owners_table .whoowns_owners_table.IPA {
+	display:table-cell;
+}
+#whoowns.whoowns-tablet #whoowns_owners_table .whoowns_owners_table.name,
+#whoowns.whoowns-tablet #whoowns_owners_table .whoowns_owners_table.whoowns_rank,
+#whoowns.whoowns-tablet #whoowns_owners_table .whoowns_owners_table.IPA, 
+#whoowns.whoowns-tablet #whoowns_owners_table .whoowns_owners_table.controls_final_top {
+	display:table-cell;
+}
+#whoowns.whoowns-smartphone #whoowns_owners_table th {
+	font-size: 13px;
+}
+/* reduce search form icons */
+/* TABLET */
+#whoowns.whoowns-tablet #whoowns_search_options ul {
+	width: 100%;
+}
+#whoowns.whoowns-tablet #whoowns_search_options li {
+	margin: 0 10px;
+}
+#whoowns.whoowns-tablet input.whoowns-css-checkbox[type="checkbox"] + label.whoowns-css-label {
+	padding-top:60px;
+	height: 8px;
+	width: 62px;
+	background-size:60px;
+	font-size:13px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#whoowns.whoowns-tablet input.whoowns-css-checkbox[type="checkbox"] + label.whoowns-css-label.whoowns-css-label-ranked {
+	background-size:62px;
+}
+#whoowns.whoowns-tablet input.whoowns-css-checkbox[type="checkbox"]:checked + label.whoowns-css-label {
+	background-position: center -74px;
+}
+#whoowns.whoowns-tablet #whoowns_search_input {
+	float:none;
+	width:100%;
+	margin-bottom:20px;
+}
+#whoowns.whoowns-tablet #whoowns_search_input input {
+	margin-top:5px;
+}
+#whoowns.whoowns-tablet #whoowns_search_input img {
+	width:50px;
+}
+#whoowns.whoowns-tablet table#whoowns-radio td {
+	display: inline-block;
+	width:100%;
+}
+#whoowns.whoowns-tablet input.css-checkbox[type="radio"] + label.css-label {
+	height: 12px;
+	background-size: 18px;
+	font-size: 13px;
+	padding-top: 0px;
+}
+#whoowns.whoowns-tablet input.css-checkbox[type="radio"]:checked + label.css-label {
+    background-position: 0px -20px;
+}
+#whoowns.whoowns-tablet #whoowns_applied_filters {
+	font-size: 12px;
+	line-height: 140%;
+}
+/* Smartphone */ 
+#whoowns.whoowns-smartphone #whoowns_search_options ul {
+	width: 100%;
+}
+#whoowns.whoowns-smartphone #whoowns_search_options li {
+	margin: 0 5px;
+}
+#whoowns.whoowns-smartphone #whoowns_search_input input {
+	font-size: 14px;
+}
+#whoowns.whoowns-smartphone input.whoowns-css-checkbox[type="checkbox"] + label.whoowns-css-label {
+	padding-top:40px;
+	height: 8px;
+	width: 42px;
+	background-size:40px;
+	font-size:10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#whoowns.whoowns-smartphone input.whoowns-css-checkbox[type="checkbox"] + label.whoowns-css-label.whoowns-css-label-ranked {
+	background-size:42px;
+}
+#whoowns.whoowns-smartphone input.whoowns-css-checkbox[type="checkbox"]:checked + label.whoowns-css-label {
+	background-position: center -55px;
+}
+#whoowns.whoowns-smartphone input.whoowns-css-checkbox[type="checkbox"]:checked + label.whoowns-css-label.whoowns-css-label-ranked {
+	background-position: center -52px;
+}
+#whoowns.whoowns-smartphone #whoowns_search_input {
+	float:none;
+	width:100%;
+	margin-bottom:20px;
+}
+#whoowns.whoowns-smartphone #whoowns_search_input input {
+	margin-top:0;
+}
+#whoowns.whoowns-smartphone #whoowns_search_input img {
+	width:40px;
+}
+#whoowns.whoowns-smartphone table#whoowns-radio td {
+	display: inline-block;
+	width:100%;
+}
+#whoowns.whoowns-smartphone input.css-checkbox[type="radio"] + label.css-label {
+	height: 12px;
+	background-size: 18px;
+	font-size: 10px;
+	padding-top: 4px;
+}
+#whoowns.whoowns-smartphone input.css-checkbox[type="radio"]:checked + label.css-label {
+    background-position: 0px -20px;
+}
+#whoowns.whoowns-smartphone #whoowns_applied_filters {
+	font-size: 12px;
+	line-height: 140%;
+}
+
+
+/*end of responsive*/
 /*Autocomplete*/
 .ui-helper-hidden-accessible {
 	position: absolute;

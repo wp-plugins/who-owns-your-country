@@ -43,18 +43,14 @@ jQuery(document).ready(function($) {
 	});
 	
 	/* Auto-adjust factsheet columns */	
-	if (jQuery('#whoowns-factsheet').length>0) {
-		jQuery(window).resize(function(){
-			whoowns_adjust_columns();
-		});
-		whoowns_adjust_columns();
-	}
 	function whoowns_adjust_columns() {
 		var o = jQuery("#whoowns-factsheet .one_half");
 		var t = jQuery("#whoowns-factsheet .two_half_last");
 		o.height('auto');
 		if (o.offset().top == t.offset().top && o.height()-100<t.height()) {
 			o.height(t.height()+120);
+		} else {
+			o.height('auto');
 		}
 	}
 	
@@ -78,9 +74,34 @@ jQuery(document).ready(function($) {
 			
 			b.preventDefault();
 		} );
-		
 	});
-
+	
+	
+	/* Add class for small screens (tablet, smartphones) */
+	whoowns_set_responsive_class();
+	if (jQuery('#whoowns-factsheet').length>0)
+		whoowns_adjust_columns();
+	jQuery(window).resize(function(){
+		whoowns_set_responsive_class();
+		if (jQuery('#whoowns-factsheet').length>0) {
+			whoowns_adjust_columns();
+		}
+	});
+	
+	function whoowns_set_responsive_class() {
+		w = jQuery(window).width();
+		whoowns = jQuery('#whoowns');
+		if (w <= 400) {
+			whoowns.addClass('whoowns-smartphone');
+			whoowns.removeClass('whowns-tablet');
+		} else if (w <= 768) {
+			whoowns.addClass('whoowns-tablet');
+			whoowns.removeClass('whoowns-smartphone');
+		} else {
+			whoowns.removeClass('whowns-tablet');
+			whoowns.removeClass('whoowns-smartphone');
+		}
+	}
 });
 
 /* From http://www.appelsiini.net/download/jquery.viewport.js . Thanks! */

@@ -1,24 +1,19 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: Whoowns Brazil\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-24 01:20-0300\n"
-"PO-Revision-Date: 2015-01-24 01:32-0300\n"
+"POT-Creation-Date: 2015-01-24 19:00-0300\n"
+"PO-Revision-Date: 2015-01-24 19:00-0300\n"
 "Last-Translator: daniel tygel <dtygel@eita.org.br>\n"
-"Language-Team: Mariana Curado Malta <dtygel@eita.org.br>\n"
+"Language-Team: Mariana Curado Malta <mariana@maltas.org>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_x\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../admin.php:5
@@ -36,11 +31,11 @@ msgstr "Imagem para o proprietário"
 #: ../admin.php:40
 #: ../theme-files/layouts/single-whoowns_owner.factsheet.php:24
 msgid "Legal registration ID"
-msgstr "CNPJ ou CPF"
+msgstr "NIF ou NIPC"
 
 #: ../admin.php:41
 msgid "What is the formal registration identity of this owner?"
-msgstr "Qual o CNPJ ou CPF deste proprietário?"
+msgstr "Qual o NIF ou NIPC deste proprietário?"
 
 #: ../admin.php:51
 msgid "Type of this Owner"
@@ -48,7 +43,7 @@ msgstr "Tipo de proprietário"
 
 #: ../admin.php:52
 msgid "Is this owner an enterprise? a person? other type? Please choose below:"
-msgstr "É uma empresa? Uma pessoa? Um ente estatal? Escolha abaixo:"
+msgstr "É uma empresa? Uma pessoa? Uma entidade estatal? Escolha abaixo:"
 
 #: ../admin.php:54
 #: ../theme-files/layouts/single-whoowns_owner.factsheet.php:22
@@ -65,7 +60,7 @@ msgstr "URI no dbpedia"
 
 #: ../admin.php:73
 msgid "Leave it blank if you don't know what dbpedia is."
-msgstr "Deixe em branco se você não sabe o que é o dbpedia"
+msgstr "Deixe em branco se não sabe o que é o dbpedia"
 
 #: ../admin.php:74
 msgid "URI in dbpedia:"
@@ -80,12 +75,12 @@ msgid ""
 "What is the net revenue of this owner? You must also define the date and "
 "period of this information, along with the source"
 msgstr ""
-"Qual é a receita líquida deste proprietário? Você deve também definir a data "
-"e o período (em meses) desta informação, além de indicar a fonte"
+"Qual é a receita líquida deste proprietário? Deve também definir a data e o "
+"período (em meses) desta informação, além de indicar a fonte."
 
 #: ../admin.php:88
 msgid "Net revenue in $ millions:"
-msgstr "Receita líquida (em milhões de reais):"
+msgstr "Receita líquida (em milhões de euros):"
 
 #: ../admin.php:91
 msgid "From what year is this information?"
@@ -113,19 +108,17 @@ msgstr "Qual é o nome da fonte desta informação?"
 
 #: ../admin.php:123
 msgid "What is the internet address of this source?"
-msgstr "Qual é o endereço na internet desta fonte?"
+msgstr "Qual é o endereço na Internet desta fonte?"
 
 #: ../admin.php:138
 msgid "Owners and shares"
-msgstr "Acionistas e participação"
+msgstr "Accionistas e participação"
 
 #: ../admin.php:139
 msgid ""
 "Who owns this enterprise? The information must be validated by source "
 "documents from a Junta Comercial or from the Receita Federal"
-msgstr ""
-"Quem são os proprietários desta empresa? A informação precisa ser validada "
-"por documentos de uma Junta Comercial ou da Receita Federal"
+msgstr "Quem são os proprietários desta empresa?"
 
 #: ../admin.php:143 ../utils.php:1752
 msgid "Name"
@@ -133,7 +126,7 @@ msgstr "Nome"
 
 #: ../admin.php:144
 msgid "Ownership Shares (in percentage)"
-msgstr "Ações ordinárias (em porcentagem, de 0 a 100)"
+msgstr "Acções ordinárias (em porcentagem, de 0 a 100)"
 
 #: ../admin.php:151 ../utils.php:1477
 msgid "Pending"
@@ -141,7 +134,7 @@ msgstr "Aguardando aprovação"
 
 #: ../admin.php:159
 msgid "Add more shareholders..."
-msgstr "Adicionar mais acionistas..."
+msgstr "Adicionar mais accionistas..."
 
 #: ../admin.php:159 ../admin.php:377
 msgid "Hide"
@@ -149,11 +142,11 @@ msgstr "Esconder"
 
 #: ../admin.php:185
 msgid "Source of shareholders data"
-msgstr "Fonte dos dados dos acionistas"
+msgstr "Fonte dos dados dos accionistas"
 
 #: ../admin.php:187
 msgid "Where did you get the shareholders data from?"
-msgstr "De onde você conseguiu esta informação?"
+msgstr "Onde foi obtida esta informação?"
 
 #: ../admin.php:191
 msgid "Year of this information:"
@@ -161,11 +154,11 @@ msgstr "Ano da informação:"
 
 #: ../admin.php:194
 msgid "Please attach the documents to validate the above mentioned source:"
-msgstr "Favor anexar documentos que validem a fonte mencionada acima:"
+msgstr "Por  favor anexar documentos que validem a fonte mencionada acima:"
 
 #: ../admin.php:200
 msgid "Delete File"
-msgstr "Remover arquivo"
+msgstr "Remover ficheiro"
 
 #: ../admin.php:204
 msgid "Add document"
@@ -173,7 +166,7 @@ msgstr "Adicionar documento"
 
 #: ../admin.php:370
 msgid "Who are the owners related to this article?"
-msgstr "Quais são os proprietários relacionados a este artigo?"
+msgstr "Quais são os proprietários relacionados com este artigo?"
 
 #: ../admin.php:377
 msgid "Add more..."
@@ -181,20 +174,17 @@ msgstr "Adicionar mais..."
 
 #: ../admin.php:430 ../admin.php:443
 msgid "Error: you did not specify valid parameters for this callback"
-msgstr ""
-"Erro: você não especificou parâmetros válidos para esta função de callback"
+msgstr "Erro: não especificou parâmetros válidos para esta função de callback"
 
 #: ../admin.php:439
 msgid ""
 "Error: I was not able to delete the file. Therefore, I only erased the "
 "associated metadata"
-msgstr ""
-"Erro: não consegui apagar este arquivo. Assim, eu apenas removi os metadados "
-"associados!"
+msgstr "Erro: não consegui apagar este ficheiro. Só os metadados associados!"
 
 #: ../options.php:83
 msgid "Settings of the Who Owns Plugin"
-msgstr "Configurações do Plugin 'Quem são os Proprietários do Brasil?'"
+msgstr "Configurações do Plugin 'Quem são os Proprietários do País?'"
 
 #: ../options.php:91
 msgid "General settings"
@@ -202,7 +192,7 @@ msgstr "Configurações gerais"
 
 #: ../options.php:95
 msgid "Slug for the owners' section of the website"
-msgstr "Nome curto para a seção \"proprietários\" do site"
+msgstr "Nome curto para a secção \"proprietários\" do site"
 
 #: ../options.php:100
 msgid "Currency"
@@ -210,7 +200,7 @@ msgstr "Moeda"
 
 #: ../options.php:105
 msgid "Maximum number of shareholders to display in the edit form"
-msgstr "Número máximo de acionistas para exibir no formulário de edição"
+msgstr "Número máximo de accionistas para apresentar no formulário de edição"
 
 #: ../options.php:110
 msgid "Maximum number of related owners to display in the edit form"
@@ -219,7 +209,8 @@ msgstr ""
 
 #: ../options.php:115
 msgid "Number of owners to display per page in the ranking table"
-msgstr "Número de proprietários para exibir por página na tabela do ranking"
+msgstr ""
+"Número de proprietários para apresentar por página na tabela do ranking"
 
 #: ../options.php:120
 msgid "Reference enterprise/person to track"
@@ -234,7 +225,7 @@ msgid ""
 msgstr ""
 "Há alguma empresa ou pessoa na base que o plugin deve acompanhar? Se sim, "
 "para cada proprietário o plugin vai disponibilizar (pela função "
-"\"whoowns_get_owner_data\" a participação final do mesmo na sua rede."
+"\"whoowns_get_owner_data\") a participação final do mesmo na sua rede."
 
 #: ../options.php:127
 msgid ""
@@ -250,7 +241,7 @@ msgstr "Notícias relacionadas à rede"
 
 #: ../options.php:136
 msgid "News search engine"
-msgstr "Mecanismo de buscas"
+msgstr "Mecanismo de pesquisas"
 
 #: ../options.php:146
 msgid "Date format for showing the  news"
@@ -295,8 +286,8 @@ msgid ""
 "How often should the plugin check for changes in the database and "
 "recalculate the power indexes and ranking?"
 msgstr ""
-"Com qual frequência o plugin deve checar se há mudanças na base de dados e "
-"recalcular os ínidices de poder acumulado e o ranking?"
+"Com qual frequência o plugin deve verificar se há mudanças na base de dados "
+"e re-calcular os índices de poder acumulado e o ranking?"
 
 #: ../options.php:191
 msgid ""
@@ -305,16 +296,16 @@ msgid ""
 "database, it's ok to have it hourly, but we recommend the frequency to be "
 "once or twice daily"
 msgstr ""
-"Evite escolher uma configuração demasiadamente frequente, pois a atualização "
-"envolve alguns cálculos pesados. Se o servidor é bom e você tem uma base "
-"pequena de dados, não há problemas na atualização ocorrer a cada hora, mas "
-"nós recomendamos que a frequência seja de 1 ou 2 vezes ao dia."
+"Evite escolher uma configuração demasiado frequente. Actualização envolve "
+"alguns cálculos pesados. Se o servidor é bom e você tem uma base pequena de "
+"dados, não há problemas de a atualização ocorrer a cada hora,. Recomendamos "
+"que a frequência seja de um ou duas vezes ao dia."
 
 #: ../options.php:196
 msgid "Reference local time for the scheduled updates (24h format)"
 msgstr ""
-"Hora local de referência para as atualizações periódicas indicadas acima (em "
-"formato de 24h)"
+"Hora local de referência para as actualizações periódicas indicadas acima "
+"(em formato de 24h)"
 
 #: ../options.php:199
 msgid ""
@@ -323,9 +314,9 @@ msgid ""
 "zone that you chose in the website configuration in \"general settings\"."
 msgstr ""
 "Se por exemplo a frequência escolhida for de uma vez ao dia, sugerimos que "
-"você escoha algum horário na madrugada, como a meia-noite (0). Importante: a "
-"precisão da hora escolhida depende do fuso-horário que você definir na "
-"configuração do site, em \"configurações gerais\"."
+"você escolha algum horário na madrugada, como por exemplo a meia-noite (0). "
+"Importante: a precisão da hora escolhida depende do fuso-horário que você "
+"definir na configuração do site, em \"configurações gerais\"."
 
 #: ../utils.php:187
 msgid "Information not available."
@@ -333,11 +324,11 @@ msgstr "Informação não disponível."
 
 #: ../utils.php:410
 msgid "Directly controlled:"
-msgstr "Diretamente controladas:"
+msgstr "Directamente controladas:"
 
 #: ../utils.php:411
 msgid "Indirectly controlled:"
-msgstr "Indiretamente controladas:"
+msgstr "Indirectamente controladas:"
 
 #: ../utils.php:420
 msgid "None."
@@ -354,7 +345,7 @@ msgstr "Visão em lista"
 
 #: ../utils.php:1315
 msgid "Direct shareholders:"
-msgstr "Acionistas diretos:"
+msgstr "Accionistas directos:"
 
 #: ../utils.php:1321
 msgid "Controlled enterprises:"
@@ -370,7 +361,7 @@ msgstr "Todas as participações"
 
 #: ../utils.php:1334 ../utils.php:1342
 msgid "Meaning of the values in parenthesis:"
-msgstr "Significado dos valores entre parênteses:"
+msgstr "Significado dos valores entre parêntesis:"
 
 #: ../utils.php:1334 ../utils.php:1342
 msgid "final relative share"
@@ -403,7 +394,7 @@ msgstr "Controlador último"
 
 #: ../utils.php:1424
 msgid "Control over the enterprise (>50%)"
-msgstr "Controle sobre a empresa (>50%)"
+msgstr "Controlo sobre a empresa (>50%)"
 
 #: ../utils.php:1428
 msgid "Participation of less than 50%"
@@ -431,7 +422,7 @@ msgstr "Setas"
 
 #: ../utils.php:1693
 msgid "directly"
-msgstr "diretamente"
+msgstr "directamente"
 
 #: ../utils.php:1695
 msgid "in"
@@ -439,11 +430,11 @@ msgstr "em"
 
 #: ../utils.php:1753
 msgid "Accumulated Power"
-msgstr "Poder Acumulado"
+msgstr "Poder acumulado"
 
 #: ../utils.php:1787
 msgid "Search by name or registration document"
-msgstr "Pesquisa por nome ou CNPJ/CPF"
+msgstr "Pesquisa por nome ou por NIF/NIPC"
 
 #: ../utils.php:1790
 msgid "All"
@@ -463,15 +454,15 @@ msgstr "Pessoas"
 
 #: ../utils.php:1794 ../utils.php:2326
 msgid "State"
-msgstr "Estado"
+msgstr "Distrito"
 
 #: ../utils.php:1814
 msgid "state"
-msgstr "estado"
+msgstr "distrito"
 
 #: ../utils.php:1821
 msgid "Results of the search for"
-msgstr "Resultados da busca por"
+msgstr "Resultados da procura por"
 
 #: ../utils.php:1846
 msgid "Applied filters:"
@@ -499,7 +490,7 @@ msgstr "Artigos relacionados"
 
 #: ../utils.php:1946
 msgid "The Network in the Media"
-msgstr "A rede na mídia"
+msgstr "A rede nos media"
 
 #: ../utils.php:1971
 msgid "Name of enterprise or person"
@@ -540,7 +531,7 @@ msgstr ""
 
 #: ../utils.php:2315
 msgid "billions"
-msgstr "bilhões"
+msgstr "mil milhões"
 
 #: ../utils.php:2317
 #: ../theme-files/layouts/single-whoowns_owner.factsheet.php:48
@@ -574,11 +565,11 @@ msgstr "artigos relacionados"
 
 #: ../utils.php:2332
 msgid "in the media"
-msgstr "na mídia"
+msgstr "nos media"
 
 #: ../init_admin.php:4
 msgid "Whoowns Brazil Plugin Settings"
-msgstr "Configurações do Plugin 'Quem são os Proprietários do Brasil?'"
+msgstr "Configurações do Plugin 'Quem são os Proprietários do País?'"
 
 #: ../init_admin.php:4 ../init.php:86 ../init.php:88
 msgid "Owners"
@@ -586,7 +577,7 @@ msgstr "Proprietários"
 
 #: ../init_admin.php:118
 msgid "Are you sure you want to delete the file \"{file}\"?"
-msgstr "Você tem certeza de que quer apagar o arquivo \"{file}\"?"
+msgstr "Tem certeza de que quer apagar o ficheiro \"{file}\"?"
 
 #: ../init.php:7
 msgid "Owner types"
@@ -598,7 +589,7 @@ msgstr "Tipo de proprietário"
 
 #: ../init.php:9
 msgid "Search owner types"
-msgstr "Buscar tipos de proprietários"
+msgstr "Procurar tipos de proprietários"
 
 #: ../init.php:10
 msgid "All owner types"
@@ -610,7 +601,7 @@ msgstr "Editar tipo de proprietário"
 
 #: ../init.php:14
 msgid "Update Owner Type"
-msgstr "Atualizar tipo de proprietário"
+msgstr "Actualizar tipo de proprietário"
 
 #: ../init.php:15
 msgid "Add New Owner Type"
@@ -634,7 +625,7 @@ msgstr "Tipo de fonte"
 
 #: ../init.php:34
 msgid "Search source types"
-msgstr "Buscar tipos de fontes"
+msgstr "Procurar tipos de fontes"
 
 #: ../init.php:35
 msgid "All source types"
@@ -646,7 +637,7 @@ msgstr "Editar tipo de fonte"
 
 #: ../init.php:39
 msgid "Update Source Type"
-msgstr "Atualizar tipo de fonte"
+msgstr "Actualizar tipo de fonte"
 
 #: ../init.php:40
 msgid "Add New Source Type"
@@ -662,15 +653,15 @@ msgstr "Tipos de fonte"
 
 #: ../init.php:58 ../init.php:59
 msgid "State or Province"
-msgstr "Estado"
+msgstr "Distrito"
 
 #: ../init.php:60
 msgid "Search states"
-msgstr "Buscar estados"
+msgstr "Procurar distritos"
 
 #: ../init.php:61
 msgid "All states"
-msgstr "Todos os estados"
+msgstr "Todos os distritos"
 
 #: ../init.php:62 ../init.php:63
 msgid "Region"
@@ -678,11 +669,11 @@ msgstr "Região"
 
 #: ../init.php:64
 msgid "Edit state"
-msgstr "Editar estado"
+msgstr "Editar distrito"
 
 #: ../init.php:65
 msgid "Update state"
-msgstr "Atualizar estado"
+msgstr "Actualizar distrito"
 
 #: ../init.php:66
 msgid "Add New state"
@@ -690,11 +681,11 @@ msgstr "Adicionar estado"
 
 #: ../init.php:67
 msgid "New state"
-msgstr "Novo estado"
+msgstr "Novo distrito"
 
 #: ../init.php:68
 msgid "States"
-msgstr "Estados"
+msgstr "Distritos"
 
 #: ../init.php:87
 msgid "Owner"
@@ -726,11 +717,11 @@ msgstr "Editar proprietário"
 
 #: ../init.php:95
 msgid "Update Owner"
-msgstr "Atualizar"
+msgstr "Actualizar"
 
 #: ../init.php:96
 msgid "Search owners"
-msgstr "Buscar proprietários"
+msgstr "Procurar proprietários"
 
 #: ../init.php:97
 msgid "No owners found"
@@ -738,7 +729,7 @@ msgstr "Nenhum proprietário encontrado"
 
 #: ../init.php:98
 msgid "No owners found in Trash"
-msgstr "Não há itens na lixeira"
+msgstr "Não há itens no lixo"
 
 #: ../init.php:108
 msgid "Facts-sheet about an Owner"
@@ -746,7 +737,7 @@ msgstr "Ficha-síntese sobre um proprietário"
 
 #: ../init.php:144
 msgid "Owner Author"
-msgstr "Contribuidor de informações de proprietários do Brasil"
+msgstr "Pessoa que contribui para os proprietários de Portugal"
 
 #: ../theme-files/archive-whoowns_owner.php:18
 msgid "Look for owners"
@@ -758,9 +749,9 @@ msgid ""
 "also directly type the name or registration id of a person, enterprise or "
 "state institution."
 msgstr ""
-"Para pesquisar em nossa base de dados, você pode usar filtros, definir o "
-"ordenamento e diretamente escrever o nome ou CNPJ/CPF de uma pessoa, empresa "
-"ou ente estatal."
+"Para pesquisar na nossa base de dados, você pode usar filtros, definir o "
+"ordenamento e escrever directamente o nome ou NIF/NIPC de uma pessoa, "
+"empresa ou entidade estatal."
 
 #: ../theme-files/archive-whoowns_owner.php:32
 #: ../theme-files/layouts/shortcode-whoowns_show_owners_search_form.php:6
@@ -841,7 +832,7 @@ msgid ""
 "We still don't know the owners of this enterprise. Do you want to "
 "collaborate opening it?"
 msgstr ""
-"Nós ainda não conhecemos os acionistas desta empresa. Você pode colaborar "
+"Ainda não conhecemos os accionistas desta empresa. Você pode colaborar "
 "abrindo-a: saiba como!"
 
 #: ../theme-files/layouts/single-whoowns_owner.factsheet.php:53
@@ -875,30 +866,30 @@ msgstr "Como navegar"
 #: ../theme-files/layouts/single-whoowns_owner.power_network.php:33
 msgid "Use the navigation slider on the top left to zoom in or out."
 msgstr ""
-"Use o controle de navegação no canto superior direito para aproximar ou "
+"Use o controlo de navegação no canto superior direito para aproximar ou "
 "afastar os pontos."
 
 #: ../theme-files/layouts/single-whoowns_owner.power_network.php:34
 msgid ""
 "Move the enterprises or people and click on them to see more information."
 msgstr ""
-"Você pode mover qualquer empresa ou pessoa e clicar sobre eles para ver "
-"algumas informações."
+"Pode mover qualquer empresa ou pessoa e clicar sobre eles para ver algumas "
+"informações."
 
 #: ../theme-files/layouts/single-whoowns_owner.power_network.php:35
 msgid ""
 "When you click on an enterprise or person, you'll have access to a link to "
 "open its power network."
 msgstr ""
-"Quando clicar em uma empresa ou pessoa, você terá acesso ao link para ver "
-"sua rede de poder."
+"Quando clicar numa empresa ou pessoa, terá acesso ao link para ver a sua "
+"rede de poder."
 
 #: ../theme-files/layouts/single-whoowns_owner.power_network.php:36
 msgid ""
 "Move the mouse over the arrows to see the relative participations among "
 "persons and enterprises."
 msgstr ""
-"Passe o mouse sobre as setas para ver as participações relativas entre as "
+"Passe o rato sobre as setas para ver as participações relativas entre as "
 "pessoas e empresas."
 
 #: ../theme-files/layouts/single-whoowns_owner.power_network.php:46
@@ -910,8 +901,8 @@ msgid ""
 "This is the reference of this network: the enterprise or person whose "
 "network we are seeing now."
 msgstr ""
-"Esta é a referência desta rede, ou seja, a empresa ou pessoa cuja rede você "
-"está visualizando agora."
+"Esta é a referência desta rede, ou seja, a empresa ou pessoa cuja rede está "
+"visualizando agora."
 
 #: ../theme-files/layouts/single-whoowns_owner.power_network.php:48
 #, php-format
@@ -931,12 +922,12 @@ msgid ""
 "The gray arrows have different widths, depending on the degree of control of "
 "one element over the other (under 50%)"
 msgstr ""
-"As setas cinzas têm larguras diferentes, dependendo do grau de controle de "
+"As setas cinzas têm larguras diferentes, dependendo do grau de controlo de "
 "uma empresa ou pessoa sobre outra (menos de 50%)"
 
 #: ../theme-files/layouts/single-whoowns_owner.power_network.php:56
 msgid "State enterprise or State institution"
-msgstr "Empresa ou ente estatal"
+msgstr "Empresa ou entidade estatal"
 
 #: ../theme-files/layouts/single-whoowns_owner.power_network.php:57
 msgid "Ultimate controllers of their power network"
@@ -952,24 +943,19 @@ msgstr "Artigos relacionados: %s"
 #: ../independent_scripts/get_dbpedia_links.php:29
 #: ../independent_scripts/import_csv_from_old_model.php:21
 msgid "You are not allowed to access this area of the website"
-msgstr "Você não tem permissão de acessar esta área do site"
+msgstr "Você não tem permissões de acesso a esta área do site"
+
+#~ msgid "owners"
+#~ msgstr "proprietários"
+
+#~ msgid "whoowns_owner"
+#~ msgstr "whoowns_owner"
+
+#~ msgid "Shareholders (if any)"
+#~ msgstr "Accionistas (se houver)"
 
 #~ msgid "Standard symbol for decimals"
-#~ msgstr "Símbolo padrão para decimais"
+#~ msgstr "Símbolo padrão para casa decimal"
 
 #~ msgid "Standard symbol for thousands"
 #~ msgstr "Símbolo padrão para milhar"
-
-#~ msgid "owners"
-#~ msgstr "proprietarios"
-
-#~ msgid "Shareholders (if any)"
-#~ msgstr "Sócios (se houver)"
-
-#~ msgid ""
-#~ "Who owns this enterprise? The information must be validated by "
-#~ "document(s) from a valid source to be aproved"
-#~ msgstr ""
-#~ "A quem pertence esta empresa? A informação tem que estar validada por "
-#~ "documentos de uma Junta Comercial ou da Receita Federal para que possa "
-#~ "ser aprovada"

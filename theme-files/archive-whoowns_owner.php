@@ -39,7 +39,7 @@ get_header();
 					<?php } ?>
 				</ul>
 					<div id="whoowns_search_input">
-						<img src="<?=get_stylesheet_directory_uri()?>/images/whoowns/search01.png" id="whoowns_search_button" alt="<?=__('Search', 'whoowns')?>" title="<?=__('Search', 'whoowns')?>" onClick="whoowns_submit_search(this);" />
+						<img src="<?=plugins_url( '/images/search01.png', dirname(__FILE__) )?>" id="whoowns_search_button" alt="<?=__('Search', 'whoowns')?>" title="<?=__('Search', 'whoowns')?>" onClick="whoowns_submit_search(this);" />
 						<input type="text" name="whoowns_search" value="<?=$whoowns->search_alias?>" class="whoowns_auto_label" alt="whoowns_autocomplete" trigger="submit" onblur="if(this.value=='') this.value='<?=$whoowns->default_search_text?>';" onfocus="if(this.value=='<?=$whoowns->default_search_text?>') this.value='';" />
 						<input class="whoowns_auto_id" type="hidden" name="whoowns_auto_id" value=""/>
 					</div>
